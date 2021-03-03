@@ -12,4 +12,4 @@ This work is coordinated by the JRC and involves representatives of the followin
 ______________
 
 
-Proposals for simplified data-service linking shall be submitted by Member States representatives involved in this study using the template available [here]().
+Proposals for simplified data-service linking shall be submitted by Member States representatives involved in this study using the template available [here](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/template.md).
