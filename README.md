@@ -12,4 +12,8 @@ This work is coordinated by the JRC and involves representatives of the followin
 ______________
 
 
-Proposals for simplified data-service linking shall be submitted by Member States representatives involved in this study using the template available [here](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/template.md).
+To submit a proposal for simplified data-service linking:
+
+* create a sub-folder in the [proposal](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/tree/main/proposals) folder of this repository;
+* create the proposal starting from the [template](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/template.md);
+* submit a pull request to this repository.
