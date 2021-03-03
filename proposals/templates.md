@@ -3,6 +3,7 @@
 ## Introduction
 
 Country: -text here-
+
 Description: -text here-
 
 ## Proposal body
