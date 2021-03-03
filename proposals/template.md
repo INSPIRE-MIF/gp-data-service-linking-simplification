@@ -2,25 +2,21 @@
 
 ## Introduction
 
-Country: -text here-
+Country: _text here. e.g. Austria_
 
-Description: -text here-
+Short description: _text here_
 
 ## Proposal body
-Explanatory text (to be removed). The detailed proposal shall be provided here, including also any relevant snippet of code or diagram to explain the solution. Remember to specify all the required information in order to facilitate the correct evaluation of the proposed approach.
-Please include also the complete encoding example files (e.g. xml) in the proposal's folder.
 
 ### Details of the proposal
--text here-
-
-### Critical points
--text here-
+_text here. The detailed proposal shall be provided here, including also any relevant snippet of code or diagram to explain the solution. Remember to specify all the required information in order to facilitate the correct evaluation of the proposed approach.
+Please include also the complete encoding example files (e.g. xml) in the proposal's folder._
 
 ### Concept model
--text here-
+_text here. Optional section, remove if not relevant_
 
 ### Examples of scenarios and metadata (XML encoded)
--text here-
+_text here. List of scenarios where this proposal is applicable, with relevant snippet examples_
 
 ```xml
 <examplexml>
@@ -29,7 +25,7 @@ Please include also the complete encoding example files (e.g. xml) in the propos
 ```
 
 ### Advantages/disadvantages of the proposed approach
--text here-
+_text here. Expose criticalities, limits or already know open issues about this proposal_
 
 ### Conclusions 
--text here-
+_text here_
