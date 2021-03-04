@@ -14,6 +14,6 @@ ______________
 
 To submit a proposal for simplified data-service linking:
 
-* create a sub-folder in the [proposal](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/tree/main/proposals) folder of this repository;
+* create a sub-folder in the [proposal](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/tree/main/proposals) folder of this repository, named with the related country code (e.g. "at");
 * create the proposal starting from the [template](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/template.md);
 * submit a pull request to this repository.
