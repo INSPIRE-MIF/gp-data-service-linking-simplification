@@ -30,7 +30,7 @@ I haven't copied any of this in this approach because I think it is not necessar
 
 ### Examples of scenarios and metadata (XML encoded)
 
-Here below I show a proposal for the Administrative Units of Spain:
+Here below a proposal for the Administrative Units of Spain:
 
 **A) Linking network services through the dataset metadata file (XML encoded)**
 
