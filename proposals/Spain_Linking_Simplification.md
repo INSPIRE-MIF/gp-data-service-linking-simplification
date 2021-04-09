@@ -15,7 +15,7 @@ For implementing data-service linking, in our opinion, we should be able to:
 
 **A) Access network services through the dataset metadata file.**
 This can be done in the dataset metadata file fulfilling the element <gmd:CI_OnlineResource> with the information of all the network services related to this dataset.
-Below in this approach you can see an example os a dataset metadata file for WMS, WFS and Atom. 
+Below in this approach you can see an example of a dataset metadata file that can be accesible through WMS, WFS and Atom. 
 
 **B) Linking the dataset metadata file through the network services:**
 
