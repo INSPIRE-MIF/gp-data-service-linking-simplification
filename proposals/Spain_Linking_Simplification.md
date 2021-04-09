@@ -150,7 +150,7 @@ Atom
 
 ```
 
-For the element <gmd:protocol> you can select diferent options for the <gmx:Anchor> in the following link: 
+*For the element <gmd:protocol> you can select diferent options for the <gmx:Anchor> in the following link: 
 https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue/ 
 
 			  
