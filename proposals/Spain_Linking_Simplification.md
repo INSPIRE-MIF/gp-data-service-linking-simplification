@@ -4,7 +4,7 @@
 
 Country: _Spain_
 
-Short description: Proposal to reference network service using existing metadata elements for the dataset and how you link the dataset metadata file in the GetCapabilities response of the network services. This way there is no need for using the service metadata file and the <inspire_vs:ExtendedCapabilities> element within the GetCapabilities response.
+Short description: Proposal to reference network service using existing metadata elements for the dataset and how you link the dataset metadata file in the GetCapabilities response of the network services.
 
 ## Proposal body
 
@@ -25,7 +25,7 @@ Below in this approach you can see an example for WMS, WFS and Atom.
 
 B2) If we are using Service metadata file
 Everything would be the same as B1 but you will have to add in the <inspire_vs:ExtendedCapabilities> of the GetCapabilities response, the link to the Service dataset file. 
-I haven't copied any of this in this approach because I think it is not necessary since the idea is that the extended capabilities section disappears and there will be no service metadata file anymore.
+I haven't copied any of this in this approach because I think it is not necessary.
 
 
 ### Examples of scenarios and metadata (XML encoded)
@@ -245,10 +245,10 @@ https://www.ign.es/atom/ds.es.xml
 ### Advantages/disadvantages of the proposed approach
 
 Advantages:
-- There is no need to use de service metadata file and the <inspire_vs:ExtendedCapabilities> element within the GetCapabilities response
 - The relation between data and service is clear and easy to manage.
 - Similar to what is already used in many countries.
 - It uses the existing codelists and metadata elements included in the TG INSPIRE
+- There is no need to use de service metadata file and the <inspire_vs:ExtendedCapabilities> element within the GetCapabilities response
 
 Disadvantages:
 
