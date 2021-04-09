@@ -9,7 +9,9 @@ Short description: Proposal to reference network service using existing metadata
 ## Proposal body
 
 ### Details of the proposal
-For implementing data-service linking, we should be able to:
+* This proposal implements the requirements and recommendations as described in the in the MIG-T discussed [Data and Service Linking Simplification proposal](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx) and the metadata is based on [INSPIRE TG version 2.0.1](https://inspire.ec.europa.eu/id/document/tg/metadata-iso19139).
+
+For implementing data-service linking, in our opinion, we should be able to:
 
 **A) Access network services through the dataset metadata file.**
 This can be done in the dataset metadata file fulfilling the element <gmd:CI_OnlineResource> with the information of all the network services related to this dataset. For instance the [URL: WMS-GetCapabilites](https://www.ign.es/wms-inspire/unidades-administrativas?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0).
@@ -25,7 +27,6 @@ B2) If we are using Service metadata file
 Everything would be the same as B1 but you will have to add in the <inspire_vs:ExtendedCapabilities> of the GetCapabilities response, the link to the Service dataset file. 
 I haven't copied any of this in this approach because I think it is not necessary since the idea is that the extended capabilities section disappears and there will be no service metadata file anymore.
 
-* This proposal implements the requirements and recommendations as described in the in the MIG-T discussed [Data and Service Linking Simplification proposal](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx) and the metadata is based on [INSPIRE TG version 2.0.1](https://inspire.ec.europa.eu/id/document/tg/metadata-iso19139).
 
 ### Examples of scenarios and metadata (XML encoded)
 
