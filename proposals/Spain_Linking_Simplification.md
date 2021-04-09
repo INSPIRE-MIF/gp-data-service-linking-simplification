@@ -14,7 +14,7 @@ Short description: Proposal to reference network service using existing metadata
 For implementing data-service linking, in our opinion, we should be able to:
 
 **A) Access network services through the dataset metadata file.**
-This can be done in the dataset metadata file fulfilling the element <gmd:CI_OnlineResource> with the information of all the network services related to this dataset. For instance the [URL: WMS-GetCapabilites](https://www.ign.es/wms-inspire/unidades-administrativas?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0).
+This can be done in the dataset metadata file fulfilling the element <gmd:CI_OnlineResource> with the information of all the network services related to this dataset.
 Below in this approach you can see an example os a dataset metadata file for WMS, WFS and Atom. 
 
 **B) Linking the dataset metadata file through the network services:**
