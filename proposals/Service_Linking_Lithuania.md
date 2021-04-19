@@ -44,7 +44,7 @@ _OnlineResource description of the downloadable file in the dataset metadata_
 <gmd:onLine>
 ```
 
-_ OnlineResource description of WMS service in the View Service metadata_
+_OnlineResource description of WMS service in the View Service metadata_
 
 ```xml
 <gmd:CI_OnlineResource>
@@ -90,7 +90,7 @@ _OnlineResource description of ATOM in the Download Service metadata_
 </gmd:MD_DigitalTransferOptions>
 </gmd:transferOptions>
 ```
-_WMS Getcapabilities description _
+_WMS Getcapabilities description_
 
 ```xml
 <WMS_Capabilities xmlns:inspire_vs="http://inspire.ec.europa.eu/schemas/inspire_vs/1.0" xmlns:inspire_common="http://inspire.ec.europa.eu/schemas/common/1.0" xmlns="http://www.opengis.net/wms" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.3.0" updateSequence="2252" xsi:schemaLocation="http://www.opengis.net/wms https://www.inspire-geoportal.lt/geoserver/schemas/wms/1.3.0/capabilities_1_3_0.xsd http://inspire.ec.europa.eu/schemas/inspire_vs/1.0 http://inspire.ec.europa.eu/schemas/inspire_vs/1.0/inspire_vs.xsd">
@@ -106,7 +106,7 @@ _WMS Getcapabilities description _
 ```
 
 
-_ATOM feed description _
+_ATOM feed description_
 
 ```xml
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom http://inspire-geoportal.ec.europa.eu/schemas/inspire/atom/1.0/atom.xsd" xml:lang="en">
