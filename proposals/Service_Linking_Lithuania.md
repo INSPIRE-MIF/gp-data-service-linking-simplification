@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Country:_Lithuana_
+Country: _Lithuania_
 
 Short description: We use Geonetwork software for metadata creation and datasets and services linking.
 
