@@ -9,8 +9,7 @@ Short description: _text here_
 ## Proposal body
 
 ### Details of the proposal
-_text here. The detailed proposal shall be provided here, including also any relevant snippet of code or diagram to explain the solution. Remember to specify all the required information in order to facilitate the correct evaluation of the proposed approach.
-Please include also the complete encoding example files (e.g. xml) in the proposal's folder._
+_text here. The detailed proposal shall be provided here, including also any relevant snippet of code or diagram to explain the solution. Remember to specify all the required information in order to facilitate the correct evaluation of the proposed approach. Please explain the reasons (if any) for the proposed approach, e.g. the need to address specific (national) use cases. Please include also the complete encoding example files (e.g. xml) in the proposal's folder._
 
 ### Concept model
 _text here. Optional section, remove if not relevant_
