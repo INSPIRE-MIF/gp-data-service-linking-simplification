@@ -1,0 +1,322 @@
+# Data and Service Linking Simplification - Consolidated Proposal
+
+## Introduction
+
+Author: EC JRC based on input from INSPIRE MIWP sub-group 2.3.2.
+
+Short description:
+This is a consolidated proposal, based on the collection and comparison of proposals received from the contributing Member State representatives (NL, FR, ES, LT) of the sub-group.
+
+This proposal implements the requirements and recommendations as initially described in the [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx) and further improved by the subsequent [proposals for the simplification approach](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/tree/main/proposals) made by the members of the sub-group.
+The reference for the metadata specification used in this proposal is the [INSPIRE Technical Guidance document version 2.0.1](https://inspire.ec.europa.eu/id/document/tg/metadata-iso19139). 
+
+## Proposal
+
+#### Data set metadata
+
+The proposed approach for data set metadata is aligned with the Discussion Paper. Data sets are documented in metadata as currently described in the Technical Guidance documents, with minor modifications for the provision of data-service linkage. In the metadata for each data set, resource locator elements are provided for at least one view and one download service (mandatory), pointing to an "INSPIRE Get Download/View Service Metadata" request.
+
+#### Service metadata
+
+The proposed approach recommends to keep the service metadata as currently described in the Technical Guidance documents. This requirement is due to the need of the provision of conformity indicators as described in the [COMMISSION IMPLEMENTING DECISION (EU) 2019/1372](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2019.220.01.0001.01.ENG&toc=OJ:L:2019:220:FULL) as regards Monitoring and Reporting.
+
+#### Codelists
+
+- For the protocol codelist, the INSPIRE Registry offers a series of external codelist values: https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue
+
+- For the codelist labels, the OGC vocabularies specify simple labels. For instance, the preferred label for `http://www.opengis.net/def/serviceType/ogc/wfs` is `wfs`. For our cases that involves OGC protocols, we suggest to use the simpler format `OGC:***` (e.g. `OGC:WFS`, `OGC:WMTS`).
+
+#### Use of the `gmd:function` element to distinguish the INSPIRE operations
+
+In order to express the expected INSPIRE operation (and relative response), the `gmd:function` element shall be used. The available ISO 19139 codelist offers two values useful for this purpose: `information` and `download`.
+
+To describe the linkage of a INSPIRE Get View/Download Service Metadata (eg. `GetCapabilities`) request, it shall be expressed with:
+```xml
+<gmd:function>
+    <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" />
+</gmd:function>
+```
+To describe the linkage of a INSPIRE Get Map / Get Spatial Data Set (eg. `GetMap` or `GetFeature`) request, it shall be expressed with:
+```xml
+<gmd:function>
+    <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download" />
+</gmd:function>
+```
+
+#### View Services
+
+In addition to the well-known elements already expressed in the TG requirements (ie. `gmd:linkage/gmd:URL`, `gmd:name`), the Resource Locator element shall contain the INSPIRE definition of a View service, through a `gmd:applicationProfile` element:
+
+```xml
+<gmd:applicationProfile>
+    <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/view">view</gmx:Anchor>
+</gmd:applicationProfile>
+```
+
+Then, the `gmd:protocol` must be specified based on the relative OGC specification of the service.
+
+For a WMS service:
+
+```xml
+<gmd:protocol>
+    <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">OGC:WMS</gmx:Anchor>
+</gmd:protocol>
+```
+
+In case of a WMTS service, a specific value from another OGC vocabulary can be used (http://defs.opengis.net/vocprez/object?uri=http%3A//www.opengis.net/def/standards-baseline)
+
+```xml
+<gmd:protocol>
+    <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wmts">OGC:WMTS</gmx:Anchor>
+</gmd:protocol>
+```
+
+Finally, the Resource Locator shall contain the `gmd:function` definition (described before [here](https://github.com/dartasensi/INSPIRE_Geoportal/blob/master/DATA_SIMPLIFICATION_PROPOSAL.md#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)).
+
+#### Download services
+
+In addition to the well-known elements already expressed in the TG requirements (ie. `gmd:linkage/gmd:URL`, `gmd:name`), the Resource Locator element shall contain the INSPIRE definition of a Download service, through a `gmd:applicationProfile` element:
+
+```xml
+<gmd:applicationProfile>
+    <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download">download</gmx:Anchor>
+</gmd:applicationProfile>
+```
+Then, for the implementation of a Dowload service the Technical Guidance offers different options, expressed here:
+
+##### ATOM feed
+
+```xml
+<gmd:protocol>
+    <gmx:Anchor xlink:href="https://tools.ietf.org/html/rfc4287">ATOM Syndication Format</gmx:Anchor>
+</gmd:protocol>
+```
+
+##### OGC service (WFS, WCS, SOS)
+
+```xml
+<gmd:protocol>
+    <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wfs">OGC:WFS</gmx:Anchor>
+</gmd:protocol>
+```
+
+```xml
+<gmd:protocol>
+    <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/sos">OGC:SOS</gmx:Anchor>
+</gmd:protocol>
+```
+
+```xml
+<gmd:protocol>
+    <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wcs">OGC:WCS</gmx:Anchor>
+</gmd:protocol>
+```
+
+Finally, the Resource Locator shall contain the `gmd:function` definition (described before [here](https://github.com/dartasensi/INSPIRE_Geoportal/blob/master/DATA_SIMPLIFICATION_PROPOSAL.md#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)).
+
+##### Future implementations of OGC Download Service (OGC SensorThings API, OGC API - Features)
+
+Currently, there is no agreed implementation in the INSPIRE Technical Guidance.
+
+For the OGC API - Features, it already exists a codelist defined for these services, to use inside the `gmd:protocol` element.
+```
+http://defs.opengis.net/vocprez/object?uri=http%3A//www.opengis.net/def/interface/ogcapi-features
+```
+
+For the OGC SensorThings API, it is still to be decided.
+
+## Examples (XML encoded)
+
+#### View - WM(T)S - Get View Service Metadata
+
+_Note: for the definition of a WMTS service, use the proper codelist defined before inside the `protocol` element_
+
+```xml
+<gmd:transferOptions>
+  <gmd:MD_DigitalTransferOptions>
+      [...]
+    <gmd:onLine>
+      <gmd:CI_OnlineResource>
+        <gmd:linkage>
+          <gmd:URL>http://.../wms?request=GetCapabilities&amp;service=WMS&amp;version=1.3.0</gmd:URL>
+        </gmd:linkage>
+        <gmd:protocol>
+          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">OGC:WMS</gmx:Anchor>
+        </gmd:protocol>
+        <gmd:applicationProfile>
+          <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/view">view</gmx:Anchor>
+        </gmd:applicationProfile>
+        <gmd:name>
+          <gco:CharacterString>INSPIRE WMS</gco:CharacterString>
+        </gmd:name>
+        <gmd:function>
+          <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" />
+        </gmd:function>
+      </gmd:CI_OnlineResource>
+    </gmd:onLine>
+      [...]
+  </gmd:MD_DigitalTransferOptions>
+</gmd:transferOptions>
+```
+
+#### View - WM(T)S - Get Map
+
+_Note: for the definition of a WMTS service, use the proper codelist defined before inside the `protocol` element_
+
+```xml
+<gmd:transferOptions>
+  <gmd:MD_DigitalTransferOptions>
+      [...]
+    <gmd:onLine>
+      <gmd:CI_OnlineResource>
+        <gmd:linkage>
+          <gmd:URL>http://.../wms?request=GetMap&amp;service=WMS&amp;version=1.3.0&amp;layers=1&amp;styles=default&amp;CRS=EPSG:4258&amp;format=image/png&amp;bbox=0.87,43.26,11.68,48.13&amp;width=600&amp;height=400</gmd:URL>
+        </gmd:linkage>
+        <gmd:protocol>
+          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">OGC:WMS</gmx:Anchor>
+        </gmd:protocol>
+        <gmd:applicationProfile>
+          <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/view">view</gmx:Anchor>
+        </gmd:applicationProfile>
+        <gmd:name>
+          <gco:CharacterString>INSPIRE WMS</gco:CharacterString>
+        </gmd:name>
+        <gmd:function>
+          <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download" />
+        </gmd:function>
+      </gmd:CI_OnlineResource>
+    </gmd:onLine>
+      [...]
+  </gmd:MD_DigitalTransferOptions>
+</gmd:transferOptions>
+```
+
+#### Download - ATOM feed - Get Download Service Metadata
+
+```xml
+<gmd:transferOptions>
+  <gmd:MD_DigitalTransferOptions>
+      [...]
+    <gmd:onLine>
+      <gmd:CI_OnlineResource>
+        <gmd:linkage>
+          <gmd:URL>http://.../atom/INSPIRE_DW_2021</gmd:URL>
+        </gmd:linkage>
+        <gmd:protocol>
+          <gmx:Anchor xlink:href="https://tools.ietf.org/html/rfc4287">ATOM Syndication Format</gmx:Anchor>
+        </gmd:protocol>
+        <gmd:applicationProfile>
+          <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download">download</gmx:Anchor>
+        </gmd:applicationProfile>
+        <gmd:name>
+          <gco:CharacterString>INSPIRE Download Service (ATOM)</gco:CharacterString>
+        </gmd:name>
+        <gmd:function>
+          <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" />
+        </gmd:function>
+      </gmd:CI_OnlineResource>
+    </gmd:onLine>
+      [...]
+  </gmd:MD_DigitalTransferOptions>
+</gmd:transferOptions>
+```
+
+#### Download - ATOM feed - Get Spatial Data Set (subfeed)
+
+```xml
+<gmd:transferOptions>
+  <gmd:MD_DigitalTransferOptions>
+      [...]
+    <gmd:onLine>
+      <gmd:CI_OnlineResource>
+        <gmd:linkage>
+          <gmd:URL>http://.../atom/INSPIRE_DW_2021_Dataset.gml</gmd:URL>
+        </gmd:linkage>
+        <gmd:protocol>
+          <gmx:Anchor xlink:href="https://tools.ietf.org/html/rfc4287">ATOM Syndication Format</gmx:Anchor>
+        </gmd:protocol>
+        <gmd:applicationProfile>
+          <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download">download</gmx:Anchor>
+        </gmd:applicationProfile>
+        <gmd:name>
+          <gco:CharacterString>INSPIRE Download Service (ATOM)</gco:CharacterString>
+        </gmd:name>
+        <gmd:function>
+          <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download" />
+        </gmd:function>
+      </gmd:CI_OnlineResource>
+    </gmd:onLine>
+      [...]
+  </gmd:MD_DigitalTransferOptions>
+</gmd:transferOptions>
+```
+
+#### Download - OGC service - Get Download Service Metadata
+
+_Note: this example covers the WFS definition. For a WCS/SOS service, use the proper codelist defined before inside the `protocol` element_
+
+```xml
+<gmd:transferOptions>
+  <gmd:MD_DigitalTransferOptions>
+      [...]
+    <gmd:onLine>
+      <gmd:CI_OnlineResource>
+        <gmd:linkage>
+          <gmd:URL>http://.../wfs?service=wfs&amp;version=2.0.0&amp;request=GetCapabilities</gmd:URL>
+        </gmd:linkage>
+        <gmd:protocol>
+          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wfs">OGC:WFS</gmx:Anchor>
+        </gmd:protocol>
+        <gmd:applicationProfile>
+          <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download">download</gmx:Anchor>
+        </gmd:applicationProfile>
+        <gmd:name>
+          <gco:CharacterString>INSPIRE Download Service (WFS)</gco:CharacterString>
+        </gmd:name>
+        <gmd:function>
+          <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" />
+        </gmd:function>
+      </gmd:CI_OnlineResource>
+    </gmd:onLine>
+      [...]
+  </gmd:MD_DigitalTransferOptions>
+</gmd:transferOptions>
+```
+
+#### Download - OGC service - Get Spatial Data Set
+
+_Note: this example covers the WFS definition. For a WCS/SOS service, use the proper codelist defined before inside the `protocol` element_
+
+```xml
+<gmd:transferOptions>
+  <gmd:MD_DigitalTransferOptions>
+      [...]
+    <gmd:onLine>
+      <gmd:CI_OnlineResource>
+        <gmd:linkage>
+          <gmd:URL>http://.../wfs?service=wfs&amp;version=2.0.0&amp;request=GetFeature&amp;storedquery_id=http://inspire.ec.europa.eu/operation/download/GetSpatialDataSet&amp;DataSetIdCode=mycode&amp;DataSetIdNamespace=mynamespace&amp;CRS=EPSG:4326&amp;Language=eng</gmd:URL>
+        </gmd:linkage>
+        <gmd:protocol>
+          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wfs">OGC:WFS</gmx:Anchor>
+        </gmd:protocol>
+        <gmd:applicationProfile>
+          <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download">download</gmx:Anchor>
+        </gmd:applicationProfile>
+        <gmd:name>
+          <gco:CharacterString>INSPIRE Download Service (WFS)</gco:CharacterString>
+        </gmd:name>
+        <gmd:function>
+          <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download" />
+        </gmd:function>
+      </gmd:CI_OnlineResource>
+    </gmd:onLine>
+      [...]
+  </gmd:MD_DigitalTransferOptions>
+</gmd:transferOptions>
+```
+
+### Advantages/disadvantages of the proposed approach
+
+
+### Conclusions
+
