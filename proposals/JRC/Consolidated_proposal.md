@@ -77,7 +77,7 @@ In case of a WMTS service, a specific value from another OGC vocabulary can be u
 </gmd:protocol>
 ```
 
-Finally, the Resource Locator shall contain the `gmd:function` definition (described before [here](https://github.com/dartasensi/INSPIRE_Geoportal/blob/master/DATA_SIMPLIFICATION_PROPOSAL.md#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)).
+Finally, the Resource Locator shall contain the `gmd:function` definition (described before [here](#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)).
 
 #### Download services
 
@@ -118,7 +118,7 @@ Then, for the implementation of a Dowload service the Technical Guidance offers 
 </gmd:protocol>
 ```
 
-Finally, the Resource Locator shall contain the `gmd:function` definition (described before [here](https://github.com/dartasensi/INSPIRE_Geoportal/blob/master/DATA_SIMPLIFICATION_PROPOSAL.md#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)).
+Finally, the Resource Locator shall contain the `gmd:function` definition (described before [here](#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)).
 
 ##### Future implementations of OGC Download Service (OGC SensorThings API, OGC API - Features)
 
@@ -325,7 +325,7 @@ _Note: this example covers the WFS definition. For a WCS/SOS service, use the pr
 
 #### Advantages on the use of `gmd:function` element
 
-With this approach, the proposal would use all the available elements under `<gmd:CI_OnlineResource>`. The `function` element uses the predefined ISO 19139 codelist, that offers two useful values. In this manner, the proposal would keep the `gmd:description` free for future uses.
+With this approach, the proposal would use all the available elements under `<gmd:CI_OnlineResource>`. The `function` element uses the predefined ISO 19139 codelist, that offers two useful values (described [here](#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)). In this manner, the proposal would keep the `gmd:description` free for future uses.
 
 ### Conclusions
 
