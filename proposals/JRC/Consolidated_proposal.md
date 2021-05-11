@@ -23,14 +23,14 @@ The proposed approach recommends to keep the service metadata as currently descr
 #### Applicable codelists
 
 ##### Protocol
-- For this element, the INSPIRE Registry already offers a series of external codelist values: https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue
+- For this element, the INSPIRE Registry already offers a series of external codelist values from the register: https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue
 - Regarding the labels, the INSPIRE Registry specifies quite long text for the OGC services. On the other hand, the OGC vocabularies specify quite essential labels. For instance, the preferred label for the codelist value `http://www.opengis.net/def/serviceType/ogc/wfs` is `wfs`. The proposal suggest to use the extensive format for ATOM (ie. `ATOM Syndication Format`) and a compact but expressive format `OGC:***` (e.g. `OGC:WFS`, `OGC:WMTS`) for the relative services.
 
 ##### ApplicationProfile
 - For this element, use a value coming from the register http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType
 
 ##### Function
-- For this element, use the schema predefined ISO 19139 codelist `<gmd:CI_OnLineFunctionCode>`
+- For this element, use the predefined ISO 19139 schema codelist `<gmd:CI_OnLineFunctionCode>`
 
 #### Use of the `gmd:function` element to distinguish the INSPIRE operations
 
@@ -323,6 +323,9 @@ _Note: this example covers the WFS definition. For a WCS/SOS service, use the pr
 
 ### Advantages/disadvantages of the proposed approach
 
+#### Advantages on the use of `gmd:function` element
+
+With this approach, the proposal would use all the available elements under `<gmd:CI_OnlineResource>`. The `function` element uses the predefined ISO 19139 codelist, that offers two useful values. In this manner, the proposal would keep the `gmd:description` free for future uses.
 
 ### Conclusions
 
