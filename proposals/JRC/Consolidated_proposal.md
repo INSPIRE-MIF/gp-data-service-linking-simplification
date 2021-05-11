@@ -122,14 +122,9 @@ Then, for the implementation of a Dowload service the Technical Guidance offers 
 
 Finally, the Resource Locator shall contain the `gmd:function` definition (described before [here](#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)).
 
-##### Future implementations of OGC Download Service (OGC SensorThings API, OGC API - Features)
+##### Download services based on OGC APIs (OGC SensorThings API, OGC API - Features)
 
-Currently, there is no agreed implementation in the INSPIRE Technical Guidance.
-
-For the OGC API - Features, it already exists a codelist defined for these services, to use inside the `gmd:protocol` element.
-```
-http://defs.opengis.net/vocprez/object?uri=http%3A//www.opengis.net/def/interface/ogcapi-features
-```
+For the OGC API - Features,  a codelist to be used for the `gmd:protocol` element is defined at http://www.opengis.net/def/interface/ogcapi-features
 
 For the OGC SensorThings API, it is still to be decided.
 
