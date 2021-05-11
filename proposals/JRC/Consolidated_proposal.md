@@ -36,6 +36,8 @@ The proposed approach recommends to keep the service metadata as currently descr
 
 In order to express the expected INSPIRE operation (and relative response), the `gmd:function` element shall be used. The available ISO 19139 codelist offers two values useful for this purpose: `information` and `download`.
 
+In the current MD TG (v2.0) the Recommendation 5.4 suggest the use of 'information' regarding access point of an Invocable SDS.
+
 To describe the linkage of a INSPIRE Get View/Download Service Metadata (eg. `GetCapabilities`) request, it shall be expressed with:
 ```xml
 <gmd:function>
@@ -325,7 +327,7 @@ _Note: this example covers the WFS definition. For a WCS/SOS service, use the pr
 
 #### Advantages on the use of `gmd:function` element
 
-With this approach, the proposal would use all the available elements under `<gmd:CI_OnlineResource>`. The `function` element uses the predefined ISO 19139 codelist, that offers two useful values (described [here](#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)). In this manner, the proposal would keep the `gmd:description` free for future uses.
+With this approach, the proposal would use all the available elements under `<gmd:CI_OnlineResource>`. The `function` element uses the predefined ISO 19139 codelist, that offers two useful values (described [here](#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)). In this manner, the proposal would keep the `gmd:description` free for current (or future) uses. In the current Metadata TG (v2.0) the TG Requirement 5.2 `metadata/2.0/req/sds-invocable/access-point` requires the `gmd:description` element to point to the value `accessPoint` of the code list `OnLineDescriptionCode`.
 
 ### Conclusions
 
