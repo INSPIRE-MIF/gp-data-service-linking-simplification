@@ -20,11 +20,17 @@ The proposed approach for data set metadata is aligned with the Discussion Paper
 
 The proposed approach recommends to keep the service metadata as currently described in the Technical Guidance documents. This requirement is due to the need of the provision of conformity indicators as described in the [COMMISSION IMPLEMENTING DECISION (EU) 2019/1372](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2019.220.01.0001.01.ENG&toc=OJ:L:2019:220:FULL) as regards Monitoring and Reporting.
 
-#### Codelists
+#### Applicable codelists
 
-- For the protocol codelist, the INSPIRE Registry offers a series of external codelist values: https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue
+##### Protocol
+- For this element, the INSPIRE Registry already offers a series of external codelist values: https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue
+- Regarding the labels, the INSPIRE Registry specifies quite long text for the OGC services. On the other hand, the OGC vocabularies specify quite essential labels. For instance, the preferred label for the codelist value `http://www.opengis.net/def/serviceType/ogc/wfs` is `wfs`. The proposal suggest to use the extensive format for ATOM (ie. `ATOM Syndication Format`) and a compact but expressive format `OGC:***` (e.g. `OGC:WFS`, `OGC:WMTS`) for the relative services.
 
-- For the codelist labels, the OGC vocabularies specify simple labels. For instance, the preferred label for `http://www.opengis.net/def/serviceType/ogc/wfs` is `wfs`. For our cases that involves OGC protocols, we suggest to use the simpler format `OGC:***` (e.g. `OGC:WFS`, `OGC:WMTS`).
+##### ApplicationProfile
+- For this element, use a value coming from the register http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType
+
+##### Function
+- For this element, use the schema predefined ISO 19139 codelist `<gmd:CI_OnLineFunctionCode>`
 
 #### Use of the `gmd:function` element to distinguish the INSPIRE operations
 
