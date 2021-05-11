@@ -124,9 +124,9 @@ Finally, the Resource Locator shall contain the `gmd:function` definition (descr
 
 ##### Download services based on OGC APIs (OGC SensorThings API, OGC API - Features)
 
-For the OGC API - Features,  a codelist to be used for the `gmd:protocol` element is defined at http://www.opengis.net/def/interface/ogcapi-features
+For the OGC API - Features, a codelist to be used for the `gmd:protocol` element is defined as `http://www.opengis.net/def/interface/ogcapi-features`
 
-For the OGC SensorThings API, it is still to be decided.
+For the OGC SensorThings API, a valid codelist value is defined as `http://www.opengis.net/def/serviceType/ogc/sta`.
 
 ## Examples (XML encoded)
 
