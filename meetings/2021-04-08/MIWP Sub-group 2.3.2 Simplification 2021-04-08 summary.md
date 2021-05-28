@@ -43,5 +43,5 @@ Discussion to continue in the [Issues section](https://github.com/INSPIRE-MIF/gp
 
 JRC to prepare a proposal for the consolidated approach by the end of the month of April.
 
-The second meeting will be held on April 11 at 10:00.
+The third meeting will be held on April 11 at 10:00.
 
