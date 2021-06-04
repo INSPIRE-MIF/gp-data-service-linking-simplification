@@ -23,11 +23,12 @@ The proposed approach recommends to keep the service metadata as currently descr
 #### Applicable codelists
 
 ##### Protocol
-- For this element, the INSPIRE Registry already offers a series of external codelist values from the register: https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue
-- Regarding the labels, the INSPIRE Registry specifies quite long text for the OGC services. On the other hand, the OGC vocabularies specify quite essential labels. For instance, the preferred label for the codelist value `http://www.opengis.net/def/serviceType/ogc/wfs` is `wfs`. The proposal suggest to use the extensive format for ATOM (ie. `ATOM Syndication Format`) and a compact but expressive format `OGC:***` (e.g. `OGC:WFS`, `OGC:WMTS`) for the relative services.
+- For this element, the central INSPIRE Registry already offers a series of external codelist values from the register: https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue
+- Regarding the labels, the central INSPIRE Registry specifies quite long text for the OGC services. On the other hand, the OGC vocabularies specify quite essential labels. For instance, the preferred label for the codelist value `http://www.opengis.net/def/serviceType/ogc/wfs` is `wfs`. The proposal suggest to use the extensive format for ATOM (ie. `ATOM Syndication Format`) and a compact but expressive format `OGC:***` (e.g. `OGC:WFS`, `OGC:WMTS`) for the relative services.
 
 ##### ApplicationProfile
-- For this element, use a value coming from the register http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType
+- For this element, use a codelist value (eg. `download`, `view`, etc) coming from the `Spatial data service type` metadata codelist: https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType
+- By using the above mentioned codelist values coming from the central INSPIRE Registry, it would imply that the described ResourceLocator URL would refer to an INSPIRE Spatial Data Service, fulfilling all the applicable Technical Guidelines requirements.
 
 ##### Function
 - For this element, use the predefined ISO 19139 schema codelist `<gmd:CI_OnLineFunctionCode>`
