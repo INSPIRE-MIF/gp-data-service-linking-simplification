@@ -16,6 +16,12 @@ The reference for the metadata specification used in this proposal is the [INSPI
 
 The proposed approach for data set metadata is aligned with the Discussion Paper. Data sets are documented in metadata as currently described in the Technical Guidance documents, with minor modifications for the provision of data-service linkage. In the metadata for each data set, resource locator elements are provided for at least one view and one download service (mandatory), pointing to an "INSPIRE Get Download/View Service Metadata" request.
 
+Therefore, this proposal will affect the Requirement 1.8 of current Metadata TG (v2.0), line:
+
+> The multiplicity of this element is 0..n.
+
+by changing the multiplicity to 2...n.
+
 #### Service metadata
 
 The proposed approach recommends to keep the service metadata as currently described in the Technical Guidance documents. This requirement is due to the need of the provision of conformity indicators as described in the [COMMISSION IMPLEMENTING DECISION (EU) 2019/1372](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2019.220.01.0001.01.ENG&toc=OJ:L:2019:220:FULL) as regards Monitoring and Reporting.
@@ -28,24 +34,25 @@ The proposed approach recommends to keep the service metadata as currently descr
 
 ##### ApplicationProfile
 - For this element, use a codelist value (eg. `download`, `view`, etc) coming from the `Spatial data service type` metadata codelist: https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType
-- By using the above mentioned codelist values coming from the central INSPIRE Registry, it would imply that the described ResourceLocator URL would refer to an INSPIRE Spatial Data Service, fulfilling all the applicable Technical Guidelines requirements.
+- ~~By using the above mentioned codelist values coming from the central INSPIRE Registry, it would imply that the described ResourceLocator URL would refer to an INSPIRE Spatial Data Service, fulfilling all the applicable Technical Guidelines requirements.~~
+- By using the above mentioned codelist values coming from the central INSPIRE Registry, it would imply that you are fulfilling the new proposal on TG Requirement 1.8 (multiplicity 2..n) [described above](data-set-metadata).
 
-##### Function
-- For this element, use the predefined ISO 19139 schema codelist `<gmd:CI_OnLineFunctionCode>`
+##### (discarded) Function
+- ~~For this element, use the predefined ISO 19139 schema codelist `<gmd:CI_OnLineFunctionCode>`~~
 
-#### Use of the `gmd:function` element to distinguish the INSPIRE operations
+#### (discarded) Use of the `gmd:function` element to distinguish the INSPIRE operations
 
-In order to express the expected INSPIRE operation (and relative response), the `gmd:function` element shall be used. The available ISO 19139 codelist offers two values useful for this purpose: `information` and `download`.
+~~In order to express the expected INSPIRE operation (and relative response), the `gmd:function` element shall be used. The available ISO 19139 codelist offers two values useful for this purpose: `information` and `download`.~~
 
-In the current MD TG (v2.0) the Recommendation 5.4 suggest the use of 'information' regarding access point of an Invocable SDS.
+~~In the current MD TG (v2.0) the Recommendation 5.4 suggest the use of 'information' regarding access point of an Invocable SDS.~~
 
-To describe the linkage of a INSPIRE Get View/Download Service Metadata (eg. `GetCapabilities`) request, it shall be expressed with:
+~~To describe the linkage of a INSPIRE Get View/Download Service Metadata (eg. `GetCapabilities`) request, it shall be expressed with:~~
 ```xml
 <gmd:function>
     <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information" />
 </gmd:function>
 ```
-To describe the linkage of a INSPIRE Get Map / Get Spatial Data Set (eg. `GetMap` or `GetFeature`) request, it shall be expressed with:
+~~To describe the linkage of a INSPIRE Get Map / Get Spatial Data Set (eg. `GetMap` or `GetFeature`) request, it shall be expressed with:~~
 ```xml
 <gmd:function>
     <gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download" />
@@ -323,7 +330,8 @@ _Note: this example covers the WFS definition. For a WCS/SOS service, use the pr
 
 #### Advantages on the use of `gmd:function` element
 
-With this approach, the proposal would use all the available elements under `<gmd:CI_OnlineResource>`. The `function` element uses the predefined ISO 19139 codelist, that offers two useful values (described [here](#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)). In this manner, the proposal would keep the `gmd:description` free for current (or future) uses. In the current Metadata TG (v2.0) the TG Requirement 5.2 `metadata/2.0/req/sds-invocable/access-point` requires the `gmd:description` element to point to the value `accessPoint` of the code list `OnLineDescriptionCode`.
+With this approach, the proposal would use all the available elements under `<gmd:CI_OnlineResource>`. ~~The `function` element uses the predefined ISO 19139 codelist, that offers two useful values (described [here](#use-of-the-gmdfunction-element-to-distinguish-the-inspire-operations)). In this manner, the proposal would keep the `gmd:description` free for current (or future) uses.~~
+In the current Metadata TG (v2.0) the TG Requirement 5.2 `metadata/2.0/req/sds-invocable/access-point` requires the `gmd:description` element to point to the value `accessPoint` of the code list `OnLineDescriptionCode`. If the service metadata for Network Service will be no more required, there are no more constraints on this field.
 
 ### Conclusions
 
