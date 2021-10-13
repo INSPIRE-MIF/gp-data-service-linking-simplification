@@ -16,11 +16,11 @@ The reference for the metadata specification used in this proposal is the [INSPI
 
 The proposed approach for data set metadata is aligned with the Discussion Paper. Data sets are documented in metadata as currently described in the Technical Guidance documents, with minor modifications for the provision of data-service linkage. In the metadata for each data set, resource locator elements are provided for at least one view and one download service (mandatory), pointing to an "INSPIRE Get Download/View Service Metadata" request.
 
-Therefore, this proposal will affect the Requirement 1.8 of current Metadata TG (v2.0), line:
+~Therefore, this proposal will affect the Requirement 1.8 of current Metadata TG (v2.0), line:~
 
 > The multiplicity of this element is 0..n.
 
-by changing the multiplicity to 2...n.
+~by changing the multiplicity to 2...n.~
 
 #### Service metadata
 
