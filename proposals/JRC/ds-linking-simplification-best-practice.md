@@ -23,10 +23,9 @@ _TO_BE_REVIEWED_
     * [8.2. Conformance class: “INSPIRE-Network-Service-Metadata-Coupled-Resource”](#cc-ns-md-coupledres)
 *  [9. Future developments](#future-dev)
 * [Annex A: Examples](#annex-a)
+* [Annex B: Mapping of INSPIRE elements in ExtendedCapabilities](#annex-b)
 
 ## 1. Introduction <a name="introduction"></a>
-
-_TO_BE_REVIEWED_
 
 This good practice candidate is based on the collection and comparison of proposals received from the Member State members of the temporary MIWP technical sub-group on data and service linking simplification. This document leverages on the recommendations, initially described in the [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx), and further improved by the subsequent [proposals for the simplification approach](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/tree/main/proposals) made by the members of the technical sub-group.
 
@@ -34,48 +33,37 @@ The reference for the metadata specification used in this proposal is the [INSPI
 
 ## 2. Scope <a name="scope"></a>
 
-_TO_BE_REVIEWED_
-
 The scope of this document is to provide a well-defined series of opinionated interpretations and rules, that de facto standard web applications can currently support, based on the current list of Requirements and Recommendations expressed in the INSPIRE Technical Guidance (TG) documents.
 
 ## 3. Conformance <a name="conformance"></a>
 
-_TO_BE_REVIEWED_
-
-The recommendations expressed here apply to the data set and service metadata records, as well as to the service (capabilities) documents.
+The conformance classes and requirements expressed here apply to the data set and service metadata records, as well as to the service (capabilities) documents.
 In particular, the data set and service metadata records shall be INSPIRE-compliant (checked through the Reference Validator), should be available in the relevant national geoportal catalog (see https://inspire.ec.europa.eu/INSPIRE-in-your-Country), and consecutively harvested by the [INSPIRE Geoportal](https://inspire-geoportal.ec.europa.eu).
+
+Furthermore, at this moment the requirements expressed here for the Download Services cannot be applied to the ones that rely on the OGC API - Feature specification, due to the lack of the mapping for some conditional and mandatory INSPIRE metadata elements (ie. Coupled Resource, Unique Resource Identifier) in the [OAPIF BP] document.
 
 ## 4. Normative references <a name="normative-references"></a>
 
-_TO_BE_REVIEWED_
-
-- **[ISO 19115-2:2019](https://schemas.isotc211.org/schemas/19115/-2/gmi/1.0/gmi.xsd)** - ISO 19115-2:2019, *Geographic information — Metadata — Part 2: Extensions for acquisition and processing*
-- **[ISO/TS 19139:2007](https://www.isotc211.org/2005/gmd/)** - ISO/TS 19139:2007, *Geographic information — Metadata — XML schema implementation*
+- **[ISO 19115-2:2019]** - ISO 19115-2:2019, *Geographic information — Metadata — Part 2: Extensions for acquisition and processing*
+- **[ISO/TS 19139:2007]** - ISO/TS 19139:2007, *Geographic information — Metadata — XML schema implementation*
 - **[IRs for NS]** - Commission Regulation (EC) No 976/2009 of 19 October 2009 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the Network Services
 - **[IRs for ISDSS]** - Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services
 - **[INSPIRE MD TG]** - JRC. *Technical Guidance for the implementation of INSPIRE dataset and service metadata based on ISO/TS 19139:2007*.  v2.0.1 - 2017-03-02
-- **[INSPIRE NS - Download Service TG]** - JRC. *Technical Guidance for the implementation of INSPIRE View Services*. v3.1 - 2013-08-09
-- **[INSPIRE NS - View Service TG]** - JRC. *Technical Guidance for the implementation of INSPIRE Download Services*. v3.11 - 2013-04-04
+- **[INSPIRE NS - Download Service TG]** - JRC. *Technical Guidance for the implementation of INSPIRE Download Services*. v3.1 - 2013-08-09
+- **[INSPIRE NS - View Service TG]** - JRC. *Technical Guidance for the implementation of INSPIRE View Services*. v3.11 - 2013-04-04
 - **[RFC 4287]** - Internet Engineering Task Force (IETF). RFC 4287, *The Atom Syndication Format*. Initial release: December 2005
-- **[RFC 7231]** - Internet Engineering Task Force (IETF). RFC 7231, *Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content*. June 2014
-- **[OGC API - Features - 1]** - OGC API - Features - Part 1: Core<sup> 2</sup>
-- **[OGC API - Features - 2]** - OGC API - Features - Part 2: Coordinate Reference Systems by Reference
-- **[OpenAPI 3.0]** - OpenAPI Initiative (OAI). *OpenAPI Specification*. The latest patch version at the time of publication of this document was 3.0.3, published in February 2020.
-
-
-<sup>2 </sup> The standard is also published as [ISO 19168-1:2020, Geographic information — Geospatial API for features — Part 1: Core](https://www.iso.org/standard/32586.html). Note that a [draft version 1.0.1](http://docs.opengeospatial.org/DRAFTS/17-069r4.html) is available, see the included issues on https://github.com/opengeospatial/ogcapi-features/milestone/4?closed=1.
+- **[OAPIF BP]** - Good Practice: INSPIRE download services based on OGC API - Features
 
 <!-- Second parts of the reference-style links, see also https://www.markdownguide.org/basic-syntax/#reference-style-links  -->
+[ISO 19115-2:2019]: https://schemas.isotc211.org/schemas/19115/-2/gmi/1.0/gmi.xsd "ISO 19115-2:2019, Geographic information — Metadata — Part 2: Extensions for acquisition and processing"
+[ISO/TS 19139:2007]: https://www.isotc211.org/2005/gmd/ "ISO/TS 19139:2007, Geographic information — Metadata — XML schema implementation"
 [IRs for NS]: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02009R0976-20141231&from=EN "Implementing Rules for Network Services (consolidated version of 31/12/2014)"
 [IRs for ISDSS]: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02010R1089-20141231&from=EN "Implementing Rules for interoperability of spatial data sets and services (consolidated version of 31/12/2014)"
-[INSPIRE MD TG]: https://inspire.ec.europa.eu/id/document/tg/metadata-iso19139
-[INSPIRE NS - Download Service TG]: https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services
-[INSPIRE NS - View Service TG]: https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1
-[OGC API - Features - 1]: http://docs.opengeospatial.org/is/17-069r3/17-069r3.html "OGC API - Features - Part 1: Core"
-[OGC API - Features - 2]: http://docs.opengeospatial.org/is/18-058/18-058.html "OGC API - Features - Part 2: Coordinate Reference Systems by Reference"
-[OpenAPI 3.0]: http://spec.openapis.org/oas/v3.0.3 "OpenAPI Specification 3.0"
+[INSPIRE MD TG]: https://inspire.ec.europa.eu/id/document/tg/metadata-iso19139 "Technical Guidance for the implementation of INSPIRE dataset and service metadata based on ISO/TS 19139:2007"
+[INSPIRE NS - Download Service TG]: https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services "Technical Guidance for the implementation of INSPIRE Download Services"
+[INSPIRE NS - View Service TG]: https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1 "Technical Guidance for the implementation of INSPIRE View Services"
 [RFC 4287]: https://www.rfc-editor.org/rfc/rfc4287 "The Atom Syndication Format"
-[RFC 7231]: https://www.rfc-editor.org/rfc/rfc7231 "HTTP/1.1: Semantics and Content"
+[OAPIF BP]: https://github.com/INSPIRE-MIF/gp-ogc-api-features "Good Practice: INSPIRE download services based on OGC API - Features"
 
 ## 5. Terms and definitions <a name="terms-and-definitions"></a>
 
@@ -90,11 +78,6 @@ For the purposes of this document, the following terms and definitions apply:
 | direct access download service | Download Service which provides access to the Spatial Objects in Spatial Data Sets based upon a query | \[[IRs for NS]\] |
 | encoding | Conversion of data into a series of codes. | [ISO 19118](https://www.iso.org/obp/ui/#iso:std:iso:19118:ed-2:v1:en:term:4.13) |
 | encoding rule | Identifiable collection of conversion rules that define the encoding for a particular data structure. | [ISO 19118](https://www.iso.org/obp/ui/#iso:std:iso:19118:ed-2:v1:en:term:4.14) |
-| feature | Abstraction of real world phenomena. **NOTE** The concept of a `feature` is synonymous to a `spatial object` in INSPIRE | [OGC API - Features - 1](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#_feature) |
-| feature collection | A set of features from a data set. | [OGC API - Features - 1](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#_feature_collection) |
-| feature type | **NOTE** The concept of a `feature type` is synonymous to a `spatial object type` in INSPIRE | [INSPIRE](https://inspire.ec.europa.eu/glossary/SpatialObject) |
-| pre-defined data set download service | Service that enables copies of spatial data sets, or parts of such sets, to be downloaded. | \[[IRs for NS]\] |
-
 
 **NOTE** ISO and the European Commission maintain comprehensive terminological databases at the following addresses:
 - [ISO Online browsing platform](https://www.iso.org/obp)
@@ -122,11 +105,7 @@ _TO_BE_REVIEW_
 
 ### 7.2. Resources <a name="resources"></a>
 
-_Insert here diagrams and figures to illustrate the link relation to be used._
-
-![Diagram A](figures/diagramA.png)
-
-![Diagram B](figures/diagramB.png)
+![Diagram of Simplified linkage model](INSPIRE%20models_v1.1.jpg)
 
 ## 8. Conformance classes <a name="ccs"></a>
 
@@ -264,7 +243,7 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 
 ### 8.2.2 INSPIRE Network service - Scenario 2
 
- - With the implementation of the Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the OGC capabilities elements, where applicable, and relies on the ExtendedCapabilities section for the remaining elements.
+ - With the implementation of the Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service (ie. ATOM feed elements or OGC Capabilities), and in particular, for the OGC service, relies on the ExtendedCapabilities section for the remaining elements.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
 ### Requirement: \<wms:MetadataURL\> and \<wfs:MetadataURL\> elements
@@ -276,10 +255,12 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 ## 9. Future developments <a name="future-dev"></a>
 
 Within this document, the series of recommendations imply the possibility of further simplifications, on a broader level about the INSPIRE implementation.
-Note that often the person or organization responsible for the metadata is not the same as the responsible for the service operations. This can lead to duplication, errors and/or outdated information. For instance, the more direct connection expressed with these recommendations could suggest the implementation of [Scenario 2], which requirements and definitions are already provided in both the [INSPIRE NS - Download Service TG] and [INSPIRE NS - View Service TG] documents. In this case, the service metadata is no longer required (at least, for this linkage simplification purpose), so its creation can be skipped, or automated by dedicated features of a software implementation of the INSPIRE Discovery Service.
-Furthermore, the implementation of the above mentioned [Scenario 2] for Network Service provides an opportunity for revision of the mapping of the INSPIRE requirements, currently expressed in the Extended Capabilities section (especially the Conformance declaration), since the current lack of support in some (especially proprietary) software products. 
 
-# Annex A: Examples <a name="inspire-examples"></a>
+Note that often the person or organization responsible for the metadata is not the same as the responsible for the service operations. This can lead to duplication, errors and/or outdated information. For instance, the more direct connection expressed with these recommendations could suggest the implementation of "_Scenario 2_", which requirements and definitions are already provided in both the [INSPIRE NS - Download Service TG] and [INSPIRE NS - View Service TG] documents. In this case, the service metadata is no longer required (at least, for this linkage simplification purpose), so its creation can be skipped, or automated by dedicated features of a software implementation of the INSPIRE Discovery Service.
+
+Furthermore, the implementation of the above mentioned "_Scenario 2_" for Network Service provides an opportunity for revision of the mapping of the INSPIRE requirements, currently expressed in the Extended Capabilities section (especially the Conformance declaration), since the current lack of support in some (especially proprietary) software products. Refer to the [Annex B](#annex-b) for further details.
+
+# Annex A: Examples <a name="annex-a"></a>
 
 ## Examples (XML encoded)
 The following collection shows a series of XML snippets.
@@ -446,3 +427,21 @@ _Note: this example covers the WFS definition. For a WCS/SOS service, use the pr
   </gmd:MD_DigitalTransferOptions>
 </gmd:transferOptions>
 ```
+# Annex B: Mapping of INSPIRE elements in ExtendedCapabilities <a name="annex-b"></a>
+
+The [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx) proposes a new mapping of INSPIRE elements contained in the service metadata, as described for the Scenario2 in the INSPIRE Network Service TGs, in order to achieve an implementation simplification.
+
+During the MIWP 2.3.2 action, Antonio Rotundo (IT) further explored this, by reallocating elements outside the ExtendedCapabilities.
+The following tables express this simplification and reallocation:
+
+|Extended capabilities|Simplification|Service type|
+| :- | :- | :- |
+|inspire\_common:ResourceType|By default = service|WMS - WFS|
+|inspire\_common:ResourceLocator|Resource locator in the data set metadata|WMS - WFS|
+|inspire\_common:SpatialDataServiceType|Moved to the applicationProfile in the data set metadata|WMS - WFS|
+|inspire\_common:TemporalReference|Consider the temporalReference in the data set metadata?|WMS - WFS|
+|inspire\_common:Conformity|Declared through the wms:keyword element |WMS - WFS|
+|inspire\_common:MetadataPointOfContact|Consider the metadataPointOfContact in the data set metadata|WMS - WFS|
+|inspire\_common:MetadataDate|Consider the metadataDate in the data set metadata|WMS - WFS|
+|inspire\_common:SupportedLanguages|Consider the metadataLanguage in the data set metadata|WMS - WFS|
+|inspire_dls:SpatialDataSetIdentifier/inspire_common:Code - inspire_dls:SpatialDataSetIdentifier/inspire_common:Namespace|Data set identifier in the data set metadata|WFS|
