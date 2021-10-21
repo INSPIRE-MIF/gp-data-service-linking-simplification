@@ -74,7 +74,7 @@ For the purposes of this document, the following terms and definitions apply:
 | --- | --- | --- |
 | content negotiation | The practice of providing multiple representations available via the same URI | [ISO/IEC 19788](https://www.iso.org/obp/ui/#iso:std:iso-iec:19788:-7:ed-1:v1:en:sec:3.20) |
 | data set | Identifiable collection of data. | [ISO 19115](https://www.iso.org/obp/ui/#iso:std:iso:19115:-2:ed-2:v1:en:sec:3.6) |
-| direct access download service | Download Service which provides access to the Spatial Objects in Spatial Data Sets based upon a query | \[[IRs for NS]\] |
+| direct access download service | Download Service which provides access to the Spatial Objects in Spatial Data Sets based upon a query | [IRs for NS] |
 | encoding | Conversion of data into a series of codes. | [ISO 19118](https://www.iso.org/obp/ui/#iso:std:iso:19118:ed-2:v1:en:term:4.13) |
 | encoding rule | Identifiable collection of conversion rules that define the encoding for a particular data structure. | [ISO 19118](https://www.iso.org/obp/ui/#iso:std:iso:19118:ed-2:v1:en:term:4.14) |
 
@@ -135,7 +135,7 @@ The presence of additional Resource Locator elements, pointing to the data set i
 
 - Within this element, the URL shall point to the response of a "Get View/Download Service Metadata" request of the service providing access to this data set (e.g. the "GetCapabilities" document in the case of an OGC:WFS service).
 
-| **Requirement** | **/req/resource-locator-url** |
+| **Requirement** | **/req/resource-locator-url** | 
 | --- | --- |
 | A | The element `URL` SHALL point to the response of a "Get View/Download Service Metadata' request. |
 
@@ -198,8 +198,8 @@ The presence of additional Resource Locator elements, pointing to the data set i
 
 | **Requirement** | **/req/view-linkage** |
 | --- | --- |
-| Definition |The Resource Locator to an INSPIRE View Service SHALL point to the Service Metadata (e.g. GetCapabilities) response of the associated INSPIRE View Service. The Resource Locator SHALL include the elements `URL`, `protocol` and `applicationProfile`, properly encoded. |
-| Dependency |  **/req/resource-locator-url** <br> **/req/resource-locator-protocol**<br> **/req/resource-locator-application-profile** |
+| Definition | The Resource Locator to an INSPIRE View Service SHALL point to the Service Metadata (e.g. GetCapabilities) response of the associated INSPIRE View Service. The Resource Locator SHALL include the elements `URL`, `protocol` and `applicationProfile`, properly encoded. |
+| Dependency |  **/req/resource-locator-url** <br> **/req/resource-locator-protocol** <br> **/req/resource-locator-application-profile** |
 
 See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
@@ -208,7 +208,7 @@ See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 | **Requirement** | **/req/download-linkage** |
 | --- | --- |
 | Definition | The Resource Locator to an INSPIRE Download Service SHALL point to the Service Metadata (e.g. GetCapabilities) response of the associated INSPIRE Download Service. The Resource Locator SHALL include the elements `URL`, `protocol` and `applicationProfile`, properly encoded. |
-| Dependency |  **/req/resource-locator-url** <br> **/req/resource-locator-protocol**<br> **/req/resource-locator-application-profile** |
+| Dependency |  **/req/resource-locator-url** <br> **/req/resource-locator-protocol** <br> **/req/resource-locator-application-profile** |
 
 See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
@@ -433,14 +433,14 @@ The [Discussion Paper on possible simplification of data-service linking in INSP
 
 Within the MIWP 2.3.2 action, this opportunity (subject to agreement by the sub-group) was further explored by reallocating elements from the Extended Capabilities section to the service metadata. The following tables expresses this proposed reallocation:
 
-|Extended capabilities|Simplification|Service type|
-| :- | :- | :- |
-|inspire\_common:ResourceType          |By default = service                                        |WMS - WFS|
-|inspire\_common:ResourceLocator       |Resource locator in the data set metadata                   |WMS - WFS|
-|inspire\_common:SpatialDataServiceType|Moved to the applicationProfile in the data set metadata    |WMS - WFS|
-|inspire\_common:TemporalReference     |Consider the temporalReference in the data set metadata?    |WMS - WFS|
-|inspire\_common:Conformity            |Declared through the wms:keyword element                    |WMS - WFS|
-|inspire\_common:MetadataPointOfContact|Consider the metadataPointOfContact in the data set metadata|WMS - WFS|
-|inspire\_common:MetadataDate          |Consider the metadataDate in the data set metadata          |WMS - WFS|
-|inspire\_common:SupportedLanguages    |Consider the metadataLanguage in the data set metadata      |WMS - WFS|
-|inspire_dls:SpatialDataSetIdentifier/inspire_common:Code - inspire_dls:SpatialDataSetIdentifier/inspire_common:Namespace|Data set identifier in the data set metadata|WFS|
+| Extended capabilities | Proposed action on mapping | Rationale | Applicable on Service type |
+| :- | :- | :- | :- |
+| inspire\_common:ResourceType          | Discard | By default = service                                     | WMS - WFS |
+| inspire\_common:ResourceLocator       | Discard | Resource locator in the data set metadata                | WMS - WFS |
+| inspire\_common:SpatialDataServiceType| Discard | Moved to the applicationProfile in the data set metadata | WMS - WFS |
+| inspire\_common:TemporalReference     | TBD | Consider the temporalReference in the data set metadata?     | WMS - WFS |
+| inspire\_common:Conformity            | Keep | Declared through the wms:keyword element                    | WMS - WFS |
+| inspire\_common:MetadataPointOfContact| TBD | Consider the metadataPointOfContact in the data set metadata | WMS - WFS |
+| inspire\_common:MetadataDate          | TBD | Consider the metadataDate in the data set metadata           | WMS - WFS |
+| inspire\_common:SupportedLanguages    | TBD | Consider the metadataLanguage in the data set metadata       | WMS - WFS |
+| inspire_dls:SpatialDataSetIdentifier/inspire_common:Code <br/> inspire_dls:SpatialDataSetIdentifier/inspire_common:Namespace | Keep | Data set identifier in the data set metadata | WFS |
