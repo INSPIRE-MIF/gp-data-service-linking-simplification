@@ -1,8 +1,8 @@
 
-# Data Service Linking Simplification: Best Practice guidelines
+# Data Service Linking Simplification: Good Practice guidelines
 
 `Version: draft 1.0`
-`Date: 2021-10-20`
+`Date: 2021-10-21`
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@ _TO_BE_REVIEWED_
 * [3. Conformance](#conformance)
 * [4. Normative references](#normative-references)
 * [5. Terms and definitions](#terms-and-definitions)
-* [6. Symbols and abbreviated terms](#symbols-and-abbreviated-terms)
+* [6. Acronyms](#acronyms)
 * [7. Data Service Linking Simplification](#ds-linking-simplif)
     * [7.1. Main principles](#main-principles)
     * [7.2. From the definition to the data](#def-to-data)
@@ -27,20 +27,20 @@ _TO_BE_REVIEWED_
 
 ## 1. Introduction <a name="introduction"></a>
 
-This good practice candidate is based on the collection and comparison of proposals received from the Member State members of the temporary MIWP technical sub-group on data and service linking simplification. This document leverages on the recommendations, initially described in the [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx), and further improved by the subsequent [proposals for the simplification approach](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/tree/main/proposals) made by the members of the technical sub-group.
+This good practice candidate is based on the collection and comparison of proposals received from the members of the temporary MIWP technical sub-group 2.3.2 on data and service linking simplification. This document leverages on the recommendations, initially described in the [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx), and further improved by the subsequent [proposals for the simplification approach](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/tree/main/proposals) made by the members of the technical sub-group.
 
-The reference for the metadata specification used in this proposal is the [INSPIRE MD TG]. The reference for the INSPIRE Network Service (Download and View) specifications are the [INSPIRE NS - Download Service TG] and [INSPIRE NS - View Service TG].
+The reference for the metadata specification used in this proposal is the [INSPIRE MD TG]. The reference for the INSPIRE Network Service (Download and View) specifications are the [INSPIRE NS - Download Service TG] and [INSPIRE NS - View Service TG], respectively.
 
 ## 2. Scope <a name="scope"></a>
 
-The scope of this document is to provide a well-defined series of opinionated interpretations and rules, that de facto standard web applications can currently support, based on the current list of Requirements and Recommendations expressed in the INSPIRE Technical Guidance (TG) documents.
+This document provides a well-defined set of opinionated interpretations and rules, that de facto standard web applications can currently support, based on the current list of Requirements and Recommendations expressed in the INSPIRE Technical Guidance (TG) documents.
 
 ## 3. Conformance <a name="conformance"></a>
 
 The conformance classes and requirements expressed here apply to the data set and service metadata records, as well as to the service (capabilities) documents.
-In particular, the data set and service metadata records shall be INSPIRE-compliant (checked through the Reference Validator), should be available in the relevant national geoportal catalog (see https://inspire.ec.europa.eu/INSPIRE-in-your-Country), and consecutively harvested by the [INSPIRE Geoportal](https://inspire-geoportal.ec.europa.eu).
+In particular, the data set and service metadata records shall be INSPIRE-compliant (based on tests performed in the Reference Validator), should be available in the relevant national geoportal catalog (see https://inspire.ec.europa.eu/INSPIRE-in-your-Country), and consecutively harvested by the [INSPIRE Geoportal](https://inspire-geoportal.ec.europa.eu).
 
-Furthermore, at this moment the requirements expressed here for the Download Services cannot be applied to the ones that rely on the OGC API - Feature specification, due to the lack of the mapping for some conditional and mandatory INSPIRE metadata elements (ie. Coupled Resource, Unique Resource Identifier) in the [OAPIF BP] document.
+Furthermore, at the time of writing the requirements expressed here for the Download Services are not applicable to the ones that rely on the OGC API - Features specification, due to the lack of the mapping for some conditional and mandatory INSPIRE metadata elements (ie. Coupled Resource, Unique Resource Identifier) in the [OAPIF BP] document.
 
 ## 4. Normative references <a name="normative-references"></a>
 
@@ -83,9 +83,9 @@ For the purposes of this document, the following terms and definitions apply:
 - [ISO Online browsing platform](https://www.iso.org/obp)
 - [INSPIRE glossary](http://inspire.ec.europa.eu/glossary)
 
-## 6. Symbols and abbreviated terms <a name="symbols-and-abbreviated-terms"></a>
+## 6. Acronyms <a name="acronyms"></a>
 
-_TO_BE_REVIEW_
+_TO_BE_REVIEWED_
 
 | Abbreviation | Term |
 | --- | --- |
@@ -100,8 +100,8 @@ _TO_BE_REVIEW_
 
 ### 7.1. Main principles <a name="main-principles"></a>
 
-- A data set shall point to the INSPIRE View and Download Services.
-- The linkage shall be ensured by the bidirectional relationship between the data set metadata and the service metadata.
+- An INSPIRE data set shall have INSPIRE View and Download Services.
+- The linkage between the data set and the View and Download Services shall be ensured by the bidirectional relationship between the data set metadata and the service metadata.
 
 ### 7.2. Resources <a name="resources"></a>
 
@@ -109,32 +109,32 @@ _TO_BE_REVIEW_
 
 ## 8. Conformance classes <a name="ccs"></a>
 
-### 8.1. Conformance class: “INSPIRE-Data-set-Metadata-Resource-Locator”  <a name="cc-ds-md-resloc"></a>
+### 8.1. Conformance class: “INSPIRE-Data-set-Metadata-Resource-Locator” <a name="cc-ds-md-resloc"></a>
 
 | Conformance class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ds-md-resource-locator |
 | --- | --- |
 | Target type | Data set metadata |
 | Dependency | N/A |
 
-The Resource Locator of a metadata record shall point to the URL where the service can be contacted. 
+The Resource Locator element of a data set metadata record shall point to the URL where the service can be contacted. 
 
-Setting up the correct resource locators is important for the connection between the data and the services that provide access to them or for providing additional information concerning the resource.
+Setting up the correct resource locators is important for the connection between the data sets and the services that provide access to them or for providing additional information concerning the data sets.
 
-In particular, the **TG Requirement 1.8** of [INSPIRE MD TG] expresses the obligation of providing online access, if available, to the described data set or data set series.
+In particular, **TG Requirement 1.8** of [INSPIRE MD TG] expresses the obligation to provide online access, if available, to the described data set or data set series.
 
-Furthermore, it suggests that at least two locators need to be expressed in the metadata: one for a Download Service, and one for a View Service.
+Furthermore, it suggests that at least two locators need to be expressed in the data set metadata: one for a View Service and one for a Download Service.
 
-The following requirements are also an enforcement of **TG Recommendation 1.9** in [INSPIRE MD TG] for the metadata record.
+The following requirements are also an enforcement of **TG Recommendation 1.9** in [INSPIRE MD TG] for the data set metadata record.
 
-This conformance class requires that the ResourceLocator element shall point to the set of additional information about a service resource (ie. "Get Download/View Service Metadata" operation).
+This conformance class requires that the Resource Locator element shall point to the set of additional information about a service resource (i.e. "Get Download/View Service Metadata" operation). 
 
-This conformance class requires the presence of `<gmd:protocol>` and `<gmd:applicationProfile>`: by using these two elements, paired with the defined codelist from the central INSPIRE Registry. This would imply fulfilling this portion of the simplification described here.
+This conformance class requires the presence of `<gmd:protocol>` and `<gmd:applicationProfile>`: by using these two elements, paired with the defined codelist values from the INSPIRE Registry. This would imply fulfilling this portion of the simplification described here.
 
-The presence of additional ResourceLocator elements, pointing to the data itself (e.g. "Get Spatial Data Set" request of a Download Service), is permitted, due to the multiplicity expressed by **TG Requirement 1.8**. Consequently, these additional ResourceLocator elements should avoid at least the use of the `<gmd:applicationProfile>` element, specified below, in order to reduce the complexity of a machine-to-machine element recognition made by an INSPIRE software implementation such as the INSPIRE Geoportal.
+The presence of additional Resource Locator elements, pointing to the data set itself (e.g. "Get Spatial Data Set" request of a Download Service), is allowed, due to the multiplicity expressed by **TG Requirement 1.8**. Consequently, these additional Resource Locator elements should avoid at least the use of the `<gmd:applicationProfile>` element specified below, in order to reduce the complexity of a machine-to-machine element recognition made by an INSPIRE software implementation such as the INSPIRE Geoportal.
 
 ### Requirement: \<gmd:URL\> element
 
-- Within this element, the URL shall point to the response of a "Get View/Download Service Metadata" request of the service providing access to this data set (e.g. the "GetCapabilities" document in case of a OGC:WFS service).
+- Within this element, the URL shall point to the response of a "Get View/Download Service Metadata" request of the service providing access to this data set (e.g. the "GetCapabilities" document in the case of an OGC:WFS service).
 
 | **Requirement** | **/req/resource-locator-url** |
 | --- | --- |
@@ -142,10 +142,10 @@ The presence of additional ResourceLocator elements, pointing to the data itself
 
 ### Requirement: \<gmd:protocol\> element
 
-- For this element, the central INSPIRE Registry offers a series of external codelist values from the register: https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue
-- Regarding the label of a codelist, the central INSPIRE Registry specifies the text to be used, and this should follow the metadata language.
+- For this element, the INSPIRE Registry offers a set of external codelist values from the register https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue.
+- Regarding the label of a codelist, the INSPIRE Registry specifies the text to be used, which should follow the metadata language.
 - The [INSPIRE MD TG] already recommends the use of the `gmx:Anchor` element when the provided text is a term or code, instead of `gco:CharacterString`. This conformance class enforces the use of this element.
-- The existence of the `gco:CharacterString` element is permitted only for backward compatibility with an existing ResourceLocator description that might be already compliant with this simplification approach.
+- The existence of the element `gco:CharacterString` is allowed only for backward compatibility with an existing Resource Locator description that might be already compliant with this simplification approach.
 
 | **Requirement** | **/req/resource-locator-protocol** |
 | --- | --- |
@@ -170,10 +170,10 @@ The presence of additional ResourceLocator elements, pointing to the data itself
 
 ### Requirement: \<gmd:applicationProfile\> element
 
-- For this element, the central INSPIRE Registry offers the codelist values from the register: https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType
-- Regarding the label of a codelist, the central INSPIRE Registry specifies the text to be use, and this should follow the metadata language.
+- For this element, the INSPIRE Registry offers the codelist values from the register https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType.
+- Regarding the label of a codelist, the INSPIRE Registry specifies the text to be used, which should follow the metadata language.
 - The [INSPIRE MD TG] already recommends the use of the `gmx:Anchor` element when the provided text is a term or code, instead of `gco:CharacterString`. This conformance class enforces the use of this element.
-- The existence of element `gco:CharacterString` is permitted only for backward compatibility with an existing ResourceLocator description that might be already compliant with this simplification.
+- The existence of the element `gco:CharacterString` is allowed only for backward compatibility with an existing Resource Locator description that might be already compliant with this simplification.
 
 | **Requirement** | **/req/resource-locator-application-profile** |
 | --- | --- |
@@ -195,24 +195,24 @@ The presence of additional ResourceLocator elements, pointing to the data itself
     <gco:CharacterString>Downloaddienst</gco:CharacterString>
 </gmd:applicationProfile>
 ```
+### Requirement: INSPIRE View Service linkage
+
+| **Requirement** | **/req/view-linkage** |
+| --- | --- |
+| Definition |The Resource Locator to an INSPIRE View Service SHALL point to the Service Metadata (e.g. GetCapabilities) response of the associated INSPIRE View Service. The Resource Locator SHALL include the elements `URL`, `protocol` and `applicationProfile`, properly encoded. |
+| Dependency |  **/req/resource-locator-url** <br> **/req/resource-locator-protocol**<br> **/req/resource-locator-application-profile** |
+
+See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
 ### Requirement: INSPIRE Download Service linkage
 
 | **Requirement** | **/req/download-linkage** |
 | --- | --- |
-| Definition | The ResourceLocator to an INSPIRE Download Service SHALL point to the Service Metadata (e.g. GetCapabilities) response of the associated INSPIRE Download Service. The Resource Locator SHALL include properly encoded the `URL`, `protocol` and `applicationProfile`  elements. |
+| Definition | The Resource Locator to an INSPIRE Download Service SHALL point to the Service Metadata (e.g. GetCapabilities) response of the associated INSPIRE Download Service. The Resource Locator SHALL include the elements `URL`, `protocol` and `applicationProfile`, properly encoded. |
 | Dependency |  **/req/resource-locator-url** <br> **/req/resource-locator-protocol**<br> **/req/resource-locator-application-profile** |
 
 See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
-### Requirement: INSPIRE View Service linkage
-
-| **Requirement** | **/req/view-linkage** |
-| --- | --- |
-| Definition |The ResourceLocator to an INSPIRE View Service SHALL point to the Service Metadata (e.g. GetCapabilities) response of the associated INSPIRE View Service. The Resource Locator SHALL present the elements `URL`, `protocol` and `applicationProfile`, properly encoded. |
-| Dependency |  **/req/resource-locator-url** <br> **/req/resource-locator-protocol**<br> **/req/resource-locator-application-profile** |
-
-For an example of this linkage expression, see [Annex A: Examples](#annex-a)
 
 ### 8.2. Conformance class: “INSPIRE-Network-Service-Metadata-Coupled-Resource”  <a name="cc-ns-md-coupledres"></a>
 
@@ -221,9 +221,9 @@ For an example of this linkage expression, see [Annex A: Examples](#annex-a)
 | Target type | Service metadata |
 | Dependency | N/A |
 
-The CoupledResource metadata element refers to, where relevant, the target spatial data set(s) of the described service.  
-It is implemented by reference, i.e. through a URL that points to the metadata record of the data on which the service operates. It therefore helps to link services to the relevant datasets.
-This conformance class strictly follows the **TG Requirement 3.6** of the [INSPIRE MD TG] for the expression of the CoupledResource element.
+The Coupled Resource metadata element refers to, where relevant, the target spatial data set(s) of the described service.  
+It is implemented by reference, i.e. through a URL that points to the metadata record of the data set on which the service operates. It therefore helps to link services to the relevant data sets.
+This conformance class strictly follows **TG Requirement 3.6** of the [INSPIRE MD TG] for the expression of the Coupled Resource element.
 
 Regarding the definition of a Network Service metadata, two scenarios have been identified for publishing metadata conforming to the [IRs for NS], and on the [INSPIRE MD TG]. It is up to the Member State to choose which scenario best fits their specific needs. As these scenarios are not mutually exclusive, a Member State may also choose to implement both.
 
@@ -231,7 +231,7 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 
 ### 8.2.1 INSPIRE Network service - Scenario 1
 
-- With the implementation of Scenario 1, the INSPIRE network service metadata is available in a Discovery Service catalog and is referenced through the `<inspire_common:MetadataURL>` element within the extended INSPIRE capabilities of such service.
+- In Scenario 1, the INSPIRE network service metadata is available in a Discovery Service catalog and is referenced through the `<inspire_common:MetadataURL>` element within the INSPIRE ExtendedCapabilities section of such service.
 - The service metadata shall define a `<srv:operatesOn>` element for every defined data set published by the service.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
@@ -243,7 +243,7 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 
 ### 8.2.2 INSPIRE Network service - Scenario 2
 
- - With the implementation of the Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service (ie. ATOM feed elements or OGC Capabilities), and in particular, for the OGC service, relies on the ExtendedCapabilities section for the remaining elements.
+ - In Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service (i.e. ATOM feed elements or OGC Capabilities), and in particular, for OGC services, it relies on the ExtendedCapabilities section for the remaining elements.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
 ### Requirement: \<wms:MetadataURL\> and \<wfs:MetadataURL\> elements
@@ -254,11 +254,12 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 
 ## 9. Future developments <a name="future-dev"></a>
 
-Within this document, the series of recommendations imply the possibility of further simplifications, on a broader level about the INSPIRE implementation.
+Further simplifications may be possible on a broader level about the INSPIRE implementation.
 
-Note that often the person or organization responsible for the metadata is not the same as the responsible for the service operations. This can lead to duplication, errors and/or outdated information. For instance, the more direct connection expressed with these recommendations could suggest the implementation of "_Scenario 2_", which requirements and definitions are already provided in both the [INSPIRE NS - Download Service TG] and [INSPIRE NS - View Service TG] documents. In this case, the service metadata is no longer required (at least, for this linkage simplification purpose), so its creation can be skipped, or automated by dedicated features of a software implementation of the INSPIRE Discovery Service.
+Note that often the organisation responsible for the metadata is not the same as the organisation responsible for the service operations. In "_Scenario 1_", this situation could easily lead to duplications, errors and/or lack of synchronised information. Such issues could be avoided by implementing "_Scenario 2_", whose requirements and definitions are already provided in both the [INSPIRE NS - Download Service TG] and [INSPIRE NS - View Service TG] documents. In this case, the service metadata would be no longer required (at least for the purpose of this linkage simplification), so its creation could be skipped or automated by dedicated software implementations of the INSPIRE Discovery Service.
 
-Furthermore, the implementation of the above mentioned "_Scenario 2_" for Network Service provides an opportunity for revision of the mapping of the INSPIRE requirements, currently expressed in the Extended Capabilities section (especially the Conformance declaration), since the current lack of support in some (especially proprietary) software products. Refer to the [Annex B](#annex-b) for further details.
+Furthermore, the implementation of "_Scenario 2_" for Network Services could provide an opportunity for the revision of the mapping of the INSPIRE requirements, currently expressed in the Extended Capabilities section (especially the Conformance declaration) requiring the use of specialised extensions of software products. Refer to the [Annex B](#annex-b) for further details.
+
 
 # Annex A: Examples <a name="annex-a"></a>
 
@@ -372,7 +373,7 @@ _These examples are purely informative and do not constitute a reference definit
 </gmd:transferOptions>
 ```
 
-#### _TO_BE_REVIEW_ Example of a Resource Locator of a data set metadata linking a Download Service (Get Download Service Metadata)
+#### _TO_BE_REVIEWED_ Example of a Resource Locator of a data set metadata linking a Download Service (Get Download Service Metadata)
 
 ```xml
 <gmd:transferOptions>
@@ -427,21 +428,21 @@ _Note: this example covers the WFS definition. For a WCS/SOS service, use the pr
   </gmd:MD_DigitalTransferOptions>
 </gmd:transferOptions>
 ```
-# Annex B: Mapping of INSPIRE elements in ExtendedCapabilities <a name="annex-b"></a>
+# Annex B: Mapping of INSPIRE elements in the Extended Capabilities section <a name="annex-b"></a>
 
-The [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx) proposes a new mapping of INSPIRE elements contained in the service metadata, as described for the Scenario2 in the INSPIRE Network Service TGs, in order to achieve an implementation simplification.
+The [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx) proposes a new mapping of the INSPIRE elements contained in the service metadata, as described in the Scenario 2 in the INSPIRE Network Service TGs, in order to remove the need for the Extended Capabilities section and achieve an implementation simplification.
 
-During the MIWP 2.3.2 action, Antonio Rotundo (IT) further explored this, by reallocating elements outside the ExtendedCapabilities.
-The following tables express this simplification and reallocation:
+Within the MIWP 2.3.2 action, Antonio Rotundo (IT) further explored this opportunity, by reallocating elements from the Extended Capabilities section to the service metadata.
+The following tables expresses this simplification and reallocation:
 
 |Extended capabilities|Simplification|Service type|
 | :- | :- | :- |
-|inspire\_common:ResourceType|By default = service|WMS - WFS|
-|inspire\_common:ResourceLocator|Resource locator in the data set metadata|WMS - WFS|
-|inspire\_common:SpatialDataServiceType|Moved to the applicationProfile in the data set metadata|WMS - WFS|
-|inspire\_common:TemporalReference|Consider the temporalReference in the data set metadata?|WMS - WFS|
-|inspire\_common:Conformity|Declared through the wms:keyword element |WMS - WFS|
+|inspire\_common:ResourceType          |By default = service                                        |WMS - WFS|
+|inspire\_common:ResourceLocator       |Resource locator in the data set metadata                   |WMS - WFS|
+|inspire\_common:SpatialDataServiceType|Moved to the applicationProfile in the data set metadata    |WMS - WFS|
+|inspire\_common:TemporalReference     |Consider the temporalReference in the data set metadata?    |WMS - WFS|
+|inspire\_common:Conformity            |Declared through the wms:keyword element                    |WMS - WFS|
 |inspire\_common:MetadataPointOfContact|Consider the metadataPointOfContact in the data set metadata|WMS - WFS|
-|inspire\_common:MetadataDate|Consider the metadataDate in the data set metadata|WMS - WFS|
-|inspire\_common:SupportedLanguages|Consider the metadataLanguage in the data set metadata|WMS - WFS|
+|inspire\_common:MetadataDate          |Consider the metadataDate in the data set metadata          |WMS - WFS|
+|inspire\_common:SupportedLanguages    |Consider the metadataLanguage in the data set metadata      |WMS - WFS|
 |inspire_dls:SpatialDataSetIdentifier/inspire_common:Code - inspire_dls:SpatialDataSetIdentifier/inspire_common:Namespace|Data set identifier in the data set metadata|WFS|
