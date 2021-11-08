@@ -144,14 +144,16 @@ The presence of additional Resource Locator elements, pointing to the data set i
 - For this element, the INSPIRE Registry offers a set of external codelist values from the register https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue.
 - Regarding the label of a codelist, the INSPIRE Registry specifies the text to be used, which should follow the metadata language.
 - The [INSPIRE MD TG] already recommends the use of the `gmx:Anchor` element when the provided text is a term or code, instead of `gco:CharacterString`. This requirements class enforces the use of this element.
-- The existence of the element `gco:CharacterString` is allowed only for backward compatibility with an existing Resource Locator description that might be already compliant with this simplification approach.
+- The use of the element `gco:CharacterString` is allowed for backward compatibility with an existing Resource Locator description that might be already compliant with this simplification approach.
 
 | **Requirement** | **/req/resource-locator-protocol** |
 | --- | --- |
-| A | The element `protocol` SHALL be present in the Resource Locator. |
+| A | The element `protocol` SHALL be present in the Resource Locator, encoded either as `gmx:Anchor` or `gco:CharacterString`. |
 | B | The element `protocol` SHALL use the values from the [ProtocolValue codelist](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue). |
-| C | The element `protocol` SHOULD be encoded with `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the ProtocolValue codelist. The text value should match the related codelist label, expressed in the metadata language. |
-| D | The element `protocol` MAY be encoded with `gco:CharacterString`. In this case, the text value SHALL match the related codelist label, expressed in the metadata language. |
+
+| **Recommendation** | **/rec/resource-locator-protocol** |
+| A | The element `protocol` SHOULD be encoded as `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the ProtocolValue codelist. The text value should match the related codelist label, expressed in the metadata language. |
+| B | The element `protocol` MAY be encoded as `gco:CharacterString`. In this case, the text value shall match the related codelist label, expressed in the metadata language. |
 
 #### Example of a View Service locator with `<gmx:Anchor>` encoding
 ```xml
