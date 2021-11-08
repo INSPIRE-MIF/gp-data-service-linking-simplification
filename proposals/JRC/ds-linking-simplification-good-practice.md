@@ -141,7 +141,7 @@ The presence of additional Resource Locator elements, pointing to the data set i
 
 ### Requirement: \<gmd:protocol\> element
 
-- For this element, the INSPIRE Registry offers a set of external codelist values from the register https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue.
+- For this element, the INSPIRE Registry offers a set of external codelist values from the [ProtocolValue codelist](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue).
 - Regarding the label of a codelist, the INSPIRE Registry specifies the text to be used, which should follow the metadata language.
 - The [INSPIRE MD TG] already recommends the use of the `gmx:Anchor` element when the provided text is a term or code, instead of `gco:CharacterString`. This requirements class enforces the use of this element.
 - The use of the element `gco:CharacterString` is allowed for backward compatibility with an existing Resource Locator description that might be already compliant with this simplification approach.
@@ -150,38 +150,42 @@ The presence of additional Resource Locator elements, pointing to the data set i
 | --- | --- |
 | A | The element `protocol` SHALL be present in the Resource Locator, encoded either as `gmx:Anchor` or `gco:CharacterString`. |
 | B | The element `protocol` SHALL use the values from the [ProtocolValue codelist](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue). |
+| C | If the element `protocol` is encoded as `gco:CharacterString`, the text value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
 
 | **Recommendation** | **/rec/resource-locator-protocol** |
-| A | The element `protocol` SHOULD be encoded as `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the ProtocolValue codelist. The text value should match the related codelist label, expressed in the metadata language. |
-| B | The element `protocol` MAY be encoded as `gco:CharacterString`. In this case, the text value shall match the related codelist label, expressed in the metadata language. |
+| A | The element `protocol` SHOULD be encoded as `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the ProtocolValue codelist. The text value should match the related codelist label, expressed in the metadata language where available. |
 
 #### Example of a View Service locator with `<gmx:Anchor>` encoding
 ```xml
 <gmd:protocol>
-    <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">wms</gmx:Anchor>
+    <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">OGC Web Map Service</gmx:Anchor>
 </gmd:protocol>
 ```
 
 #### Example of a View Service locator with `<gco:CharacterString>` encoding
 ```xml
 <gmd:protocol>
-    <gco:CharacterString>wms</gco:CharacterString>
+    <gco:CharacterString>OGC Web Map Service</gco:CharacterString>
 </gmd:protocol>
 ```
+
+_NOTE_: At the time of writing, the above examples use `eng` as metadata language, and they express the codelist `http://www.opengis.net/def/serviceType/ogc/wms` with the label "OGC Web Map Service". Please, check and use always the codelist label currently in force within the INSPIRE Registry.
 
 ### Requirement: \<gmd:applicationProfile\> element
 
 - For this element, the INSPIRE Registry provides the values from the [SpatialDataServiceType codelist](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType).
 - Regarding the label of a codelist, the INSPIRE Registry specifies the text to be used, which should follow the metadata language.
 - The [INSPIRE MD TG] already recommends the use of the `gmx:Anchor` element when the provided text is a term or code, instead of `gco:CharacterString`. This requirements class enforces the use of this element.
-- The existence of the element `gco:CharacterString` is allowed only for backward compatibility with an existing Resource Locator description that might be already compliant with this simplification.
+- The existence of the element `gco:CharacterString` is allowed for backward compatibility with an existing Resource Locator description that might be already compliant with this simplification.
 
 | **Requirement** | **/req/resource-locator-application-profile** |
 | --- | --- |
-| A | The element `applicationProfile` SHALL be present in the Resource Locator. |
+| A | The element `applicationProfile` SHALL be present in the Resource Locator, encoded either as `gmx:Anchor` or `gco:CharacterString`. |
 | B | The element `applicationProfile` SHALL use the values from the [SpatialDataServiceType codelist](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType). |
-| C | The element `applicationProfile` SHOULD be encoded with `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the mentioned codelist. The text value should match the related codelist label, expressed in the metadata language. |
-| D | The element `applicationProfile` MAY be encoded with `gco:characterString`. The text value SHALL match the related codelist label, expressed in the metadata language. |
+| C | If the element `applicationProfile` is encoded as `gco:characterString`, the text value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
+
+| **Recommendation** | **/rec/resource-locator-application-profile** |
+| A | The element `applicationProfile` SHOULD be encoded with `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the mentioned codelist. The text value should match the related codelist label, expressed in the metadata language where available. |
 
 #### Example of a Download Service locator with `<gmx:Anchor>` encoding
 ```xml
@@ -196,6 +200,9 @@ The presence of additional Resource Locator elements, pointing to the data set i
     <gco:CharacterString>Downloaddienst</gco:CharacterString>
 </gmd:applicationProfile>
 ```
+
+_NOTE_: At the time of writing, the above examples use `dut` as metadata language, and they express the codelist `https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download` with the label "Downloaddienst". Please, check and use always the codelist label currently in force within the INSPIRE Registry.
+
 ### Requirement: INSPIRE View Service linking
 
 | **Requirement** | **/req/view-linkage** |
