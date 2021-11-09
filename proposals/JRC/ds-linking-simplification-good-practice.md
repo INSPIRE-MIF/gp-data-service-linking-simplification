@@ -148,12 +148,12 @@ The presence of additional Resource Locator elements, pointing to the data set i
 
 | **Requirement** | **/req/resource-locator-protocol** |
 | --- | --- |
-| A | The element `protocol` SHALL be present in the Resource Locator, encoded either as `gmx:Anchor` or `gco:CharacterString`. |
-| B | The element `protocol` SHALL use the values from the [ProtocolValue codelist](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue). |
-| C | If the element `protocol` is encoded as `gco:CharacterString`, the text value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
+| A | The `protocol` element SHALL be present in the Resource Locator, encoded as either `gmx:Anchor` or `gco:CharacterString`. |
+| B | The `protocol` element SHALL use the values from the [ProtocolValue codelist](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue). |
+| C | If the `protocol` element is encoded as `gco:CharacterString`, it's value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
 
 | **Recommendation** | **/rec/resource-locator-protocol** |
-| A | The element `protocol` SHOULD be encoded as `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the ProtocolValue codelist. The text value should match the related codelist label, expressed in the metadata language where available. |
+| A | The `protocol` element SHOULD be encoded as `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the ProtocolValue codelist. The text value should match the related codelist label, expressed in the metadata language where available. |
 
 #### Example of a View Service locator with `<gmx:Anchor>` encoding
 ```xml
