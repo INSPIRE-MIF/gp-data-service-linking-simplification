@@ -153,6 +153,7 @@ The presence of additional Resource Locator elements, pointing to the data set i
 | C | If the `protocol` element is encoded as `gco:CharacterString`, it's value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
 
 | **Recommendation** | **/rec/resource-locator-protocol** |
+| --- | --- |
 | A | The `protocol` element SHOULD be encoded as `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the ProtocolValue codelist. The text value should match the related codelist label, expressed in the metadata language where available. |
 
 #### Example of a View Service locator with `<gmx:Anchor>` encoding
@@ -185,6 +186,7 @@ _NOTE_: At the time of writing, the above examples use `eng` as metadata languag
 | C | If the element `applicationProfile` is encoded as `gco:characterString`, the text value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
 
 | **Recommendation** | **/rec/resource-locator-application-profile** |
+| --- | --- |
 | A | The element `applicationProfile` SHOULD be encoded with `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the mentioned codelist. The text value should match the related codelist label, expressed in the metadata language where available. |
 
 #### Example of a Download Service locator with `<gmx:Anchor>` encoding
