@@ -416,7 +416,7 @@ _Note: this example covers the WFS definition. For a WCS/SOS service, use the pr
           <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wfs">OGC Web Feature Service</gmx:Anchor>
         </gmd:protocol>
         <gmd:name>
-          <gco:CharacterString>WFS GetFeature to a INSPIRE pre-defined dataset</gco:CharacterString>
+          <gco:CharacterString>WFS GetFeature request to an INSPIRE pre-defined dataset</gco:CharacterString>
         </gmd:name>
       </gmd:CI_OnlineResource>
     </gmd:onLine>
