@@ -280,7 +280,7 @@ _These examples are purely informative and do not constitute a reference definit
           <gmd:URL>http://.../wms?request=GetCapabilities&amp;service=WMS&amp;version=1.3.0</gmd:URL>
         </gmd:linkage>
         <gmd:protocol>
-          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">wms</gmx:Anchor>
+          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">OGC Web Map Service</gmx:Anchor>
         </gmd:protocol>
         <gmd:applicationProfile>
           <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/view">View Service</gmx:Anchor>
@@ -307,7 +307,7 @@ _These examples are purely informative and do not constitute a reference definit
           <gmd:URL>http://.../wms?request=GetMap&amp;service=WMS&amp;version=1.3.0&amp;layers=1&amp;styles=default&amp;CRS=EPSG:4258&amp;format=image/png&amp;bbox=0.87,43.26,11.68,48.13&amp;width=600&amp;height=400</gmd:URL>
         </gmd:linkage>
         <gmd:protocol>
-          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">wms</gmx:Anchor>
+          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">OGC Web Map Service</gmx:Anchor>
         </gmd:protocol>
         <gmd:name>
           <gco:CharacterString>INSPIRE WMS - GetMap request</gco:CharacterString>
