@@ -238,7 +238,7 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 
 | **Requirement** | **/req/coupled-resource-operateson-locator** |
 | --- | --- |
-| A | The `xlink:href` attribute of each of the `srv:operatesOn` elements SHALL contain a URI pointing to the metadata record of the provided data set or data set series. |
+| A | The `xlink:href` attribute of each of the `srv:operatesOn` elements SHALL contain a URL pointing to the metadata record of the provided data set or data set series, available in a Discovery Service catalog. |
 
 ### 8.2.2 INSPIRE Network service - Scenario 2
 
@@ -249,7 +249,7 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 
 | **Requirement** | **/req/coupled-resource-metadataurl-locator** |
 | --- | --- |
-| A | The URL expressed within the element `metadataURL` SHALL resolve to the metadata record of the data set or data set series, available in a Discovery Service catalog. |
+| A | The URL expressed within the element `metadataURL` SHALL point to the metadata record of the provided data set or data set series, available in a Discovery Service catalog. |
 
 ## 9. Future developments <a name="future-dev"></a>
 
