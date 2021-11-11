@@ -150,7 +150,7 @@ The presence of additional Resource Locator elements, pointing to the data set i
 | --- | --- |
 | A | The `protocol` element SHALL be present in the Resource Locator, encoded as either `gmx:Anchor` or `gco:CharacterString`. |
 | B | The `protocol` element SHALL use the values from the [ProtocolValue codelist](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue). |
-| C | If the `protocol` element is encoded as `gco:CharacterString`, it's value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
+| C | If the `protocol` element is encoded as `gco:CharacterString`, its value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
 
 | **Recommendation** | **/rec/resource-locator-protocol** |
 | --- | --- |
