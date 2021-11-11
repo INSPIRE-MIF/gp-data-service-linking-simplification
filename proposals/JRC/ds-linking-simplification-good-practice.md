@@ -150,7 +150,7 @@ The presence of additional Resource Locator elements, pointing to the data set i
 | --- | --- |
 | A | The `protocol` element SHALL be present in the Resource Locator, encoded as either `gmx:Anchor` or `gco:CharacterString`. |
 | B | The `protocol` element SHALL use the values from the [ProtocolValue codelist](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue). |
-| C | If the `protocol` element is encoded as `gco:CharacterString`, its value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
+| C | If the `protocol` element is encoded as `gco:CharacterString`, its text value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
 
 | **Recommendation** | **/rec/resource-locator-protocol** |
 | --- | --- |
@@ -183,7 +183,7 @@ _NOTE_: At the time of writing, the above examples use `eng` as metadata languag
 | --- | --- |
 | A | The element `applicationProfile` SHALL be present in the Resource Locator, encoded either as `gmx:Anchor` or `gco:CharacterString`. |
 | B | The element `applicationProfile` SHALL use the values from the [SpatialDataServiceType codelist](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType). |
-| C | If the element `applicationProfile` is encoded as `gco:characterString`, the text value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
+| C | If the element `applicationProfile` is encoded as `gco:characterString`, its text value SHALL match the related codelist label specified in the INSPIRE registry, expressed in the metadata language where available. |
 
 | **Recommendation** | **/rec/resource-locator-application-profile** |
 | --- | --- |
