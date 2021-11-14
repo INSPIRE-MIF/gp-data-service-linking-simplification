@@ -23,6 +23,12 @@ The JRC provided an overview of the consolidated proposal for Data-Service linki
 
 The aim of this consolidated proposal is to arrive to a consensus-based approach for simplifying the linking between INSPIRE data and services while maintaining the relevant quality checks in the INSPIRE Geoportal for assuring an effective linkage of the reported INSPIRE resources.
 
+Based on the current obligation to provide in the INSPIRE dataset metadata a resource locator for linking to each of the services providing online access to the datasets, the proposal explicitly states the obligation to provide at least two resource locators, one linking to a view service (WMS Capabilities document) and another linking to a download service (WFS Capabilities document). It also describes an interoperable approach for informing and encoding the parameters included in the resorce locator (protocol, application profile) reusing the codelists already available in the INSPIRE Registry.
+
+As for the obligation to provide a link to the dataset metadata from the service offering / providing access to such dataset (coupled resource element), the consolidated proposal aims at linking the coupled resource just using a simple URL pointing to the dataset metadata (without additionally informing the unique resource identifier of the dataset, which would need to be further resolved), regardless of the scenario which is chosen for providing all required service metadata elements, either:
+* Scenario 1 - Service metadata element provided by linking to an external service metadata file: The URL pointing to the dataset metadata from the operatesOn element of the the service metadata file.
+* Scenario 2 - Service metadata elements provided within the extended capabilities of the service: The URL pointing to the dataset metadata either from the wms:MetadataURL or the wfs:MetadataURL standard elements of the capabilities document of the service, respectively depending on the nature of this service.
+
 TBD - Issues and corresponding pull requests
 
 TBD - Discussion
