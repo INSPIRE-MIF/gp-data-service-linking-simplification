@@ -27,7 +27,9 @@ Based on the current obligation to provide in the INSPIRE dataset metadata a res
 
 As for the obligation to provide a link to the dataset metadata from the service offering / providing access to such dataset (coupled resource element), the consolidated proposal aims at linking the coupled resource just using a simple URL pointing to the dataset metadata (without additionally informing the unique resource identifier of the dataset, which would need to be further resolved), regardless of the scenario which is chosen for providing all required service metadata elements, either:
 * Scenario 1 - Service metadata element provided by linking to an external service metadata file: The URL pointing to the dataset metadata from the operatesOn element of the the service metadata file.
-* Scenario 2 - Service metadata elements provided within the extended capabilities of the service: The URL pointing to the dataset metadata either from the wms:MetadataURL or the wfs:MetadataURL standard elements of the capabilities document of the service, respectively depending on the nature of this service.
+* Scenario 2 - Service metadata elements provided within the extended capabilities of the service: The URL pointing to the dataset metadata either from the wms:MetadataURL or the wfs:MetadataURL standard elements of the capabilities document of the service, respectively depending on the nature of this service (WMS or WFS), or from an entry level 'describedBy' link in the case of ATOM feeds / services.
+
+
 
 TBD - Issues and corresponding pull requests
 
