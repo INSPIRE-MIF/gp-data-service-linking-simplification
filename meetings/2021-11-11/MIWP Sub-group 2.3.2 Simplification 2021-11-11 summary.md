@@ -15,7 +15,7 @@ The meeting was chaired by JRC and attended by experts from DE, IT, AT, NL, ES, 
 
 #### Presentations:
 
-Presentation (PDF)
+[Presentation (PDF)](https://github.com/jescriu/gp-data-service-linking-simplification/blob/main/meetings/2021-11-11/MIWP_Sub-group_2.3.2_Simplification_20211111_meeting.pdf)
 
 #### Summary and Discussion:
 
