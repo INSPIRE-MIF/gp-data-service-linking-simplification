@@ -1,4 +1,4 @@
-### Fifth meeting of MIWP Sub-group 2.3.2
+### Fifth meeting of MIWP Sub-group on Action 2.3.2
 
 ### Simplification of Data and Service Linking 
 
