@@ -49,16 +49,16 @@ After the dicussion on the consolidated proposal the sub-group was requested to 
 
 1. The agenda proposed for this meeting was approved without any modifications.
 2. The [consolidated proposal for Data-Service linking simplificacion](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/JRC/ds-linking-simplification-good-practice.md) was endorsed by consensus of all members of the subgroup attending the meeting, after the JRC presented the proposals (pull requests) for resolving the issues gathered in the GitHub repository within the period of consultation, which were also agreed by the sub-group.
-3. With the aim of organising the continuation of the subgroup activities, as from this meeting the work on simplification will be restructured as following:
+3. With the aim of organising the continuation of the subgroup activities, the JRC proposed to close the first step of the simplification (Part A) and continue the activity of the subgroup for up to 6 months with a second step (Part B), as explained below:
   * **Part A. Data-service linking simplification.**
-This first step in the simplification work is considered **achieved** with the endorsement of the Data-Service linking simplificacion consolidated proposal (Agreement 2), after applying the mentioned pull requests and performing a final quality check revision.
+This part of the work is considered **achieved** with the endorsement of the Data-Service linking simplificacion consolidated proposal (Agreement 2), after applying the mentioned pull requests and performing a final quality check revision of the proposal.
   * **Part B. Removal of the extended capabilities**
-This second step in the simplification work will start just after this meeting for a period of 4-6 months with the objective to come up with a consolidated proposal for removing the extended capabilities from the capabilities document of INSPIRE services. 
-Antonio Rotundo (IT), Ine de Visser (NL) and Marie Lambois (FR) volunteeredto participate and lead this work item, which will complete the simplification tasks of the subgroup by allowing OGC services to fulfil the INSPIRE requirements without offering any extended capabilities, while making possible to get rid of the INSPIRE service metadata.
+This part of the work will start just after this meeting, for a period of 4-6 months, with the objective to come up with a consolidated proposal for removing the extended capabilities from the capabilities document of INSPIRE services, and cover any other side-effects derived from it. 
+Antonio Rotundo (IT), Ine de Visser (NL) and Marie Lambois (FR) volunteered to participate and lead this work item, which will complete the simplification tasks of the subgroup by allowing OGC services to fulfil the INSPIRE requirements without offering any extended capabilities, while making possible to get rid of the INSPIRE service metadata.
 
 #### Actions:
 
 1. The JRC will merge the pull request presented during the meeting for updating the consolidated proposal for Data-Service linking simplificacion based on the consensus of the sub-group.
 2. Marie Lambois (FR) will open a new issue in the GitHub repository to further analyse any possible inconsistencies between the consolidated proposal for Data-Service linking simplificacion and the ISO standards regarding metadata.
 3. The JRC will contact the INSPIRE Helpdesk Facilitators in order to involved them in the final quality check revision of the consolidated proposal. This will include the analysis of any remaining issues which could be identified.
-4. The JRC will kick-off in short Part B of the simplification work (Removal of the extended Capabilities). The members of the sub-group which volunteered to lead and participate in this piece of work will be approached soon.s
+4. The JRC will kick-off in short Part B of the simplification work (Removal of the extended Capabilities). The members of the sub-group which volunteered to lead and participate in this piece of work will be approached soon.
