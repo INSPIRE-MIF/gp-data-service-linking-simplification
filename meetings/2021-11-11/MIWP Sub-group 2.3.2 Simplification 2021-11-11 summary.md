@@ -4,7 +4,7 @@
 
 The meeting was held on-line (via WebEx) on 11th November, 2021, 15:00 - 17:00 CET.
 
-It was chaired by JRC and attended by experts from DE, IT, AT, NL, ES, FR, CZ, PL and LI.
+It was chaired by JRC and attended by experts from DE, IT, AT, NL, ES, FR, CZ, PL, DK and LI.
 
 #### Agenda:
 
