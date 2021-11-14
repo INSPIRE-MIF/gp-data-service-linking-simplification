@@ -19,7 +19,7 @@ It was chaired by JRC and attended by experts from DE, IT, AT, NL, ES, FR, CZ, P
 
 #### Summary and Discussion:
 
-The JRC provided an overview of the consolidated proposal for Data-Service linking simplificacion based on the work performed by the subgroup till the date and the outcomes from previous meetings.
+The JRC provided an overview of the consolidated proposal for Data-Service linking simplificacion based on the work performed by the subgroup till the date and the previous outcomes (past meetings, comments and GitHub issues received).
 
 The aim of this consolidated proposal is to arrive to a consensus-based approach for simplifying the linking between INSPIRE data and services while maintaining the relevant quality checks in the INSPIRE Geoportal for assuring an effective linkage of the reported INSPIRE resources.
 
