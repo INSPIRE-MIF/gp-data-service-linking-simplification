@@ -280,7 +280,7 @@ _These examples are purely informative and do not constitute a reference definit
           <gmd:URL>http://.../wms?request=GetCapabilities&amp;service=WMS&amp;version=1.3.0</gmd:URL>
         </gmd:linkage>
         <gmd:protocol>
-          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">wms</gmx:Anchor>
+          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">OGC Web Map Service</gmx:Anchor>
         </gmd:protocol>
         <gmd:applicationProfile>
           <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/view">View Service</gmx:Anchor>
@@ -307,7 +307,7 @@ _These examples are purely informative and do not constitute a reference definit
           <gmd:URL>http://.../wms?request=GetMap&amp;service=WMS&amp;version=1.3.0&amp;layers=1&amp;styles=default&amp;CRS=EPSG:4258&amp;format=image/png&amp;bbox=0.87,43.26,11.68,48.13&amp;width=600&amp;height=400</gmd:URL>
         </gmd:linkage>
         <gmd:protocol>
-          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">wms</gmx:Anchor>
+          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">OGC Web Map Service</gmx:Anchor>
         </gmd:protocol>
         <gmd:name>
           <gco:CharacterString>INSPIRE WMS - GetMap request</gco:CharacterString>
@@ -321,7 +321,7 @@ _These examples are purely informative and do not constitute a reference definit
 
 ### Examples of Resource Locator for INSPIRE Download Service
 
-#### Resource Locator  a "Get Download Service Metadata" operation - ATOM topfeed
+#### Resource Locator to a "Get Download Service Metadata" operation - ATOM topfeed
 
 ```xml
 <gmd:transferOptions>
@@ -372,7 +372,7 @@ _These examples are purely informative and do not constitute a reference definit
 </gmd:transferOptions>
 ```
 
-#### _TO_BE_REVIEWED_ Example of a Resource Locator of a data set metadata linking a Download Service (Get Download Service Metadata)
+#### Resource Locator to a "Get Download Service Metadata" operation - WFS GetCapabilities
 
 ```xml
 <gmd:transferOptions>
@@ -384,7 +384,7 @@ _These examples are purely informative and do not constitute a reference definit
           <gmd:URL>http://.../wfs?service=wfs&amp;version=2.0.0&amp;request=GetCapabilities</gmd:URL>
         </gmd:linkage>
         <gmd:protocol>
-          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wfs">wfs</gmx:Anchor>
+          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wfs">OGC Web Feature Service</gmx:Anchor>
         </gmd:protocol>
         <gmd:applicationProfile>
           <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download">Download Service</gmx:Anchor>
@@ -399,7 +399,7 @@ _These examples are purely informative and do not constitute a reference definit
 </gmd:transferOptions>
 ```
 
-#### _TO_BE_REVIEWED_ Example of an optional definition of a Resource Locator in the dataset metadata linking directly the downloadable dataset (Get Spatial Data Set)
+#### Additional Resource Locator to a "Download Service - Get Spatial Data Set" operation - WFS Get Feature
 
 _Note: this example covers the WFS definition. For a WCS/SOS service, use the proper codelist for the `protocol` element_
 
@@ -413,13 +413,10 @@ _Note: this example covers the WFS definition. For a WCS/SOS service, use the pr
           <gmd:URL>http://.../wfs?service=wfs&amp;version=2.0.0&amp;request=GetFeature&amp;storedquery_id=http://inspire.ec.europa.eu/operation/download/GetSpatialDataSet&amp;DataSetIdCode=mycode&amp;DataSetIdNamespace=mynamespace&amp;CRS=EPSG:4326&amp;Language=eng</gmd:URL>
         </gmd:linkage>
         <gmd:protocol>
-          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wfs">wfs</gmx:Anchor>
+          <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wfs">OGC Web Feature Service</gmx:Anchor>
         </gmd:protocol>
-        <gmd:applicationProfile>
-          <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download">Download Service</gmx:Anchor>
-        </gmd:applicationProfile>
         <gmd:name>
-          <gco:CharacterString>INSPIRE Dataset</gco:CharacterString>
+          <gco:CharacterString>WFS GetFeature request to an INSPIRE pre-defined dataset</gco:CharacterString>
         </gmd:name>
       </gmd:CI_OnlineResource>
     </gmd:onLine>
