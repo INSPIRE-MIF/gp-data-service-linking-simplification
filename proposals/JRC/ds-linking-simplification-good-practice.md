@@ -121,7 +121,7 @@ Setting up the correct resource locators is important for the connection between
 
 In particular, **TG Requirement 1.8** of [INSPIRE MD TG] expresses the obligation to provide online access, if available, to the described data set or data set series.
 
-Furthermore, it suggests that at least two locators need to be expressed in the data set metadata: one for a View Service and one for a Download Service.
+Furthermore, the INSPIRE legal framework requires that data sets are made available through View and Download services, which in turn implies that at least two locators need to be expressed in the data set metadata: one for a View Service and one for a Download Service.
 
 The following requirements are also an enforcement of **TG Recommendation 1.9** in [INSPIRE MD TG] for the data set metadata record.
 
