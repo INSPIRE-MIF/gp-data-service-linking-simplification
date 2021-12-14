@@ -34,7 +34,7 @@ The following aspects were discussed:
   * Since there was no agreement on a consensus solution to manage the issue, the group agreed to continue the discussion in the GitHub repository.
 
 * **Inputs sent by @heidivanparys on 2nd December**: 
-  * @heidivanparys already started with the quality-check / review of Part A Consolidated proposal (Good Practice). She expressed her agreement with the previous comment from @AntoRot, and explained that the consolidated proposal should reuse the requirements already established in the technical guidelines. This could be done by expressing in this Good Practice dependencies to the requirements classesthat already exist in the TG MD. 
+  * @heidivanparys already started with the quality-check / review of Part A Consolidated proposal (Good Practice). She expressed her agreement with the previous comment from @AntoRot, and explained that the consolidated proposal should reuse the requirements already established in the technical guidelines. This could be done by expressing in this Good Practice dependencies to the requirements classes that already exist in the TG MD. 
   * Particularly, if the present Good Practice finally proposes something not aligned with TG Requirement 3.6 discussed above, it would be better to submit a change proposal for this requirement through the governance process currently established.
 
 **Agenda Item 2 - Discussion on the Remapping of Extended Capabilities**
