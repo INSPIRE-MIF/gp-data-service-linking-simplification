@@ -16,7 +16,7 @@ It was chaired by JRC and attended by experts from IT, NL, FR and DK.
 
 #### Presentations:
 
-[Presentation (PDF)](https://github.com/jescriu/gp-data-service-linking-simplification/blob/main/meetings/2021-12-03/20211203_MIWP_Sub-group_2.3.2_Simplification_Kick-off_Part_B.pdf)
+[Presentation (PDF)](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/meetings/2021-12-03/20211203_MIWP_Sub-group_2.3.2_Simplification_Kick-off_Part_B.pdf)
 
 #### Summary and main points of the discussion:
 
