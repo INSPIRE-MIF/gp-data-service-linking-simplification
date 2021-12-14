@@ -74,7 +74,7 @@ Discussion on specific Extended Capabilities elements:
 1. The consolidated proposal for Part B of the Simplification work should be drafted referring, where possible, to requiments and recommmendations already existing in the current Technical Guidelines.
 2. The group agreed to scope the remapping work just to OGC Web Services (OWS). 
 3. Further discussion about the remapping of the Extended Capabilities will take place in the already existing [GitHub repository](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/), opening a generic issue thread to be complemented with specific issue threads to discuss on each concrete element of the Extended Capabilities. First outcomes are expected by mid January.
-4. @heidivanparys will provide starting documentation regarding the quality check revision of the Consolidated proposal for for Part A of the simplification work also by mid January. 
+4. @heidivanparys will provide starting documentation regarding the quality check revision of the Consolidated proposal for Part A of the simplification work also by mid January. 
 
 #### Actions:
 
