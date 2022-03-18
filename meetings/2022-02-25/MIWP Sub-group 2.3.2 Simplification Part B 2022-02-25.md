@@ -10,20 +10,20 @@ It was chaired by JRC and attended by experts from IT, NL, FR and DK.
 
 1. Introduction and planning.
 2. Discussion on [issues](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues)
-  * Part A – Pending issues: [Issue #38](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/38) (Coupled resource implementation is not compliant)
-  * Part B - Extended Capabilities elements remapping:
-    * [Issue #39](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39) (Conformity)
-    * [Issue #40](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40) (Temporal Reference)
-    * [Issue #41](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) (Metadata Point of Contact)
-    * [Issue #42](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/42) (Metadata Date)
-    * [Issue #43](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) (Supported languages)
-    * Others issues not discussed (Identifiers, others)
+   * Part A – Pending issues: [Issue #38](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/38) (Coupled resource implementation is not compliant)
+   * Part B - Extended Capabilities elements remapping:
+     * [Issue #39](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39) (Conformity)
+     * [Issue #40](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40) (Temporal Reference)
+     * [Issue #41](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) (Metadata Point of Contact)
+     * [Issue #42](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/42) (Metadata Date)
+     * [Issue #43](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) (Supported languages)
+     * Others issues not discussed (Identifiers, others)
 3. Drafting of consolidated proposal Part B 
 4. Consolidated proposal Part A – Quality checking.
-  * [Issue #44](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/44) (Figure in 7.2 Resources)
-  * [Issue #45](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/45) (Duplicate requirements / reorganisation requirements classes)
-  * [Issue #46](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/46) (Keyword mapping for keywords from thesauri (WFS))
-  * [Issue #47](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/47) (Spatial data service category)
+   * [Issue #44](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/44) (Figure in 7.2 Resources)
+   * [Issue #45](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/45) (Duplicate requirements / reorganisation requirements classes)
+   * [Issue #46](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/46) (Keyword mapping for keywords from thesauri (WFS))
+   * [Issue #47](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/47) (Spatial data service category)
 5. Way forward / Next steps.
 
 #### Presentations:
