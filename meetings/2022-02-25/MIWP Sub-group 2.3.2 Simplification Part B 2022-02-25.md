@@ -61,8 +61,8 @@ Afterwards, the rest of items scheduled in the agenda were covered.
        * It was highlighted that UPDATESEQUENCE is optional in OWS and, if provided, it can be just an integer or a string representing a timestamp in ISO 8601:2004 format. Hence, there is a need to check if an standardised date format might be used / expected or required.
        * Additionally, support in different service publication software available in the market is not assured. At the moment there is only evidence that MapServer supports it for WMS.
        * Based on the previous discussion, it was agreed to adopt a solution based on the following prioritised criteria:
-         A. if an atom:updated date value (in case of ATOM) or an UPDATESEQUENCE date value is present, take this value as Metadata Date (Only in the case an standardised date format might be used and retrieved - See below checks required with ISO / OGC).
-         B. Failing A, check the dataset metadata for the existence of the following dates:
+         * A. if an atom:updated date value (in case of ATOM) or an UPDATESEQUENCE date value is present, take this value as Metadata Date (Only in the case an standardised date format might be used and retrieved - See below checks required with ISO / OGC).
+         * B. Failing A, check the dataset metadata for the existence of the following dates:
             * B1. If a date of type 'publication' is present, take this value as Metadata Date.
             * B2. Failing B1: If a date of type 'revision' is present, take this value as Metadata Date.
             * B3. Failing B2: Otherwise, take the date of type 'creation' as value of the Metadata Date.
