@@ -71,7 +71,14 @@ Afterwards, the rest of items scheduled in the agenda were covered.
        * All attendees directly agreed to take the [proposal posted by @heidivanparys](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41#issuecomment-1021278214).
        * A note will be added to the consolidated proposal, clarifying that in cases where external ISO 19139 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider.     
      * [Issue #43](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) (Supported languages)
-     
+       * jescriu reminded about the possibility to obtain the suported languages automatically (see [related post](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43#issuecomment-1022528187)) by requesting the service in all the possible different languages and analysing its responses. But this functionality could only be probably added to the new INSPIRE Geoportal and the implications in service performance could not be negligible.
+       * @AntoRot totally agree on this approach. He also reminded the possibility of mapping (1) the DefaultLanguage element to the dataset metadata language and (2) the SupportedLanguage to the locale element (PT_locale) values - in case of having multilingual dataset metadata, as he suggested in [this post](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43#issuecomment-1022105139). About this proposal, @AntoRot mentioned that he noticed a potential issue on the validation of multilingual metadata (using the locale element) when the record contains Anchor encodings. He will open an issue in the INSPIRE Reference Validator helpdesk.
+       * @MarieLambois considered this last proposal quite complex. Additionally, she stated that this solution will not work for France, because they are offering multilingual dataset metadata but not service Capabilities documents in different languages (because of limited resources to maintain them).
+       * @idevisser reminded the [lastest proposal from @AntoRot](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43#issuecomment-1050773537) added to the dicussion thread. On it:
+         * 1. in case of one language (DefaultLanguage), use the dataset metadata language; 
+         * 2. in case of further supported languages, in case of WFS or Atom, use the attribute xml:lang for the two elements affected (title and abstract), and;
+         * 3. in case of further supported languages, in case of WMS, keep the possibility to include the (optional) ExtendedCapabilities section, including the SupportedLanguages elements.
+       * Finally, the attendees agreed on taking this last approach, but giving aproximately 1 week to further discuss about it in the related issue thread ([Issue #43](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43))
      * Others issues not discussed (if any)
        * No additional issues were discussed.
 
@@ -86,8 +93,14 @@ The JRC presented a proposal to organise the way forward on Part A and Part B of
 #### Decisions:
 
 1. Based on the good progress achieved during the meeting, the participants agreed with the planning proposed.
-2. 
+2. Agreement on each of the issues discussed was reached. The specific agreements on the mapping of each of the elements in the Extended Capabilities have been traced among the summary provided for the Agenda Item 2.
 
 #### Actions:
 
-- [ ] xxx.
+- [ ] @heidivanparys to check with ISO / OGC about the possibility to use an standardised date format for UPDATESEQUENCE.
+- [ ] @AntoRot to open an issue in the INSPIRE Reference Validator helpdesk, warning about the potential issue on the validation of multilingual metadata when Anchor encodings are used within the metadata record.
+- [ ] All to summarize the specific agreements reached for each of the the issue threads discussed, while closing them. 
+- [ ] All to collaborately draft the consolidated proposal for Part B (Remapping of the Extended Capabilities), including te description of the necessary TG/IR changes, based on the mentioned agreements and according the planning agreed by the group. 
+- [ ] @jescriu to organize this work (for the last two previous actions), by making a proposal to distribute the related tasks between the attendees of this meeting.
+- [ ] All to start processing the quality checking of the consolidated proposals based on the proposals provided by @heidivanparys through GitHub and/or email. @jescriu and @heidivanparys will coordinate a way forward for this work item.
+- [ ] Submission of the consolidated proposal (integrating Part A and Part B) for the data-service linking simplification as a candidated INSPIRE Good Practice.
