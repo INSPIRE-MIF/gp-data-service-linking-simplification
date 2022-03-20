@@ -17,14 +17,13 @@ It was chaired by JRC and attended by experts from IT, NL, FR and DK.
      * [Issue #41](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) (Metadata Point of Contact)
      * [Issue #42](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/42) (Metadata Date)
      * [Issue #43](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) (Supported languages)
-     * Others issues not discussed (Identifiers, others)
-3. Drafting of consolidated proposal Part B 
-4. Consolidated proposal – Quality checking.
+     * Others issues not discussed (if any)
+3. Consolidated proposal – Quality checking.
    * [Issue #44](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/44) (Figure in 7.2 Resources)
    * [Issue #45](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/45) (Duplicate requirements / reorganisation requirements classes)
    * [Issue #46](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/46) (Keyword mapping for keywords from thesauri (WFS))
    * [Issue #47](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/47) (Spatial data service category)
-5. Way forward and Next steps.
+4. Way forward and Next steps.
 
 #### Presentations:
 
@@ -58,24 +57,20 @@ Afterwards, the rest of items scheduled in the agenda were covered.
      
      * [Issue #43](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) (Supported languages)
      
-     * Others issues not discussed (Identifiers, others)
-     
+     * Others issues not discussed (if any)
+       * No addtional issues were discussed.
 
-**Agenda Item 3 - Drafting of consolidated proposal Part B**
+**Agenda Item 3 - Consolidated proposal – Quality checking**
 
-XXX
+Unfortunately, there was no time for review the proposals made by @heidivanparys (till the date of the meeting) for revising the quality of the consolidated proposals for Part A and Part B of the data-service linking simplification work (See Slide 7 of the presentation).  
 
-**Agenda Item 4 - Consolidated proposal – Quality checking**
+**Agenda Item 4 - Way forward and Next steps**
 
-XXX
-
-**Agenda Item 5 - Way forward and Next steps**
-
-XXX
+The JRC presented a proposal to organise the way forward on Part A and Part B of the data-service linking simplification work, based on the planning already presented under Point 1 of the agenda (See Slides 8 and 9 of the presentation). 
 
 #### Decisions:
 
-1. Based on the agreements achieved during the meeting, participants in the meeting agreed with the planning proposed.
+1. Based on the good progress achieved during the meeting, the participants agreed with the planning proposed.
 2. 
 
 #### Actions:
