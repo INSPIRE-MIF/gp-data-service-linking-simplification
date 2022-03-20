@@ -52,13 +52,14 @@ Afterwards, the rest of items scheduled in the agenda were covered.
      * [Issue #40](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40) (Temporal Reference)
      
      * [Issue #41](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) (Metadata Point of Contact)
-     
+       * All attendees directly agreed to take the [proposal posted by @heidivanparys](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41#issuecomment-1021278214).
+       * A note will be added to the consolidated proposal, clarifying that in cases where external ISO 19139 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider. 
      * [Issue #42](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/42) (Metadata Date)
      
      * [Issue #43](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) (Supported languages)
      
      * Others issues not discussed (if any)
-       * No addtional issues were discussed.
+       * No additional issues were discussed.
 
 **Agenda Item 3 - Consolidated proposal – Quality checking**
 
