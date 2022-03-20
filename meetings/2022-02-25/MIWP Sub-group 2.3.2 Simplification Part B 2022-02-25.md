@@ -46,7 +46,10 @@ Afterwards, the rest of items scheduled in the agenda were covered.
      * All the other attendees agreed with both on this approach.
    * Part B - Extended Capabilities elements remapping:
      * [Issue #39](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39) (Conformity)
-     
+       * jescriu proposed to select [the proposal from @LauraAlemany](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39#issuecomment-1022169849), further elaborated on top of the initial proposals made by @AntoRot and @ @heidivanparys, based on adding a specific set of ordered keywords for declaring each of the Regulations and the conformity value corresponding to it, in that order.
+       * @AntoRot agreed that it was a good proposal, but mentioned the possibility of making it more simple and user friendly, by considering as the 'conformant' value as default when the keyword agreed for declaring a specific Regulation is present, that is avoiding to additionally add a second keyword stating the conformity value.
+       * Both, @MarieLambois and @idevisser commented that this apporach would be better, due to the fact that relying on the order of keywords is not safe when processing XML-kind files.
+       * Based on the mentioned inputs, all attendees agreed to finally take this simplified and user friendly approach, as @MarieLambois already proposed in [this post](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39#issuecomment-1050622445).
      * [Issue #40](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40) (Temporal Reference)
      
      * [Issue #41](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) (Metadata Point of Contact)
