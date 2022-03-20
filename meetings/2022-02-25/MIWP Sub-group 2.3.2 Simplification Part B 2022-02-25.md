@@ -51,11 +51,11 @@ Afterwards, the rest of items scheduled in the agenda were covered.
        * Based on the mentioned inputs, all attendees agreed to finally take this simplified and user friendly approach, as @MarieLambois already proposed in [this post](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39#issuecomment-1050622445).
      * [Issue #40](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40) (Temporal Reference)
        * @AntoRot explained and proposed his [initial proposal](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40#issue-1097580058) based on the publication date of the dataset served by the service, further clarified in [this post](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40#issuecomment-1021637467).
-       * On the other hand, @idevisser proposed to simplify and adopt a solution based on the revision date of the service, as explained in [this post](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40#issuecomment-1025631157), more concretely using only the UPDATESEQUENCE value of the OWS service Capabilities (optional in OWS) and the atom:updated element for ATOM services, while mapping its value to both elements of the Extended Capabilities, the Temporal reference and to the Metadata date (i.e. taking an approach aligned to her proposal on Issue #42).
+       * On the other hand, @idevisser proposed to simplify and adopt a solution based on the revision date of the service, as explained in [this post](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40#issuecomment-1025631157), more concretely using only the UPDATESEQUENCE value of the OWS service Capabilities (optional in OWS) and the atom:updated element for ATOM services, while mapping its value to both elements of the Extended Capabilities, the Temporal reference and to the Metadata date (i.e. taking an approach aligned to her proposal on [Issue #42](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/42)).
        * @MarieLambois suggested to take any of the previous proposals, either the one from @AntoRot or the one from @idevisser.
        * @jescriu mentioned that, if possible, it would be better to choose a solution which could support descentralized scenarios, where the service is managed by a different organization than the one creating or maintaining the dataset.
-       * Due to the (initial) disagreement and the links to Issue #42, the attendees proposed to discuss first the latter.
-       * Based on such discussion and subsequent agreement (see below), it was decided to map both elements of the Extended Capabilities, the Temporal reference and to the Metadata date, following the criteria stated in Issue #42.
+       * Due to the (initial) disagreement and the links to [Issue #42](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/42), the attendees proposed to discuss first the latter.
+       * Based on such discussion and subsequent agreement (see below), it was decided to map both elements of the Extended Capabilities, the Temporal reference and to the Metadata date, following the criteria stated in [Issue #42](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/42).
      * [Issue #42](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/42) (Metadata Date)
        * The use of UPDATESEQUENCE value of the OWS service Capabilities and the atom:updated element for ATOM services, was discussed. 
        * It was highlighted that UPDATESEQUENCE is optional in OWS and, if provided, it can be just an integer or a string representing a timestamp in ISO 8601:2004 format. Hence, there is a need to check if an standardised date format might be used / expected or required.
@@ -63,9 +63,9 @@ Afterwards, the rest of items scheduled in the agenda were covered.
        * Based on the previous discussion, it was agreed to adopt a solution based on the following prioritised criteria:
          A. if an atom:updated date value (in case of ATOM) or an UPDATESEQUENCE date value is present, take this value as Metadata Date (Only in the case an standardised date format might be used and retrieved - See below checks required with ISO / OGC).
          B. Failing A, check the dataset metadata for the existence of the following dates:
-            *B1. If a date of type 'publication' is present, take this value as Metadata Date.
-            *B2. Failing B1: If a date of type 'revision' is present, take this value as Metadata Date.
-            *B3. Failing B2: Otherwise, take the date of type 'creation' as value of the Metadata Date.
+            * B1. If a date of type 'publication' is present, take this value as Metadata Date.
+            * B2. Failing B1: If a date of type 'revision' is present, take this value as Metadata Date.
+            * B3. Failing B2: Otherwise, take the date of type 'creation' as value of the Metadata Date.
        * @heidivanparys will check with ISO / OGC about the possibility to use an standardised date format for UPDATESEQUENCE.
      * [Issue #41](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) (Metadata Point of Contact)
        * All attendees directly agreed to take the [proposal posted by @heidivanparys](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41#issuecomment-1021278214).
