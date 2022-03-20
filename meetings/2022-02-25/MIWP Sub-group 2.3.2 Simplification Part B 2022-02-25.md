@@ -50,12 +50,17 @@ Afterwards, the rest of items scheduled in the agenda were covered.
        * Both, @MarieLambois and @idevisser commented that this apporach would be better, due to the fact that relying on the order of keywords is not safe when processing XML-kind files.
        * Based on the mentioned inputs, all attendees agreed to finally take this simplified and user friendly approach, as @MarieLambois already proposed in [this post](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39#issuecomment-1050622445).
      * [Issue #40](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40) (Temporal Reference)
+       * @AntoRot explained and proposed his [initial proposal](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40#issue-1097580058) based on the publication date of the dataset served by the service, further clarified in [this post](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40#issuecomment-1021637467).
+       * On the other hand, @idevisser proposed to simplify and adopt a solution based on the revision date of the service, as explained in [this post](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/40#issuecomment-1025631157), more concretely using only the UPDATESEQUENCE value of the service Capabilities (optional for WMS), while mapping its value to both elements of the Extended Capabilities, the Temporal reference and to the Metadata date (i.e. taking an approach aligned to her proposal on Issue #42).
+       * @MarieLambois suggested to take any of the previous proposals, either the one from @AntoRot or the one from @idevisser.
+       * @jescriu mentioned that, if possible, it would be better to choose a solution which could support descentralized scenarios, where the service is managed by a different organization than the one creating or maintaining the dataset.
+       * Due to the (initial) disagreement and the links to Issue #42, the attendees proposed to discuss first the latter.
+       * PENDING - STATE FINAL DECISION.
+     * [Issue #42](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/42) (Metadata Date)
      
      * [Issue #41](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) (Metadata Point of Contact)
        * All attendees directly agreed to take the [proposal posted by @heidivanparys](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41#issuecomment-1021278214).
-       * A note will be added to the consolidated proposal, clarifying that in cases where external ISO 19139 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider. 
-     * [Issue #42](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/42) (Metadata Date)
-     
+       * A note will be added to the consolidated proposal, clarifying that in cases where external ISO 19139 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider.     
      * [Issue #43](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) (Supported languages)
      
      * Others issues not discussed (if any)
