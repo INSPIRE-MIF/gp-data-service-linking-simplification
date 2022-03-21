@@ -1,10 +1,10 @@
-#### MIWP Sub-group on Action 2.3.2 - Part B "Remapping of the extended capabilities" 2nd Meeting
+#### MIWP Sub-group on Action 2.3.2 'Simplification of Data and Service Linking'
 
-#### Simplification of Data and Service Linking - Part B "Remapping of the extended capabilities" 
+####  - Part B "Remapping of the extended capabilities", 2nd meeting
 
 The meeting was held on-line (via WebEx) on 25nd February, 2022, 14:00 - 15:30 CET.
 
-It was chaired by JRC and attended by experts from IT, NL, FR and DK.
+It was chaired by the JRC and attended by experts from IT, NL, FR and DK.
 
 #### Agenda:
 
@@ -33,7 +33,7 @@ It was chaired by JRC and attended by experts from IT, NL, FR and DK.
 
 **Agenda Item 1 - Introduction and planning** 
 
-The JRC welcomed the attendees, provided an overview to the objectives of the meeting and introduced the planning proposed to continue the activititives of the sub-group for the remapping of the elements of the Extended Capabilities (See Slide 4 of the presentation).
+The JRC welcomed the attendees, provided an overview to the objectives of the meeting and introduced the planning proposed in order to continue the activititives of the sub-group for the remapping of the elements of the Extended Capabilities (See Slide 4 of the presentation).
 Afterwards, the rest of items scheduled in the agenda were covered.
 
 **Agenda Item 2 - Discussion on issues**
@@ -97,10 +97,10 @@ The JRC presented a proposal to organise the way forward on Part A and Part B of
 
 #### Actions:
 
-- [ ] @heidivanparys to check with ISO / OGC about the possibility to use an standardised date format for UPDATESEQUENCE.
+- [ ] @heidivanparys to check with ISO / OGC about the possibility to use a standardised date format for UPDATESEQUENCE.
 - [ ] @AntoRot to open an issue in the INSPIRE Reference Validator helpdesk, warning about the potential issue on the validation of multilingual metadata when Anchor encodings are used within the metadata record.
 - [ ] All to summarize the specific agreements reached for each of the the issue threads discussed, while closing them. 
-- [ ] All to collaborately draft the consolidated proposal for Part B (Remapping of the Extended Capabilities), including te description of the necessary TG/IR changes, based on the mentioned agreements and according the planning agreed by the group. 
+- [ ] All to collaboratively draft the consolidated proposal for Part B (Remapping of the Extended Capabilities), including te description of the necessary TG/IR changes, based on the mentioned agreements and according the planning agreed by the group. 
 - [ ] @jescriu to organize this work (for the last two previous actions), by making a proposal to distribute the related tasks between the attendees of this meeting.
 - [ ] All to start processing the quality checking of the consolidated proposals based on the proposals provided by @heidivanparys through GitHub and/or email. @jescriu and @heidivanparys will coordinate a way forward for this work item.
 - [ ] Submission of the consolidated proposal (integrating Part A and Part B) for the data-service linking simplification as a candidated INSPIRE Good Practice.
