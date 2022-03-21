@@ -99,7 +99,7 @@ The JRC presented a proposal to organise the way forward on Part A and Part B of
 
 - [ ] @heidivanparys (DK) to check with ISO / OGC about the possibility to use a standardised date format for `UPDATESEQUENCE`.
 - [ ] @AntoRot (IT) to open an issue in the INSPIRE Reference Validator helpdesk, warning about the potential issue on the validation of multilingual metadata when Anchor encodings are used within the metadata record.
-- [ ] All to summarize the specific agreements reached for each of the the issue threads discussed, while closing them. 
+- [ ] All to summarize the specific agreements reached for each of the issue threads discussed, while closing them. 
 - [ ] All to collaboratively draft the consolidated proposal for Part B (Remapping of the Extended Capabilities), including the description of the necessary TG/IR changes, based on the mentioned agreements and according the planning agreed by the group. 
 - [ ] @jescriu (JRC) to organize this work (for the last two previous actions), by making a proposal to distribute the related tasks between the attendees of this meeting.
 - [ ] All to start processing the quality checking of the consolidated proposals based on the proposals provided by @heidivanparys (DK) through GitHub and/or email. @jescriu (JRC) and @heidivanparys (DK) will coordinate a way forward for this work item.
