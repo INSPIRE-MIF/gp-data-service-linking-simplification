@@ -41,7 +41,7 @@ Afterwards, the rest of items scheduled in the agenda were covered.
    * Part A – Pending issues: [Issue #38](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/38) (Coupled resource implementation is not compliant)
      * As per the request in this issue, the URL of the Coupled resource should be pointing to the `#MD_DataIdentification` section of the metadata, and not to the raw metadata iself, in order to keep compliance to ISO 19119, and also to TG Requirement 3.6 of the [INSPIRE Technical Guidelines on Metadata v2.1.0](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc#4124-linking-to-provided-data-sets-using-coupled-resource) (TG MD).
      * Given the different existing implementations, @idevisser (NL) asked to relax this requirement, by keeping the linkage to the `#MD_DataIdentification` section of the metadata as an optional feature (i.e. pointing to the URL of the metadata, with or without the  additional `#MD_DataIdentification` pointer). 
-     * @heidivanparys (DK) commented that she would aldo agree to relax TG Requirement 3.6 despite slightly deviating from ISO 19119, and proposed to add an explanatory note on this aspect in the final consolidated proposal.
+     * @heidivanparys (DK) commented that she would also agree to relax TG Requirement 3.6 despite slightly deviating from ISO 19119, and proposed to add an explanatory note on this aspect in the final consolidated proposal.
      * All the other attendees agreed with both on this approach.
    * Part B - Extended Capabilities elements remapping:
      * [Issue #39](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39) (Conformity)
