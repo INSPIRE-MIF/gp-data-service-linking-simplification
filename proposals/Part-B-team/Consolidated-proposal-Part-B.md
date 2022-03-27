@@ -41,7 +41,7 @@ This part provides a set of rules for the mapping of INSPIRE metadata elements w
 
 ## 3. Mapping of INSPIRE elements in ExtendedCapabilities <a name="mapping-extended-capabilities"></a>
 
-The Table below provides a summary of the new mapping. 
+The Table below provides a summary of the new mapping of INSPIRE metadata elements (previously mapped with elements in the Extended Capabilities section) to the available elements in the GetCapabilities of the OGC base standard services. 
 
 | INSPIRE metadata elements | Elements in  NS | Applicable on Service type |
 | :- | :- | :- |
