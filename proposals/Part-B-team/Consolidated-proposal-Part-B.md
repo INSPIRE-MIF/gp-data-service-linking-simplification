@@ -23,9 +23,11 @@ _TO_BE_REVISED_
 
 ## 1. Introduction <a name="introduction"></a>
 
-This part follows-up the proposal given in the [**Annex B**](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/JRC/ds-linking-simplification-good-practice.md#annex-b-mapping-of-inspire-elements-in-the-extended-capabilities-section-) in the Good Practice guidelines by providing the details and the agreed version of the new mapping of INSPIRE service metadata elements with the elements included in the GetCapabilities of the OGC base standard in order to remove the need for the Extended Capabilities section and thus achieve a more complete implementation simplification.
+This part follows-up the proposal given in the [**Annex B**](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/JRC/ds-linking-simplification-good-practice.md#annex-b-mapping-of-inspire-elements-in-the-extended-capabilities-section-) in the Good Practice guidelines by providing the details and the agreed version of the new mapping of INSPIRE service metadata elements with the available elements in the GetCapabilities of the OGC base standard services in order to remove the need for the Extended Capabilities section and thus achieve a more complete implementation simplification.
 
-As outlined in the [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx), the aim of the proposed mapping is to remove the requirements to document view and download services in stand-alone (ISO 19119/ISO TS 19139) service metadata records and to exclusively document those network services through the metadata returned by the service itself as a response to a Get Download/View Service Metadata request.
+Currently, the INSPIRE metadata elements that cannot be mapped to available elements in the GetCapabilities document of the OGC base standard services are implemented as Extended Capabilities. The current mapping between INSPIRE metadata elements and ISO 19128 WMS elements is provided in the Table 3 in [INSPIRE NS - View Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1), whereas the mapping of INSPIRE Metadata elements to Atom and to ISO 19142 WFS is provided in the Table 17 (page 38) and Table 19 (page 66) in [INSPIRE NS - Download Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services).
+
+As outlined in the [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx), the aim of the proposed mapping in this document is to remove the requirements to document view and download services in stand-alone (ISO 19119/ISO TS 19139) service metadata records and to exclusively document those network services through the metadata returned by the service itself as a response to a Get Download/View Service Metadata request.
 
 For each mapping element, the following information is provided: 
 - introduction;
@@ -38,6 +40,19 @@ For each mapping element, the following information is provided:
 This part provides a set of rules for the mapping of INSPIRE metadata elements with a new allocation in the GetCapabilities document in the OGC base standard.
 
 ## 3. Mapping of INSPIRE elements in ExtendedCapabilities <a name="mapping-extended-capabilities"></a>
+
+The Table below provides a summary of the new mapping. 
+
+| INSPIRE metadata elements | Elements in  NS | Applicable on Service type |
+| :- | :- | :- | :- |
+| Resource Type          | No element | WMS - WFS - Atom |
+| Resource Locator       | No element| WMS - WFS - Atom |
+| Spatial Data Service Type| Application Profile (in data set metadata record) | WMS - WFS - Atom |
+| Temporal Reference     |      | WMS - WFS - Atom |
+| Conformity            |                    | WMS - WFS |
+| Metadata Point of Contact|  | WMS - WFS |
+| Metadata Date          |            | WMS - WFS |
+| Metadata Language    | Consider the metadataLanguage in the data set metadata       | WMS - WFS |
 
 ### 3.1. Resource type <a name="resource-type"></a>
 
