@@ -44,7 +44,7 @@ This part provides a set of rules for the mapping of INSPIRE metadata elements w
 The Table below provides a summary of the new mapping. 
 
 | INSPIRE metadata elements | Elements in  NS | Applicable on Service type |
-| :- | :- | :- | :- |
+| :- | :- | :- |
 | Resource Type          | No element | WMS - WFS - Atom |
 | Resource Locator       | No element| WMS - WFS - Atom |
 | Spatial Data Service Type| Application Profile (in data set metadata record) | WMS - WFS - Atom |
