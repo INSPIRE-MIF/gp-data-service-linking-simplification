@@ -52,7 +52,7 @@ The Table below provides a summary of the new mapping.
 | Conformity            |                    | WMS - WFS |
 | Metadata Point of Contact|  | WMS - WFS |
 | Metadata Date          |            | WMS - WFS |
-| Metadata Language    | Consider the metadataLanguage in the data set metadata       | WMS - WFS |
+| Metadata Language    |        | WMS - WFS |
 
 ### 3.1. Resource type <a name="resource-type"></a>
 
