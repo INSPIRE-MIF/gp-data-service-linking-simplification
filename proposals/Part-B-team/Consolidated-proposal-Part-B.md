@@ -29,19 +29,13 @@ Currently, the INSPIRE metadata elements that cannot be mapped to available elem
 
 As outlined in the [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx), the aim of the proposed mapping in this document is to remove the requirements to document view and download services in stand-alone (ISO 19119/ISO TS 19139) service metadata records and to exclusively document those network services through the metadata returned by the service itself as a response to a Get Download/View Service Metadata request.
 
-For each mapping element, the following information is provided: 
-- introduction;
-- proposed mapping and rationale;
-- detailed mapping description; and
-- changes to the current INSPIRE framework.
-
 ## 2. Scope <a name="scope"></a>
 
 This part provides a set of rules for the mapping of INSPIRE metadata elements with a new allocation in the GetCapabilities document in the OGC base standard services and the Atom feed.
 
 ## 3. Mapping of INSPIRE elements in ExtendedCapabilities <a name="mapping-extended-capabilities"></a>
 
-The Table below provides a summary of the new mapping of INSPIRE metadata elements (previously mapped with elements in the Extended Capabilities section) to the available elements in the GetCapabilities of the OGC base standard services. 
+The Table below provides a summary of the new mapping of INSPIRE metadata elements, previously mapped with elements in the Extended Capabilities section. 
 
 | INSPIRE metadata elements | New allocation | Applicable on Service type |
 | :- | :- | :- |
@@ -49,11 +43,17 @@ The Table below provides a summary of the new mapping of INSPIRE metadata elemen
 | Resource Locator       | No element mapped| WMS - WFS - Atom |
 | Spatial Data Service Type| `gmd:applicationProfile` element (in data set metadata record) | WMS - WFS - Atom |
 | Temporal Reference     | `updateSequence` parameter in the `WMS_Capabilities`/`WFS_Capabilities`root element       | WMS - WFS |
-|                        | `<updated>` element in the Atom feed | Atom|
+|            :-          | `<updated>` element in the Atom feed | Atom|
 | Conformity            |                    | WMS - WFS |
 | Metadata Point of Contact|  | WMS - WFS |
 | Metadata Date          |            | WMS - WFS |
 | Metadata Language    |        | WMS - WFS |
+
+Below, for each mapping element, the following information is provided: 
+- introduction;
+- proposed mapping and rationale;
+- detailed mapping description; and
+- changes to the current INSPIRE framework.
 
 ### 3.1. Resource type <a name="resource-type"></a>
 
