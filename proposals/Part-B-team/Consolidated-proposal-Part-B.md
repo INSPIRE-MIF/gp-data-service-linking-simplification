@@ -23,9 +23,9 @@ _TO_BE_REVISED_
 
 ## 1. Introduction <a name="introduction"></a>
 
-This part follows-up the proposal given in the [**Annex B**](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/JRC/ds-linking-simplification-good-practice.md#annex-b-mapping-of-inspire-elements-in-the-extended-capabilities-section-) in the Good Practice guidelines by providing the details and the agreed version of the new mapping of INSPIRE service metadata elements with the available elements in the GetCapabilities of the OGC base standard services in order to remove the need for the Extended Capabilities section and thus achieve a more complete implementation simplification.
+This part follows-up the proposal given in the [**Annex B**](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/JRC/ds-linking-simplification-good-practice.md#annex-b-mapping-of-inspire-elements-in-the-extended-capabilities-section-) in the Good Practice guidelines by providing the details and the agreed version of the new mapping of INSPIRE service metadata elements with the available elements in the GetCapabilities document of the OGC base standard services (WMS, WFS) and Atom feed in order to remove the need for the Extended Capabilities section and thus achieve a more complete implementation simplification.
 
-Currently, the INSPIRE metadata elements that cannot be mapped to available elements in the GetCapabilities document of the OGC base standard services are implemented as Extended Capabilities. The current mapping between INSPIRE metadata elements and ISO 19128 WMS elements is provided in the Table 3 in [INSPIRE NS - View Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1), whereas the mapping of INSPIRE Metadata elements to Atom and to ISO 19142 WFS is provided in the Table 17 (page 38) and Table 19 (page 66) in [INSPIRE NS - Download Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services), respectively.
+Currently, the INSPIRE metadata elements that cannot be mapped to available elements in the GetCapabilities document of the OGC base standard services are implemented as Extended Capabilities. In case of Atom, only some of the mandatory INSPIRE Metadata elements for the Download service have been mapped to the Atom feed files. The current mapping between INSPIRE metadata elements and ISO 19128 WMS elements is provided in the Table 3 in [INSPIRE NS - View Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1), whereas the mapping of INSPIRE Metadata elements to Atom and to ISO 19142 WFS is provided in the Table 17 (page 38) and Table 19 (page 66) in [INSPIRE NS - Download Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services), respectively.
 
 As outlined in the [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx), the aim of the proposed mapping in this document is to remove the requirements to document view and download services in stand-alone (ISO 19119/ISO TS 19139) service metadata records and to exclusively document those network services through the metadata returned by the service itself as a response to a Get Download/View Service Metadata request.
 
@@ -37,7 +37,7 @@ For each mapping element, the following information is provided:
 
 ## 2. Scope <a name="scope"></a>
 
-This part provides a set of rules for the mapping of INSPIRE metadata elements with a new allocation in the GetCapabilities document in the OGC base standard.
+This part provides a set of rules for the mapping of INSPIRE metadata elements with a new allocation in the GetCapabilities document in the OGC base standard services and the Atom feed.
 
 ## 3. Mapping of INSPIRE elements in ExtendedCapabilities <a name="mapping-extended-capabilities"></a>
 
@@ -118,9 +118,117 @@ _@idevisser_ + _@heidivanparys_
 
 #### Proposed mapping and rationale
 
+Temporal reference [^1] will be mapped to
+
+- The optional attribute ‘updatesequence’ in case of a WMS or WFS if in this attribute the date value is present;
+- The mandatory ‘updated’ in case of an Atom.
+[^1]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element, see also [TG metadata].
+
+This means that the last update of the service metadata is assumed equal to the update date of the service.
+
+The extended ISO 8601:2000 format, ccyy-mm-ddThh:mm:ss.sssZ whereby the precision may be reduced by omitting least-significant digits, e.g. 2022-01-26 or 2022-01-26T09:30Z, shall be used.
+
+If in this optional attribute the date value is not present, the Metadata Date is mapped to the Temporal reference1 of the dataset metadata:
+
+1. If a date of type 'publication' is present, take this value as Metadata Date; or
+2. If a date of type 'revision' is present, take this value as Metadata Date;
+3. Otherwise, take the date of type 'creation' as value of the Metadata Date.
+
+This means that the last update of the service metadata is assumed the same as the publication or revision or creation date of the data set.
+
+The same mapping is also used to derive the [Metadata date](#metadata-date) of the service.
+
+The reasoning behind is that:
+- The metadata in the capabilities is part of the service, so the update date of the metadata and the service are the same;
+- Metadata date is INSPIRE/ISO terminology, whereas the term used in the relevant OGC specifications seems to be “update”;
+- It should be clear that this section is about mapping the INSPIRE metadata elements to the capabilities of services, so moving the mapping to ISO 19139 to a footnote;
+- The update attribute is optional in WXS, a fallback scenario is needed if this attribute is not present;
+- In the case of deriving the Metadata date of the service, from the dataset metadata, a strong connection between the administrator of the dataset metadata and the administrator of the service is needed.
 
 #### Detailed mapping description
 
+For **WMS 1.3**, the related [XML schema](http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd) snippet is:
+
+```xml
+<element name="WMS_Capabilities">
+<annotation>
+   <documentation>
+        A WMS_Capabilities document is returned in response to a GetCapabilities request made on a WMS.
+   </documentation>
+</annotation>
+<complexType>
+   <sequence>
+      <element ref="wms:Service"/>
+      <element ref="wms:Capability"/>
+   </sequence>
+   <attribute name="version" type="string" fixed="1.3.0"/>
+   <attribute name="updateSequence" type="string"/>
+</complexType>
+</element>
+```
+
+So it would look like this in a GetCapabilities response:
+
+```xml
+<WMS_Capabilities
+  xmlns="http://www.opengis.net/wms"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  version="1.3.0"
+  updatesequence="2022-01-26"
+  xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd>
+  <!-- ... -->
+</WMS_Capabilities>
+```
+
+For **WFS 2.0**, using [OWS 1.1 schemas](http://www.opengis.net/ows/1.1), the related XML schema snippet is:
+
+```xml
+<complexType name="CapabilitiesBaseType">
+   <annotation>
+      <documentation>XML encoded GetCapabilities operation response.
+      </documentation>
+   </annotation>
+   <sequence>
+      <element ref="ows:ServiceIdentification" minOccurs="0"/>
+      <element ref="ows:ServiceProvider" minOccurs="0"/>
+      <element ref="ows:OperationsMetadata" minOccurs="0"/>
+   </sequence>
+   <attribute name="version" type="ows:VersionType" use="required"/>
+   <attribute name="updateSequence" type="ows:UpdateSequenceType"
+use="optional">
+      <annotation>
+         <documentation>Service metadata document version, having
+values that are "increased" whenever any change is made in service
+metadata document. Values are selected by each server, and are always
+opaque to clients. When not supported by server, server shall not
+return this attribute. </documentation>
+         </annotation>
+    </attribute>
+</complexType>
+```
+
+So it would look like this in a GetCapabilities response:
+
+
+```xml
+<WFS_Capabilities xmlns="http://www.opengis.net/wfs/2.0" 
+    xmlns:ows="http://www.opengis.net/ows/1.1" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0.0" 
+    xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd"
+    updateSequence="2022-01-26">
+    <ows:ServiceIdentification>
+    <!-- ... -->
+    </ows:ServiceIdentification>
+</WFS_Capabilities>
+```
+
+For an **ATOM feed**:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:georss="http://www.georss.org/georss" xmlns:inspire_dls="http://inspire.ec.europa.eu/schemas/inspire_dls/1.0" xml:lang="nl">
+<updated>2022-01-26T00:00:00Z</updated>
+```
 
 #### Changes to the current INSPIRE framework
 
