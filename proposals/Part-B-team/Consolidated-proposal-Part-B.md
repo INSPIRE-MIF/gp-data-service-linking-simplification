@@ -252,8 +252,8 @@ _@MarieLambois_
 
 #### Proposed mapping and rationale
 
-Metadata Point Of Contact [^1] will be mapped to the contact information for the service. This means that the Metadata Point Of Contact is assumed to be the same as the Responsible Organisation.
-[^1]: In a ISO/TS 19139 metadata record, Metadata Point Of Contact is mapped to `gmd:MD_metadata/gmd:contact/gmd:CI_ResponsibleParty`, see also [TG metadata].
+Metadata Point Of Contact [^2] will be mapped to the contact information for the service. This means that the Metadata Point Of Contact is assumed to be the same as the Responsible Organisation.
+[^2]: In a ISO/TS 19139 metadata record, Metadata Point Of Contact is mapped to `gmd:MD_metadata/gmd:contact/gmd:CI_ResponsibleParty`, see also [TG metadata].
 
 
 #### Detailed mapping description
@@ -307,16 +307,16 @@ _@idevisser_ + _@heidivanparys_
 
 #### Proposed mapping and rationale
 
-Metadata Date [^2] will be mapped to
-[^2]: In a ISO/TS 19139 metadata record, Metadata Date is mapped to `MD_metadata.dateStamp` element, see also [TG metadata].
+Metadata Date [^3] will be mapped to
+[^3]: In a ISO/TS 19139 metadata record, Metadata Date is mapped to `MD_metadata.dateStamp` element, see also [TG metadata].
 
 - The optional attribute ‘updatesequence’ in case of a WXS or
 - The mandatory ‘updated’ in case of an Atom
   if this attribute is present in the service metadata. This means that the last update of the service metadata is assumed equal to the update date of the service.
   The extended ISO 8601:2000 format, ccyy-mm-ddThh:mm:ss.sssZ whereby the precision may be reduced by omitting least-significant digits, e.g. 2022-01-26 or 2022-01-26T09:30Z, must be used.
 
-Otherwise, if this optional attribute is not present, the Metadata Date is mapped to the Temporal reference [^3] of the dataset metadata:
-[^3]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to
+Otherwise, if this optional attribute is not present, the Metadata Date is mapped to the Temporal reference [^4] of the dataset metadata:
+[^4]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to
 `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element.
 
 - If a date of type 'publication' is present, take this value as Metadata Date;
