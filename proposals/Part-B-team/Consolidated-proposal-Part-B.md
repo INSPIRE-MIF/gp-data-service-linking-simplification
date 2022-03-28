@@ -48,8 +48,9 @@ The Table below provides a summary of the new mapping of INSPIRE metadata elemen
 | Metadata Point of Contact| `WMS_Capabilities/Service/ContactInformation/ContactPersonPrimary/ContactOrganization` and `WMS_Capabilities/Service/ContactInformation/ContactElectronicMailAddress` elements in GetCapabilities | WMS |
 |                          | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` elements in GetCapabilities | WFS |
 |                          | `<feed><author><name>` and `<feed><author><email>` elements | Atom |
-| Metadata Date          |            | WMS - WFS |
-| Metadata Language    |        | WMS - WFS |
+| Metadata Date     | `updateSequence` parameter in the `WMS_Capabilities`/`WFS_Capabilities`root element. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | WMS - WFS |
+|                        | `<updated>` element in the Atom feed. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types: - _publication_, - _revision_ or - _creation_ | Atom|
+| Metadata Language    | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` element in the data set metadata record for default language. `xml:lang` attribute for supported languages    | WMS - WFS - Atom |
 
 Below, for each mapping element, the following information is provided: 
 - the current mapping present in [INSPIRE NS - View Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1) and [INSPIRE NS - Download Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services);
@@ -393,7 +394,7 @@ Currently, the mapping of the metadata language to OWS service capabilities and 
 #### Proposed mapping and rationale
 
 The default language will be set to the data set metadata default language.
-The other supported language (if any) will be maped to the xml:lang for WFS and ATOM and the SupportedLanguages element of the INSPIRE GetCapabilities extension.
+The other supported languages (if any) will be mapped to the xml:lang for WFS and ATOM and the SupportedLanguages element of the INSPIRE GetCapabilities extension.
 
 #### Detailed mapping description
 
