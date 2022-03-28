@@ -52,7 +52,7 @@ The Table below provides a summary of the new mapping of INSPIRE metadata elemen
 | Metadata Language    |        | WMS - WFS |
 
 Below, for each mapping element, the following information is provided: 
-- introduction;
+- the current mapping present in [INSPIRE NS - View Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1) and [INSPIRE NS - Download Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services);
 - proposed mapping and rationale;
 - detailed mapping description; and
 - changes to the current INSPIRE framework.
