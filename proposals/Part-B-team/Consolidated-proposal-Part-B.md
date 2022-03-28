@@ -43,12 +43,13 @@ This part provides a set of rules for the mapping of INSPIRE metadata elements w
 
 The Table below provides a summary of the new mapping of INSPIRE metadata elements (previously mapped with elements in the Extended Capabilities section) to the available elements in the GetCapabilities of the OGC base standard services. 
 
-| INSPIRE metadata elements | Elements in  NS | Applicable on Service type |
+| INSPIRE metadata elements | New allocation | Applicable on Service type |
 | :- | :- | :- |
-| Resource Type          | No element | WMS - WFS - Atom |
-| Resource Locator       | No element| WMS - WFS - Atom |
-| Spatial Data Service Type| Application Profile (in data set metadata record) | WMS - WFS - Atom |
-| Temporal Reference     |      | WMS - WFS - Atom |
+| Resource Type          | No element mapped | WMS - WFS - Atom |
+| Resource Locator       | No element mapped| WMS - WFS - Atom |
+| Spatial Data Service Type| `gmd:applicationProfile` element (in data set metadata record) | WMS - WFS - Atom |
+| Temporal Reference     | `updateSequence` parameter in the `WMS_Capabilities`/`WFS_Capabilities`root element       | WMS - WFS |
+|                        | `<updated>` element in the Atom feed | Atom|
 | Conformity            |                    | WMS - WFS |
 | Metadata Point of Contact|  | WMS - WFS |
 | Metadata Date          |            | WMS - WFS |
