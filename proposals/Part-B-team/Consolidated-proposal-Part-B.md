@@ -42,10 +42,12 @@ The Table below provides a summary of the new mapping of INSPIRE metadata elemen
 | Resource Type          | No element mapped | WMS - WFS - Atom |
 | Resource Locator       | No element mapped| WMS - WFS - Atom |
 | Spatial Data Service Type| `gmd:applicationProfile` element (in data set metadata record) | WMS - WFS - Atom |
-| Temporal Reference     | `updateSequence` parameter in the `WMS_Capabilities`/`WFS_Capabilities`root element. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | WMS - WFS |
-|                        | `<updated>` element in the Atom feed. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | Atom|
+| Temporal Reference     | `updateSequence` parameter in the `WMS_Capabilities`/`WFS_Capabilities`root element. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | WMS - WFS |
+|                        | `<updated>` element in the Atom feed. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types: - _publication_, - _revision_ or - _creation_ | Atom|
 | Conformity            |                    | WMS - WFS |
-| Metadata Point of Contact|  | WMS - WFS |
+| Metadata Point of Contact| `WMS_Capabilities/Service/ContactInformation/ContactPersonPrimary/ContactOrganization` and `WMS_Capabilities/Service/ContactInformation/ContactElectronicMailAddress` elements in GetCapabilities | WMS |
+|                          | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` elements in GetCapabilities | WFS |
+|                          | `<feed><author><name>` and `<feed><author><email>` elements | Atom |
 | Metadata Date          |            | WMS - WFS |
 | Metadata Language    |        | WMS - WFS |
 
@@ -57,7 +59,12 @@ Below, for each mapping element, the following information is provided:
 
 ### 3.1. Resource type <a name="resource-type"></a>
 
-_@AntoRot_ + _@ALL_
+Currently, the mapping of the resource type element to OWS service capabilities and Atom feed is as follows: 
+
+| INSPIRE metadata elements | Elements of OWS service capabilities / Atom feed | Applicable on Service type |
+| :- | :- | :- |
+| Resource Type          | `inspire_common:ResourceType` (ExtendedCapabilities) | WMS - WFS |
+| Resource Type          | not mapped | Atom |
 
 #### Proposed mapping and rationale
 
@@ -79,7 +86,12 @@ _In case the service metadata is provided as response to a Get Download/View Ser
 
 ### 3.2. Resource locator <a name="resource-locator"></a>
 
-_@AntoRot_ + _@ALL_
+Currently, the mapping of the resource locator element to OWS service capabilities and Atom feed is as follows: 
+
+| INSPIRE metadata elements | Elements of OWS service capabilities / Atom feed | Applicable on Service type |
+| :- | :- | :- |
+| Resource Locator          | `inspire_common:ResourceLocator` (ExtendedCapabilities) | WMS - WFS |
+| Resource Locator          | Feed level link in the top Atom feed `/feed/link[@rel="self"]` | Atom |
 
 #### Proposed mapping and rationale
 
@@ -95,7 +107,13 @@ TBD
 
 ### 3.3. Spatial data service type <a name="spatial-data-service-type"></a>
 
-_@AntoRot_ + _@ALL_
+Currently, the mapping of the spatial data service type element to OWS service capabilities and Atom feed is as follows:
+
+| INSPIRE metadata elements | Elements of OWS service capabilities / Atom feed | Applicable on Service type |
+| :- | :- | :- |
+| Spatial Data Service Type          | `inspire_common:SpatialDataServiceType` (ExtendedCapabilities) | WMS - WFS |
+| Spatial Data Service Type          | not mapped | Atom |
+
 
 #### Proposed mapping and rationale
 
@@ -115,14 +133,19 @@ TBD
 
 ### 3.4. Temporal reference <a name="temporal-reference"></a>
 
-_@idevisser_ + _@heidivanparys_
+Currently, the mapping of the temporal reference element to OWS service capabilities and Atom feed is as follows:
+
+| INSPIRE metadata elements | Elements of OWS service capabilities / Atom feed | Applicable on Service type |
+| :- | :- | :- |
+| Temporal Reference          | `inspire_common:TemporalReference` (ExtendedCapabilities) | WMS - WFS |
+| Temporal Reference          | not mapped | Atom |
 
 #### Proposed mapping and rationale
 
 Temporal reference [^1] will be mapped to
 
-- The optional attribute ‘updatesequence’ in case of a WMS or WFS if in this attribute the date value is present;
-- The mandatory ‘updated’ in case of an Atom.
+- The optional `updateSequence` parameter in case of a WMS or WFS if in this attribute the date value is present;
+- The mandatory `<updated>` in case of an Atom.
 [^1]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
 
 This means that the last update of the service metadata is assumed equal to the update date of the service.
@@ -131,9 +154,9 @@ The extended ISO 8601:2000 format, ccyy-mm-ddThh:mm:ss.sssZ whereby the precisio
 
 If in this optional attribute the date value is not present, the Metadata Date is mapped to the Temporal reference1 of the dataset metadata:
 
-1. If a date of type 'publication' is present, take this value as Metadata Date; or
-2. If a date of type 'revision' is present, take this value as Metadata Date;
-3. Otherwise, take the date of type 'creation' as value of the Metadata Date.
+1. If a date of type `publication` is present, take this value as Metadata Date; or
+2. If a date of type `revision` is present, take this value as Metadata Date;
+3. Otherwise, take the date of type `creation` as value of the Metadata Date.
 
 This means that the last update of the service metadata is assumed the same as the publication or revision or creation date of the data set.
 
@@ -249,12 +272,17 @@ _@jescriu_
 
 ### 3.6. Metadata point of contact <a name="metadata-point-of-contact"></a>
 
-_@MarieLambois_
+Currently, the mapping of the metadata point of contact element to OWS service capabilities and Atom feed is as follows:
+
+| INSPIRE metadata elements | Elements of OWS service capabilities / Atom feed | Applicable on Service type |
+| :- | :- | :- |
+| Metadata Point of Contact          | `inspire_common:MetadataPointOfContact` (ExtendedCapabilities) | WMS - WFS |
+| Metadata Point of Contact          | not mapped | Atom |
 
 #### Proposed mapping and rationale
 
 Metadata Point Of Contact [^2] will be mapped to the contact information for the service. This means that the Metadata Point Of Contact is assumed to be the same as the Responsible Organisation.
-[^2]: In a ISO/TS 19139 metadata record, Metadata Point Of Contact is mapped to `gmd:MD_metadata/gmd:contact/gmd:CI_ResponsibleParty`, see also [metadata TG] (https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
+[^2]: In a ISO/TS 19139 metadata record, Metadata Point Of Contact is mapped to `gmd:MD_metadata/gmd:contact/gmd:CI_ResponsibleParty`, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
 
 
 #### Detailed mapping description
@@ -304,7 +332,12 @@ Note to be added to the Service Technical Guidelines:
 
 ### 3.7. Metadata date <a name="metadata-date"></a>
 
-_@idevisser_ + _@heidivanparys_
+Currently, the mapping of the metadata date element to OWS service capabilities and Atom feed is as follows:
+
+| INSPIRE metadata elements | Elements of OWS service capabilities / Atom feed | Applicable on Service type |
+| :- | :- | :- |
+| Metadata Date          | `inspire_common:MetadataDate` (ExtendedCapabilities) | WMS - WFS |
+| Metadata Date          | Feed level link in the top Atom feed `/feed/updated` | Atom |
 
 #### Proposed mapping and rationale
 
@@ -350,7 +383,12 @@ So it would look like this in a GetCapabilities response:
 
 ### 3.8. Supported languages <a name="supported-languages"></a>
 
-_@MarieLambois_ + _@heidivanparys_
+Currently, the mapping of the metadata language to OWS service capabilities and Atom feed is as follows:
+
+| INSPIRE metadata elements | Elements of OWS service capabilities / Atom feed | Applicable on Service type |
+| :- | :- | :- |
+| Metadata Language          | `inspire_common:SupportedLanguages` (ExtendedCapabilities) | WMS - WFS |
+| Metadata Language          | Feed level link in the top Atom feed `/feed/link[@rel="self"]/@hreflang` | Atom |
 
 #### Proposed mapping and rationale
 
