@@ -23,7 +23,7 @@ _TO_BE_REVISED_
 
 ## 1. Introduction <a name="introduction"></a>
 
-This part follows-up the proposal given in the [**Annex B**](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/JRC/ds-linking-simplification-good-practice.md#annex-b-mapping-of-inspire-elements-in-the-extended-capabilities-section-) in the Good Practice guidelines by providing the details and the agreed version of the new mapping of INSPIRE service metadata elements with the available elements in the GetCapabilities document of the OGC base standard services (WMS, WFS) and Atom feed in order to remove the need for the Extended Capabilities section and thus achieve a more complete implementation simplification.
+This part follows-up the proposal given in the [**Annex B**](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/JRC/ds-linking-simplification-good-practice.md#annex-b-mapping-of-inspire-elements-in-the-extended-capabilities-section-) in the Good Practice guidelines by providing the details and the agreed version of the new mapping of INSPIRE service metadata elements to the available elements in the GetCapabilities document of the OGC base standard services (WMS, WFS) and Atom feed in order to remove the need for the Extended Capabilities section and thus achieve a more complete implementation simplification.
 
 Currently, the INSPIRE metadata elements that cannot be mapped to available elements in the GetCapabilities document of the OGC base standard services are implemented as Extended Capabilities. In case of Atom, only some of the mandatory INSPIRE Metadata elements for the Download service have been mapped to the Atom feed files. The current mapping between INSPIRE metadata elements and ISO 19128 WMS elements is provided in the Table 3 in [INSPIRE NS - View Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1), whereas the mapping of INSPIRE Metadata elements to Atom and to ISO 19142 WFS is provided in the Table 17 (page 38) and Table 19 (page 66) in [INSPIRE NS - Download Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services), respectively.
 
@@ -42,8 +42,8 @@ The Table below provides a summary of the new mapping of INSPIRE metadata elemen
 | Resource Type          | No element mapped | WMS - WFS - Atom |
 | Resource Locator       | No element mapped| WMS - WFS - Atom |
 | Spatial Data Service Type| `gmd:applicationProfile` element (in data set metadata record) | WMS - WFS - Atom |
-| Temporal Reference     | `updateSequence` parameter in the `WMS_Capabilities`/`WFS_Capabilities`root element       | WMS - WFS |
-|            :-          | `<updated>` element in the Atom feed | Atom|
+| Temporal Reference     | `updateSequence` parameter in the `WMS_Capabilities`/`WFS_Capabilities`root element. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | WMS - WFS |
+|                        | `<updated>` element in the Atom feed. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | Atom|
 | Conformity            |                    | WMS - WFS |
 | Metadata Point of Contact|  | WMS - WFS |
 | Metadata Date          |            | WMS - WFS |
@@ -69,7 +69,7 @@ No element is identified in the GetCapabilities document for the mapping with th
 
 #### Changes to the current INSPIRE framework
 
-Integrate the TG Requirement 3.1 in [metadata TG] with the following statement:
+Integrate the TG Requirement 3.1 in [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc) with the following statement:
 
 _In case of view and download services, when the service metadata is provided as response to a Get Download/View Service Metadata request, then the resource type is implicit and shall not be documented_.
 
@@ -123,7 +123,7 @@ Temporal reference [^1] will be mapped to
 
 - The optional attribute ‘updatesequence’ in case of a WMS or WFS if in this attribute the date value is present;
 - The mandatory ‘updated’ in case of an Atom.
-[^1]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element, see also [TG metadata].
+[^1]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
 
 This means that the last update of the service metadata is assumed equal to the update date of the service.
 
@@ -254,7 +254,7 @@ _@MarieLambois_
 #### Proposed mapping and rationale
 
 Metadata Point Of Contact [^2] will be mapped to the contact information for the service. This means that the Metadata Point Of Contact is assumed to be the same as the Responsible Organisation.
-[^2]: In a ISO/TS 19139 metadata record, Metadata Point Of Contact is mapped to `gmd:MD_metadata/gmd:contact/gmd:CI_ResponsibleParty`, see also [TG metadata].
+[^2]: In a ISO/TS 19139 metadata record, Metadata Point Of Contact is mapped to `gmd:MD_metadata/gmd:contact/gmd:CI_ResponsibleParty`, see also [metadata TG] (https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
 
 
 #### Detailed mapping description
@@ -309,7 +309,7 @@ _@idevisser_ + _@heidivanparys_
 #### Proposed mapping and rationale
 
 Metadata Date [^3] will be mapped to
-[^3]: In a ISO/TS 19139 metadata record, Metadata Date is mapped to `MD_metadata.dateStamp` element, see also [TG metadata].
+[^3]: In a ISO/TS 19139 metadata record, Metadata Date is mapped to `MD_metadata.dateStamp` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
 
 - The optional attribute ‘updatesequence’ in case of a WXS or
 - The mandatory ‘updated’ in case of an Atom
