@@ -259,19 +259,66 @@ For an **ATOM feed**:
 
 #### Changes to the current INSPIRE framework
 
+TBD
 
 ### 3.5. Conformity <a name="conformity"></a>
 
-_@jescriu_
+Currently, the mapping of the conformity element to OWS service capabilities and Atom feed documents is as follows: 
+
+| INSPIRE metadata elements | Elements of OWS service capabilities / Atom feed | Applicable on Service type |
+| :- | :- | :- |
+| Conformity             | `inspire_common:Conformity` (ExtendedCapabilities) | WMS - WFS |
+| Conformity             | not mapped | Atom |
 
 #### Proposed mapping and rationale
 
+The conformity of the service to a specification is mapped to an specific keyword element, referencing an interoperable URI representing this specification. This keyword shall be present in the service Capabilities document or ATOM Feed document in order to consider the value of the degree of conformity as `conformant`:
+
+* For WMS: `wms:Keyword` element for each specification against the service is conformant, included within an specific `wms:KeyworList` group.
+* For WFS: `ows:Keyword` element for each specification against the service is conformant, included within an specific `ows:Keywords` group including an `ows:Type` element of type URI.
+* For Atom: `atom:category` element for each specification against which the service is conformant.
+
+If a specific keyword referencing the interoperable URI representing a specification is not present, the value of the degree of conformity of the service to this specification will NOT be considered `conformant` (i.e. `non-conformant` or `not evaluated`) - Therefore, differentiation between `non-conformant` and `not evaluated` will not be possible when using the simplified approach for data and service linking.
+
+This approach is considered enough for the INSPIRE Geoportal to identify which services are conformant to an specific INSPIRE regulation (specification).
 
 #### Detailed mapping description
 
+In order to reference a specific INSPIRE regulation as specification to which a spatial data service may declare its conformity, its URL of publication in EUR-Lex shall be used as a common interoperable URI value:
+
+* Commission Regulation (EC) No 976/2009 of 19 October 2009 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the Network Services - URI: http://data.europa.eu/eli/reg/2009/976
+
+* Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services - URI: http://data.europa.eu/eli/reg/2010/1089
+
+According to the mapping proposed and the mentioned interoperable URIs, the XML snippets below are proposed as examples to show the detailed mapping of the conformity element.
+
+* For **WMS 1.3**, the related [XML schema](http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd) snippet is:
+```xml
+    <KeywordList>
+        <Keyword vocabulary="http://data.europa.eu/eli">http://data.europa.eu/eli/reg/2009/976</Keyword>
+        <Keyword vocabulary="http://data.europa.eu/eli">http://data.europa.eu/eli/reg/2010/1089</Keyword>
+    </KeywordList>
+```
+
+* For **WFS 2.0**, using [OWS 1.1 schemas](http://www.opengis.net/ows/1.1), the related XML schema snippet is: 
+```xml
+    <ows:Keywords>
+        <ows:Keyword>http://data.europa.eu/eli/reg/2009/976</ows:Keyword>
+        <ows:Keyword>http://data.europa.eu/eli/reg/2010/1089</ows:Keyword>
+        <ows:Type>URI</ows:Type>
+    </ows:Keywords>
+```
+* For an **ATOM feed**, the related XML snippet is:
+```xml
+    <entry>
+        <category scheme="http://data.europa.eu/eli" term="http://data.europa.eu/eli/reg/2009/976"/>
+        <category scheme="http://data.europa.eu/eli" term="http://data.europa.eu/eli/reg/2010/1089"/>
+    </entry>
+```
 
 #### Changes to the current INSPIRE framework
 
+TBD
 
 ### 3.6. Metadata point of contact <a name="metadata-point-of-contact"></a>
 
