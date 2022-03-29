@@ -272,7 +272,7 @@ Currently, the mapping of the conformity element to OWS service capabilities and
 
 #### Proposed mapping and rationale
 
-The conformity of the service to a specification is mapped to an specific keyword element, referencing an interoperable URI representing this specification. This keyword shall be present in the service Capabilities document or ATOM Feed document in order to consider the value of the degree of conformity as `conformant`:
+The conformity of the service to a specification is mapped to an specific keyword element, referencing an interoperable URI which represents this specification. This keyword shall be present in the service Capabilities document or ATOM Feed document in order to consider the value of the degree of conformity as `conformant`:
 
 * For WMS: `wms:Keyword` element for each specification against the service is conformant, included within an specific `wms:KeyworList` group.
 * For WFS: `ows:Keyword` element for each specification against the service is conformant, included within an specific `ows:Keywords` group including an `ows:Type` element of type URI.
