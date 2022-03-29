@@ -42,8 +42,8 @@ The Table below provides a summary of the new mapping of INSPIRE metadata elemen
 | Resource Type          | No element mapped | WMS - WFS - Atom |
 | Resource Locator       | No element mapped| WMS - WFS - Atom |
 | Spatial Data Service Type| `gmd:applicationProfile` element (in data set metadata record) | WMS - WFS - Atom |
-| Temporal Reference     | `updateSequence` parameter in the `WMS_Capabilities`/`WFS_Capabilities`root element. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | WMS - WFS |
-|                        | `<updated>` element in the Atom feed. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types: - _publication_, - _revision_ or - _creation_ | Atom|
+| Temporal Reference     | `updateSequence` attribute in the `WMS_Capabilities`/`WFS_Capabilities` root element. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | WMS - WFS |
+|                        | `feed/updated` element in the Atom feed. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types: - _publication_, - _revision_ or - _creation_ | Atom|
 | Conformity            |                    | WMS - WFS |
 | Metadata Point of Contact| `WMS_Capabilities/Service/ContactInformation/ContactPersonPrimary/ContactOrganization` and `WMS_Capabilities/Service/ContactInformation/ContactElectronicMailAddress` elements in GetCapabilities | WMS |
 |                          | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` elements in GetCapabilities | WFS |
@@ -51,6 +51,7 @@ The Table below provides a summary of the new mapping of INSPIRE metadata elemen
 | Metadata Date     | `updateSequence` parameter in the `WMS_Capabilities`/`WFS_Capabilities`root element. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | WMS - WFS |
 |                        | `<updated>` element in the Atom feed. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types: - _publication_, - _revision_ or - _creation_ | Atom|
 | Metadata Language    | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` element in the data set metadata record for default language. `xml:lang` attribute for supported languages    | WMS - WFS - Atom |
+
 
 Below, for each mapping element, the following information is provided: 
 - the current mapping present in [INSPIRE NS - View Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1) and [INSPIRE NS - Download Service TG](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services);
@@ -143,32 +144,31 @@ Currently, the mapping of the temporal reference element to OWS service capabili
 
 #### Proposed mapping and rationale
 
-Temporal reference [^1] will be mapped to
+Temporal reference[^note_temporal_reference_19139] will be mapped to
 
-- The optional `updateSequence` parameter in case of a WMS or WFS if in this attribute the date value is present;
-- The mandatory `<updated>` in case of an Atom.
-[^1]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
+- The optional `updateSequence` attribute in case of a WXS if in this attribute a timestamp value[^note_format_updatesequence] is present;
+- The mandatory `<updated>` in case of an Atom[^note_format_updated].
 
-This means that the last update of the service metadata is assumed equal to the update date of the service.
+[^note_temporal_reference_19139]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
 
-The extended ISO 8601:2000 format, ccyy-mm-ddThh:mm:ss.sssZ whereby the precision may be reduced by omitting least-significant digits, e.g. 2022-01-26 or 2022-01-26T09:30Z, shall be used.
+[^note_format_updatesequence]: The extended ISO 8601:2000 format, ccyy-mm-ddThh:mm:ss.sssZ whereby the precision may be reduced by omitting least-significant digits, e.g. 2022-01-26 or 2022-01-26T09:30Z, shall be used according to the [WMS specification](http://portal.opengeospatial.org/files/?artifact_id=14416). No reference to or description of the precise ISO 8601 format to be used, extended or basic, is present in the [OWS specification](https://portal.ogc.org/files/?artifact_id=20040).
 
-If in this optional attribute the date value is not present, the Metadata Date is mapped to the Temporal reference1 of the dataset metadata:
+[^note_format_updated]: The `updated` element shall be a timestamp including a time component, see also [The "atom:updated" Element](https://datatracker.ietf.org/doc/html/rfc4287#section-4.2.15) and [Date Constructs](https://datatracker.ietf.org/doc/html/rfc4287#section-3.3).
 
-1. If a date of type `publication` is present, take this value as Metadata Date; or
-2. If a date of type `revision` is present, take this value as Metadata Date;
-3. Otherwise, take the date of type `creation` as value of the Metadata Date.
+If in the optional `updateSequence` attribute a timestamp value is not present (WXS), the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139]:
 
-This means that the last update of the service metadata is assumed the same as the publication or revision or creation date of the data set.
+1. If a date of type `publication` is present, take this value as Temporal Reference; or
+2. If a date of type `revision` is present, take this value as Temporal Reference;
+3. Otherwise, take the date of type `creation` as value of the Temporal Reference.
+
+For a WXS, this means that the last update of the service metadata is assumed to be the same as the publication, revision or creation date of the data set. For Atom, this means that the last update of the service metadata is assumed equal to the update date of the service.
 
 The same mapping is also used to derive the [Metadata date](#metadata-date) of the service.
 
 The reasoning behind is that:
 - The metadata in the capabilities is part of the service, so the update date of the metadata and the service are the same;
-- Metadata date is INSPIRE/ISO terminology, whereas the term used in the relevant OGC specifications seems to be “update”;
-- It should be clear that this section is about mapping the INSPIRE metadata elements to the capabilities of services, so moving the mapping to ISO 19139 to a footnote;
-- The update attribute is optional in WXS, a fallback scenario is needed if this attribute is not present;
-- In the case of deriving the Metadata date of the service, from the dataset metadata, a strong connection between the administrator of the dataset metadata and the administrator of the service is needed.
+- The `updateSequence` attribute is optional in WXS, a fallback scenario is needed if this attribute is not present;
+- In the case of deriving the Temporale Reference of the service from the dataset metadata, a strong connection between the administrator of the dataset metadata and the administrator of the service is needed.
 
 #### Detailed mapping description
 
@@ -282,8 +282,8 @@ Currently, the mapping of the metadata point of contact element to OWS service c
 
 #### Proposed mapping and rationale
 
-Metadata Point Of Contact [^2] will be mapped to the contact information for the service. This means that the Metadata Point Of Contact is assumed to be the same as the Responsible Organisation.
-[^2]: In a ISO/TS 19139 metadata record, Metadata Point Of Contact is mapped to `gmd:MD_metadata/gmd:contact/gmd:CI_ResponsibleParty`, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
+Metadata Point Of Contact [^note_metadata_poc_19139] will be mapped to the contact information for the service. This means that the Metadata Point Of Contact is assumed to be the same as the Responsible Organisation.
+[^note_metadata_poc_19139]: In a ISO/TS 19139 metadata record, Metadata Point Of Contact is mapped to `gmd:MD_metadata/gmd:contact/gmd:CI_ResponsibleParty`, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
 
 
 #### Detailed mapping description
@@ -342,42 +342,30 @@ Currently, the mapping of the metadata date element to OWS service capabilities 
 
 #### Proposed mapping and rationale
 
-Metadata Date [^3] will be mapped to
-[^3]: In a ISO/TS 19139 metadata record, Metadata Date is mapped to `MD_metadata.dateStamp` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
+Metadata Date [^note_metadata_data_19139] will be mapped to
+[^note_metadata_data_19139]: In a ISO/TS 19139 metadata record, Metadata Date is mapped to `MD_metadata.dateStamp` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
 
-- The optional attribute ‘updatesequence’ in case of a WXS or
-- The mandatory ‘updated’ in case of an Atom
-  if this attribute is present in the service metadata. This means that the last update of the service metadata is assumed equal to the update date of the service.
-  The extended ISO 8601:2000 format, ccyy-mm-ddThh:mm:ss.sssZ whereby the precision may be reduced by omitting least-significant digits, e.g. 2022-01-26 or 2022-01-26T09:30Z, must be used.
+- The optional `updateSequence` attribute in case of a WXS if in this attribute a timestamp value[^note_format_updatesequence] is present;
+- The mandatory `<updated>` in case of an Atom[^note_format_updated].
 
-Otherwise, if this optional attribute is not present, the Metadata Date is mapped to the Temporal reference [^4] of the dataset metadata:
-[^4]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to
-`MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element.
+Otherwise, if the optional `updateSequence` attribute is not present (WXS), the Metadata Date is mapped to the Temporal reference[^note_temporal_reference_19139] of the dataset metadata.
 
 - If a date of type 'publication' is present, take this value as Metadata Date;
 - If a date of type 'revision' is present, take this value as Metadata Date;
 - Otherwise, take the date of type 'creation' as value of the Metadata Date.
 
-This means that the last update of the service metadata is assumed the same as the publication or revision date of the data set.
+For a WXS, this means that the last update of the service metadata is assumed to be the same as the publication, revision or creation date of the data set. For Atom, this means that the last update of the service metadata is assumed equal to the update date of the service.
+
 The same elements are also used to derive the Temporal reference of the service.
 
 The reasoning behind is that:
 - The metadata in the capabilities is part of the service, so the update date of the metadata and the service are the same.
-- Metadata date is INSPIRE/ISO terminology, whereas the term used in the relevant OGC specifications seems to be “update”.
-- It should be clear that this section is about mapping the INSPIRE metadata elements to the capabilities of services, so moving the mapping to ISO 19139 to a footnote.
-- The update attribute is optional in WXS, a fallback scenario is needed if this attribute is not present.
-- In the case of deriving the Metadata date of the service, from the dataset metadata, a strong connection between the administrator of the dataset metadata and the administrator of the service is needed.
+- The `updateSequence` attribute is optional in WXS, a fallback scenario is needed if this attribute is not present.
+- In the case of deriving the Metadata date of the service from the dataset metadata, a strong connection between the administrator of the dataset metadata and the administrator of the service is needed.
 
 #### Detailed mapping description
 
-A WMS_Capabilities document is returned in response to a GetCapabilities request made on a WMS.
-So it would look like this in a GetCapabilities response:
-
-```xml
-<WMS_Capabilities xmlns="http://www.opengis.net/wms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.3.0" updatesequence="2022-01-26" xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd>
-...
-</WMS_Capabilities>
-```
+See the detailed mapping for [Temporal](#temporal-reference).
 
 #### Changes to the current INSPIRE framework
 
@@ -394,7 +382,8 @@ Currently, the mapping of the metadata language to OWS service capabilities and 
 #### Proposed mapping and rationale
 
 The default language will be set to the data set metadata default language.
-The other supported languages (if any) will be mapped to the xml:lang for WFS and ATOM and the SupportedLanguages element of the INSPIRE GetCapabilities extension.
+
+The other supported language (if any) will be mapped to the `xml:lang` attributes for WFS and ATOM and the SupportedLanguages element of the INSPIRE GetCapabilities extension.
 
 #### Detailed mapping description
 
