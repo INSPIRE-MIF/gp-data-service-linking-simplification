@@ -149,8 +149,11 @@ Temporal reference[^note_temporal_reference_19139] will be mapped to
 
 - The optional `updateSequence` attribute in case of a WXS if in this attribute a timestamp value[^note_format_updatesequence] is present;
 - The mandatory `<updated>` in case of an Atom[^note_format_updated].
+
 [^note_temporal_reference_19139]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
+
 [^note_format_updatesequence]: The extended ISO 8601:2000 format, ccyy-mm-ddThh:mm:ss.sssZ whereby the precision may be reduced by omitting least-significant digits, e.g. 2022-01-26 or 2022-01-26T09:30Z, shall be used according to the [WMS specification](http://portal.opengeospatial.org/files/?artifact_id=14416). No reference to or description of the precise ISO 8601 format to be used, extended or basic, is present in the [OWS specification](https://portal.ogc.org/files/?artifact_id=20040).
+
 [^note_format_updated]: The `updated` element shall be a timestamp including a time component, see also [The "atom:updated" Element](https://datatracker.ietf.org/doc/html/rfc4287#section-4.2.15) and [Date Constructs](https://datatracker.ietf.org/doc/html/rfc4287#section-3.3).
 
 If in the optional `updateSequence` attribute a timestamp value is not present (WXS), the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139]:
