@@ -18,7 +18,6 @@ _TO_BE_REVISED_
   * [3.6. Metadata point of contact](#metadata-point-of-contact)
   * [3.7. Metadata date](#metadata-date)
   * [3.8. Supported languages](#supported-languages)
-  * [3.9 INSPIRE Spatial data set identifier](#inspire-data-set-identifier)
   
 
 ## 1. Introduction <a name="introduction"></a>
@@ -462,16 +461,4 @@ For multiple language support:
 In the Download Service Technical Guidelines, add the following requirement:
 **Requirement**: If the service supports several languages and if there is no Extended Capabilities, the xml:lang attribute shall be used to define the language used.
 (insert the example above)
-
-### 3.9 INSPIRE Spatial data set identifier <a name="inspire-data-set-identifier"></a>
-
-_@AntoRot_ + _@ALL_
-
-#### Proposed mapping and rationale
-
-
-#### Detailed mapping description
-
-
-#### Changes to the current INSPIRE framework
 
