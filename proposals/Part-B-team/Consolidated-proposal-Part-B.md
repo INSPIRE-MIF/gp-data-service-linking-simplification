@@ -121,15 +121,15 @@ Currently, the mapping of the spatial data service type element to OWS service c
 
 #### Proposed mapping and rationale
 
-The spatial data service type will be provided by providing the application profile element on the resource locator in the data set metadata record pointing to the response of a "Get View/Download Service Metadata" request of the service providing access to that data set.
+The spatial data service type will be provided by the `gmd:applicationProfile` element given in the data set metadata record and related to the resource locator pointing to the response of a "Get View/Download Service Metadata" request of the service providing access to that data set.
 
 #### Detailed mapping description
 
-The [requirements](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/JRC/ds-linking-simplification-good-practice.md#requirement-gmdapplicationprofile-element) to meet for the implementation of the mapping are already defined in the Good Practice guidelines.
+Requirements to meet, recommendations and examples for the implementation of the mapping are already defined in the [Good Practice guidelines](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/proposals/JRC/ds-linking-simplification-good-practice.md#requirement-gmdapplicationprofile-element).
 
-For WMS, the value to be used for the encoding of the applicationProfile element is "view" (URI: http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/view).
+For WMS, the value to be used for the encoding of the `gmd:applicationProfile` element is "view" (URI: http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/view).
 
-For WFS and ATOM, the value to be used for the encoding of the applicationProfile element is "download" (URI: http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download).
+For WFS and ATOM, the value to be used for the encoding of the `gmd:applicationProfile` element is "download" (URI: http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download).
 
 #### Changes to the current INSPIRE framework
 
@@ -150,11 +150,8 @@ Temporal reference[^note_temporal_reference_19139] will be mapped to
 
 - The optional `updateSequence` attribute in case of a WXS if in this attribute a timestamp value[^note_format_updatesequence] is present;
 - The mandatory `<updated>` in case of an Atom[^note_format_updated].
-
 [^note_temporal_reference_19139]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
-
 [^note_format_updatesequence]: The extended ISO 8601:2000 format, ccyy-mm-ddThh:mm:ss.sssZ whereby the precision may be reduced by omitting least-significant digits, e.g. 2022-01-26 or 2022-01-26T09:30Z, shall be used according to the [WMS specification](http://portal.opengeospatial.org/files/?artifact_id=14416). No reference to or description of the precise ISO 8601 format to be used, extended or basic, is present in the [OWS specification](https://portal.ogc.org/files/?artifact_id=20040).
-
 [^note_format_updated]: The `updated` element shall be a timestamp including a time component, see also [The "atom:updated" Element](https://datatracker.ietf.org/doc/html/rfc4287#section-4.2.15) and [Date Constructs](https://datatracker.ietf.org/doc/html/rfc4287#section-3.3).
 
 If in the optional `updateSequence` attribute a timestamp value is not present (WXS), the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139]:
@@ -418,6 +415,7 @@ See the detailed mapping for [Temporal](#temporal-reference).
 
 #### Changes to the current INSPIRE framework
 
+TBD
 
 ### 3.8. Supported languages <a name="supported-languages"></a>
 
