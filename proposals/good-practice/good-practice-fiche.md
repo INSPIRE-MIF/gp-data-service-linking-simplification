@@ -1,7 +1,7 @@
 # INSPIRE Good Practice: <Name>
   
 ## Name of the GP [@jescriu + @AntoRot]
-> Name of the proposed good practice (@jescriu + @AntoRot)
+> Name of the proposed good practice.
 
 ## Description of the GP [@jescriu + @AntoRot]
 > Provide a short description of the proposed GP.
