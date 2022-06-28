@@ -40,7 +40,8 @@ Data providers are experiencing no difficulties anymore to implement the good pr
 
 •	There is no duplication between the metadata required for services in the Metadata and the Network Services IRs. The duplication of metadata is reduced by requiring just one metadata record per data set rather than three or more (data, view, download and possibly direct access / WFS);
 
-Make it easier for client application to implement discovery of and access to data sets, which is the current trend in many geoportal (including the new INSPIRE geoportal);	
+Make it easier for client application to implement discovery of and access to data sets, which is the current trend in many geoportal (including the new INSPIRE geoportal).
+  
 A simplified approach for data-service linking INSPIRE metadata aim at supporting (at least) the following user stories:
 •	As a user, I want to be able to search relevant data sets using a discovery service (via a geoportal) based on at least the search criteria defined in Art. 11(2) of the Directive. .
 •	As a user, once I have discovered a data set in the discovery service, I want to be able to find in the metadata sufficient information to directly access the service metadata of the download/view service(s) that provide access to the selected/discovered data.
