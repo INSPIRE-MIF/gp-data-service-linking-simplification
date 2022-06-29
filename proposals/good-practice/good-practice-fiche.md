@@ -7,8 +7,16 @@ Data and Service Linking Simplification
 The current approach for documenting data-service linking on the base of the INSPIRE requirements defined in the relevant Implementing Rules and technical guidelines foresees:
   - the documentation of data sets through metadata where, inter alia, a resource locator linking to the service(s) providing online access to the described data set ((for viewing and/or downloading it) is given;
   - the documentation of services (mainly view and download services) through metadata where a link to the target spatial data set(s) of the service is given;
-  - the inclusion of the extended capabilites section in the GetCapabilities document of view and download services in order to fully comply with
-the INSPIRE View/Download Service metadata requirements. To this purpose, this section either includes a reference to the INSPIRE network service metadata in a Discovery Service (scenario 1) or includes the capabilities for mapping INSPIRE metadata elements to the base service standard (WMS, WMTS, WFS or Atom) elements (scenario 2).
+  - the inclusion of the extended capabilites section (extended with respect to the base standards) in the GetCapabilities document of view and download services in order to fully comply with
+the INSPIRE View/Download Service metadata requirements. To this purpose, this section shall include either a reference to the INSPIRE network service metadata in a Discovery Service (scenario 1) or the capabilities for mapping INSPIRE metadata elements to the base service standard (WMS, WMTS, WFS or Atom) elements (scenario 2).
+
+The approach descrived above has proved to be difficult to implement and understand and therefore not widely (correctly) implemented by Member States, with the consequence that the accessibility to INSPIRE data sets through view and download services (and through the INSPIRE geoportal) is low. This affects the overall usability of the INSPIRE infrastructure and the performance measured in the metadata-based monitoring and reporting.
+ 
+This Good Practice proposes an alternative approach for documenting data-service linking in order to simplify the process, enable a greater availability of INSPIRE data sets through view and download service and consequently improve their accessibility through the INSPIRE geoportal.
+This new approach is based on the following assumptions:
+  - the data set metadata record shall include additional elements related to view and download services;
+  - the view and download services are no longer documented in stand-alone service metadata records, but exclusively through the metadata returned by the service itself as a response to a Get View/Download Service Metadata request;
+  - the metadata returned by the service inlcudes no longer the extended capabilities section.
 
   
 ## INSPIRE component(s) [@jescriu + @AntoRot]
