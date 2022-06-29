@@ -26,9 +26,9 @@ This new approach is based on the following assumptions:
 
 The INSPIRE components addressed by the GP are:
 
-**Metadata**: the GP provides an alternative way for describing view and download services and ensure the conformance to the INSPIRE metadata Implementing Rules for services in any cases.
+**Metadata**: the GP provides with an alternative way for describing view and download services and ensure the conformance to the INSPIRE metadata Implementing Rules for services in any cases.
   
-**Network services**: specifically view and download service, the GP affects the service metadata document removing the need for an extension of the base standard.
+**Network services**: specifically for view and download services, the GP affects the service metadata document removing the need for an extension of the base standard.
 
   
 ## References [@jescriu + @AntoRot]
