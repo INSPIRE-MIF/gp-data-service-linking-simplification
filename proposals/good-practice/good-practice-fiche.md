@@ -1,9 +1,11 @@
 # INSPIRE Good Practice: <Name>
   
 ## Name of the GP [@jescriu + @AntoRot]
+
 Data and Service Linking Simplification
 
 ## Description of the GP [@jescriu + @AntoRot]
+
 The current approach for documenting data-service linking on the base of the INSPIRE requirements defined in the relevant Implementing Rules and technical guidelines foresees:
   - the documentation of data sets through metadata where, inter alia, a resource locator linking to the service(s) providing online access to the described data set ((for viewing and/or downloading it) is given;
   - the documentation of services (mainly view and download services) through metadata where a link to the target spatial data set(s) of the service is given;
@@ -12,15 +14,21 @@ the INSPIRE View/Download Service metadata requirements. To this purpose, this s
 
 The approach descrived above has proved to be difficult to implement and understand and therefore not widely (correctly) implemented by Member States, with the consequence that the accessibility to INSPIRE data sets through view and download services (and through the INSPIRE geoportal) is low. This affects the overall usability of the INSPIRE infrastructure and the performance measured in the metadata-based monitoring and reporting.
  
-This Good Practice proposes an alternative approach for documenting data-service linking in order to simplify the process, enable a greater availability of INSPIRE data sets through view and download service and consequently improve their accessibility through the INSPIRE geoportal.
+This Good Practice (GP) proposes an alternative approach for documenting data-service linking in order to simplify the process, enable a greater availability of INSPIRE data sets through view and download services and consequently improve their accessibility through the INSPIRE geoportal.
+
 This new approach is based on the following assumptions:
   - the data set metadata record shall include additional elements related to view and download services;
   - the view and download services are no longer documented in stand-alone service metadata records, but exclusively through the metadata returned by the service itself as a response to a Get View/Download Service Metadata request;
-  - the metadata returned by the service inlcudes no longer the extended capabilities section.
+  - the metadata returned by the service no longer includes the extended capabilities section.
 
   
 ## INSPIRE component(s) [@jescriu + @AntoRot]
-> Describe the INSPIRE component(s) addressed by the GP (data, metadata, network services, data sharing, monitoring & reporting, registers, …)
+
+The INSPIRE components addressed by the GP are:
+
+**Metadata**: the GP provides an alternative encoding for describing view and download services through metadata and ensure the conformance to the INSPIRE metadata Implementing Rules for services in any cases.
+  
+**Network services**: specifically view and download service, the GP affects the service metadata document removing the need for an extension of the base standard.
 
   
 ## References [@jescriu + @AntoRot]
