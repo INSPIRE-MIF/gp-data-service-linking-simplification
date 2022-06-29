@@ -4,9 +4,11 @@
 Data and Service Linking Simplification
 
 ## Description of the GP [@jescriu + @AntoRot]
-The current approach for documenting data-service linking on the base of the relevant Implementing Rules and technical guidelines foresees:
-  - the documentation of data sets through metadata where a resource locator linking to the service(s) providing online access to the described data set ((for viewing and/or downloading it) is given;
-  - 
+The current approach for documenting data-service linking on the base of the INSPIRE requirements defined in the relevant Implementing Rules and technical guidelines foresees:
+  - the documentation of data sets through metadata where, inter alia, a resource locator linking to the service(s) providing online access to the described data set ((for viewing and/or downloading it) is given;
+  - the documentation of services (mainly view and download services) through metadata where a link to the target spatial data set(s) of the service is given;
+  - the inclusion of the extended capabilites section in the GetCapabilities document of view and download services in order to fully comply with
+the INSPIRE View/Download Service metadata requirements. To this purpose, this section either includes a reference to the INSPIRE network service metadata in a Discovery Service (scenario 1) or includes the capabilities for mapping INSPIRE metadata elements to the base service standard (WMS, WMTS, WFS or Atom) elements (scenario 2).
 
   
 ## INSPIRE component(s) [@jescriu + @AntoRot]
