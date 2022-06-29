@@ -1,10 +1,12 @@
 # INSPIRE Good Practice: <Name>
   
 ## Name of the GP [@jescriu + @AntoRot]
-> Name of the proposed good practice.
+Data and Service Linking Simplification
 
 ## Description of the GP [@jescriu + @AntoRot]
-> Provide a short description of the proposed GP.
+The current approach for documenting data-service linking on the base of the relevant Implementing Rules and technical guidelines foresees:
+  - the documentation of data sets through metadata where a resource locator linking to the service(s) providing online access to the described data set ((for viewing and/or downloading it) is given;
+  - 
 
   
 ## INSPIRE component(s) [@jescriu + @AntoRot]
