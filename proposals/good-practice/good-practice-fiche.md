@@ -46,12 +46,19 @@ For client application it becomes easier to implement discovery of and access to
   
 ## Evidence of implementation & support [@idevisser + @MarieLambois]
   
- 
-> Where relevant, provide evidence that the solution 
-> •	has been put into practice, ideally in more than one context (more than one domain / tool / country), 
-> •	has received broader support, by referring to online discussion or documentation of the activity in an appropriate publicly available resource (e.g. GitHub, Thematic Clusters platform),
-> •	has been endorsed by a standardization body, and/or
-> •	has a well-defined governance structure and/or sustainability plan.
+The (minor) changes in the data set metadata needed on the resource locator elements is implemented in; 
+the Dutch metadata profile https://docs.geostandaarden.nl/md/mdprofiel-iso19115/ with instructions on the contents of the elements in https://docs.geostandaarden.nl/eu/INSPIRE-handreiking/#dataset-metadata. 
+The validator http://validatie.geostandaarden.nl/etf-webapp/testprojects returns warnings if the requirements on data service linking are not met.
+The data is available via view and download services in the Dutch Nationaal Georegister https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/search?facet.q=category%2Finspire&resultType=details&sortBy=relevance&fast=index&_content_type=json&from=1&to=50 (selection on INSPIRE) but also for most other data https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/search?fast=index
+
+@Antonio The Italian metadata profile 
+Italian INSPIRE or geo portal 
+  
+@all other profiles and portals where this is implemented?
+
+@all
+Do we have examples where the Download and view services are no longer documented in stand-alone (ISO 19119) service metadata records, but exclusively through the metadata returned by the service itself as a response to a Get Download/View Service Metadata request?
+
 
   
 ## Limitations [@heidivanparys]
