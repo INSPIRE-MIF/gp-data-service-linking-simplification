@@ -77,8 +77,11 @@ The national profile has extended the scope of those metadata elements by also i
   
 Some examples of data sets metadata records including the additional information for view and download services:
 https://geodati.gov.it/RNDT/rest/document?id=r_liguri%3AD.1179
+  
 https://geodati.gov.it/RNDT/rest/document?id=r_basili:-1a8220d0:1507f878817:-6181
+
 https://geodati.gov.it/RNDT/rest/document?id=ispra_rm%3A0029CNATHB_DT
+
 https://geodati.gov.it/RNDT/rest/document?id=ispra_rm%3A0016_WFD_RBD_DT
   
 @all other profiles and portals where this is implemented?
