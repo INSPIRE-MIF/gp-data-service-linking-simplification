@@ -112,6 +112,7 @@ Do we have examples where the Download and view services are no longer documente
 
   
 ## Limitations [@heidivanparys]
-> Describe the known limitations of the GP. This information is meant to clarify for what the GP can and cannot be used and/or which are the supported and not supported use cases. This will help understand possible adopters to understand whether the GP fits their requirements.
 
+This GP is not applicable for services based on the [OGC API family of standards](https://ogcapi.ogc.org/). This is because a mapping between the INSPIRE metadata elements and the [OpenAPI Specification]([url](https://spec.openapis.org/oas/latest.html)) has not yet been agreed. See also the [Technical guidelines for setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md)
   
+Complying with this GP ánd also providing metadata for services in the discovery service will result in the duplication of certain INSPIRE metadata elements, which can lead to inconsistencies if the metadata elements are not kept in sync by means of automated processes.
