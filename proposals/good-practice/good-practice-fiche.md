@@ -91,9 +91,9 @@ The data is available via view and download services in the Dutch Nationaal Geor
 
 The [Italian metadata profile](https://agid.github.io/geodocs/rndt-lg/2.0.1/), aligned to the INSPIRE TGs 2.0, already includes the additional elements in the data sets metadata records for the documentation of the information about the services providing online access to the described data sets.
 
-The national profile has extended the scope of those metadata elements by also including direct access for downloading the data set (e.g. a URL providing a zip file) or a web page (with additional information about the data set, as per in the metadata TG Requirement 1.8). Consequently, the Protocol Value register has been extended to include the related items. That means in the metadata records additional online resources besides the view and download services can be documented.
+The national profile has extended the scope of those metadata elements by also including direct access for downloading the data set (e.g. a URL providing a zip file) or a web page (with additional information about the data set, as per in the metadata TG Requirement 1.8). Consequently, the [Protocol Value register](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue) has been extended at [national level](https://registry.geodati.gov.it/metadata-codelist/ProtocolValue) to include the related items. That means in the metadata records additional online resources besides the view and download services can be documented.
   
-Some examples of data sets metadata records including the additional information for view and download services:
+Some examples of data sets metadata records including the additional information for view and download services and coming from the national catalogue:
 https://geodati.gov.it/RNDT/rest/document?id=r_liguri%3AD.1179
   
 https://geodati.gov.it/RNDT/rest/document?id=r_basili:-1a8220d0:1507f878817:-6181
