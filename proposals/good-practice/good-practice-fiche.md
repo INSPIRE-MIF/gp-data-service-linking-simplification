@@ -54,7 +54,8 @@ The INSPIRE components addressed by the GP are:
 
   
 ### Other references
-> Provide other references, e.g. to papers, presentations etc.
+
+An initial proposal for a simplification approach was defined with the "[Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx)" that reflected the discussions in the MIG-T and in the temporary sub-group 2017.4 on validation and conformity testing on the topic of data-service.
 
   
 ## Relevance & expected benefits [@AntoRot + @jescriu]
