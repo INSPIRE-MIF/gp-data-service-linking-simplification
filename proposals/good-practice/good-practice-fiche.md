@@ -7,7 +7,7 @@ Data and Service Linking Simplification
 ## Description of the GP [@jescriu + @AntoRot]
 
 The current approach for documenting data-service linking on the base of the INSPIRE requirements defined in the relevant Implementing Rules and technical guidelines foresees:
-  - the documentation of data sets through metadata where, inter alia, a resource locator linking to the service(s) providing online access to the described data set ((for viewing and/or downloading it) is given;
+  - the documentation of data sets through metadata where, inter alia, a resource locator linking to the service(s) providing online access to the described data set (for viewing and/or downloading it) is given;
   - the documentation of services (mainly view and download services) through metadata where a link to the target spatial data set(s) of the service is given;
   - the inclusion of the extended capabilites section (extended with respect to the base standards) in the GetCapabilities document of view and download services in order to fully comply with
 the INSPIRE View/Download Service metadata requirements. To this purpose, this section shall include either a reference to the INSPIRE network service metadata in a Discovery Service (scenario 1) or the capabilities for mapping INSPIRE metadata elements to the base service standard (WMS, WMTS, WFS or Atom) elements (scenario 2).
@@ -71,8 +71,15 @@ the Dutch metadata profile https://docs.geostandaarden.nl/md/mdprofiel-iso19115/
 The validator http://validatie.geostandaarden.nl/etf-webapp/testprojects returns warnings if the requirements on data service linking are not met.
 The data is available via view and download services in the Dutch Nationaal Georegister https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/search?facet.q=category%2Finspire&resultType=details&sortBy=relevance&fast=index&_content_type=json&from=1&to=50 (selection on INSPIRE) but also for most other data https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/search?fast=index
 
-@Antonio The Italian metadata profile 
-Italian INSPIRE or geo portal 
+The [Italian metadata profile](https://agid.github.io/geodocs/rndt-lg/2.0.1/), aligned to the INSPIRE TGs 2.0, already includes the additional elements in the data sets metadata records for the documentation of the information about the services providing online access to the described data sets.
+
+The national profile has extended the scope of those metadata elements by also including direct access for downloading the data set (e.g. a URL providing a zip file) or a web page (with additional information about the data set, as per in the metadata TG Requirement 1.8). Consequently, the Protocol Value register has been extended to include the related items. That means in the metadata records additional online resources besides the view and download services can be documented.
+  
+Some examples of data sets metadata records including the additional information for view and download services:
+https://geodati.gov.it/RNDT/rest/document?id=r_liguri%3AD.1179
+https://geodati.gov.it/RNDT/rest/document?id=r_basili:-1a8220d0:1507f878817:-6181
+https://geodati.gov.it/RNDT/rest/document?id=ispra_rm%3A0029CNATHB_DT
+https://geodati.gov.it/RNDT/rest/document?id=ispra_rm%3A0016_WFD_RBD_DT
   
 @all other profiles and portals where this is implemented?
 
