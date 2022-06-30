@@ -59,12 +59,14 @@ An initial proposal for a simplification approach was defined with the "[Discuss
 
   
 ## Relevance & expected benefits [@AntoRot + @jescriu]
-> Describe why the GP was developed. In the description, please explain whether the GP 
-> •	aims at meeting (some of) the INSPIRE requirements  AND/OR
-> •	goes beyond the requirements of the IRs and TGs in order to improve the usability / usefulness of the infrastructure (including INSPIRE extensions) AND/OR
-> •	is using INSPIRE data or services to perform a certain task
-> and what the expected benefits are for INSPIRE implementers, users or other stakeholders.
-> A full text description of the problem addressed by the GP may also be provided. It can be any length but is likely to be no more than a few sentences. 
+
+The GP aims at making the data-service linking process easier in order to overcome the obstacles and difficulties encountered by Member States in the implementation of the current INSPIRE requirements and consequently improve the accessibility and the usability of the INSPIRE data sets through view and download services and in general of the infrastructure through the INSPIRE geoportal.
+
+The expected benefits are described in the aforementioned Discussion Paper, i.e.:
+
+  - Make it easier for client application to implement discovery of and access to data sets, following the new data-centric approach which is the current trend in many geoportal (including the new INSPIRE geoportal);
+  - Reduce the duplication of metadata by requiring just one metadata record per data set rather than three or more (data, view, download ,...);
+  - Make it easier for software developers to implement network services and metadata, by using base standards for the network services without any need to add extensions.
 
   
 ## Intended Outcome [@idevisser + @MarieLambois]
