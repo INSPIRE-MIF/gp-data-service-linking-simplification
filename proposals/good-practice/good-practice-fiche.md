@@ -71,15 +71,17 @@ The expected benefits are described in the aforementioned Discussion Paper, i.e.
   
 ## Intended Outcome [@idevisser + @MarieLambois]
 
-  The users of the INSPIRE infrastructure can accessing all available data via the view and download services.
+  The users of the INSPIRE infrastructure can access all available data via the view and download services.
   
-  Data providers are experiencing no difficulties anymore to establish working links for downloading and viewing data sets, because  
+  Data providers are experiencing no difficulties anymore to establish downloadable and viewable data sets, because  
   
 •	The requirements described in this good practice for documenting these links are easy to implement and understand and therefore widely (correctly) to implement by MS.
 
-•	Extensions to existing standards that are not (widely) supported by existing software products are not required anymore.
+•	INSPIRE-specific extensions to existing standards that are not (widely) supported by existing software products are not required anymore.
 
 • The duplication of metadata is reduced by requiring just one metadata record per data set rather than three or more (data, view, download and possibly direct access / WFS). Only the capabilities document and service feed for ATOM's are used to document the service metadata.
+
+The amount of metadata in the Geoportal could be reduced and that would make search easier.
   
 For client application it becomes easier to implement discovery of and access to data sets, which is the current trend in many geoportal (including the new INSPIRE geoportal).
   
@@ -103,6 +105,8 @@ https://geodati.gov.it/RNDT/rest/document?id=r_basili:-1a8220d0:1507f878817:-618
 https://geodati.gov.it/RNDT/rest/document?id=ispra_rm%3A0029CNATHB_DT
 
 https://geodati.gov.it/RNDT/rest/document?id=ispra_rm%3A0016_WFD_RBD_DT
+
+The same approach is also defined in the [French metadata national Guidelines](http://cnig.gouv.fr/wp-content/uploads/2019/12/Guide-de-saisie-des-%C3%A9l%C3%A9ments-de-m%C3%A9tadonn%C3%A9es-INSPIRE-v2.0-1.pdf) and implemented into the [French catalog](https://www.geocatalogue.fr/).
   
 @all other profiles and portals where this is implemented?
 
