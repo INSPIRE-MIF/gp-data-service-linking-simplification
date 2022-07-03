@@ -79,7 +79,7 @@ The expected benefits are described in the aforementioned Discussion Paper, i.e.
 
 The users of the INSPIRE infrastructure can access all available data via the view and download services.
   
-Data providers are experiencing no difficulties anymore to establish downloadable and viewable data sets, because: 
+When using this GP, data providers are experiencing no difficulties anymore to establish downloadable and viewable data sets, because: 
   
 - The requirements described in this good practice for documenting these links are easy to be implemented and understood, and therefore widely used and correctly implemented by MS.
 
