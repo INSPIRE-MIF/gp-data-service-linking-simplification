@@ -36,10 +36,10 @@ The INSPIRE components addressed by the GP are:
 - **[ISO 19115:2003]** - EN ISO 19115:2003, *Geographic information — Metadata*
 - **[ISO 19115:2003/Cor 1:2006]** - EN ISO 19115:2003/Cor 1:2006, *Geographic information — Metadata — Technical Corrigendum 1*
 - **[ISO/TS 19139:2007]** - ISO/TS 19139:2007, *Geographic information — Metadata — XML schema implementation*
-- **[ISO metadata schemas]** - ISO Metadata schemas
+- **[ISO Metadata schemas]** - ISO Metadata schemas
 - **[IR for MD]** - Commission Regulation (EC) No 1205/2008 of 3 December 2008 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards metadata 
 - **[IR for NS]** - Commission Regulation (EC) No 976/2009 of 19 October 2009 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the Network Services
-- **[IRs for ISDSS]** - Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services
+- **[IR for ISDSS]** - Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services
 - **[INSPIRE MD TG]** - JRC. *Technical Guidance for the implementation of INSPIRE dataset and service metadata based on ISO/TS 19139:2007*.  v2.0.1 - 2017-03-02
 - **[INSPIRE NS - Download Service TG]** - JRC. *Technical Guidance for the implementation of INSPIRE Download Services*. v3.1 - 2013-08-09
 - **[INSPIRE NS - View Service TG]** - JRC. *Technical Guidance for the implementation of INSPIRE View Services*. v3.11 - 2013-04-04
@@ -48,10 +48,10 @@ The INSPIRE components addressed by the GP are:
 [ISO 19115:2003]: https://www.iso.org/standard/26020.html?browse=tc "ISO 19115:2003, Geographic information — Metadata"
 [ISO 19115:2003/Cor 1:2006]: https://www.iso.org/standard/44361.html?browse=tc "ISO 19115:2003/Cor 1:2006, Geographic information — Metadata — Technical Corrigendum 1"
 [ISO/TS 19139:2007]: https://www.iso.org/standard/32557.html?browse=tc "ISO/TS 19139:2007, Geographic information — Metadata — XML schema implementation"
-[ISO metadata schemas]: https://www.isotc211.org/2005/gmd "ISO Metadata schemas"
+[ISO Metadata schemas]: https://www.isotc211.org/2005/gmd "ISO Metadata schemas"
 [IR for MD]: https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1205-20081224&qid=1656887526534&from=EN "Implementing Rule for Metadata (consolidated version of 24/12/2008)"
-[IRs for NS]: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02009R0976-20141231&from=EN "Implementing Rule for Network Services (consolidated version of 31/12/2014)"
-[IRs for ISDSS]: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02010R1089-20141231&from=EN "Implementing Rules for interoperability of spatial data sets and services (consolidated version of 31/12/2014)"
+[IR for NS]: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02009R0976-20141231&from=EN "Implementing Rule for Network Services (consolidated version of 31/12/2014)"
+[IR for ISDSS]: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02010R1089-20141231&from=EN "Implementing Rules for interoperability of spatial data sets and services (consolidated version of 31/12/2014)"
 [INSPIRE MD TG]: https://inspire.ec.europa.eu/id/document/tg/metadata-iso19139 "Technical Guidance for the implementation of INSPIRE dataset and service metadata based on ISO/TS 19139:2007"
 [INSPIRE NS - Download Service TG]: https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services "Technical Guidance for the implementation of INSPIRE Download Services"
 [INSPIRE NS - View Service TG]: https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1 "Technical Guidance for the implementation of INSPIRE View Services"
