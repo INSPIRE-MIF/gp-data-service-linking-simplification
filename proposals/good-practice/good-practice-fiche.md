@@ -57,12 +57,11 @@ The INSPIRE components addressed by the GP are:
 [INSPIRE NS - View Service TG]: https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1 "Technical Guidance for the implementation of INSPIRE View Services"
 [RFC 4287]: https://www.rfc-editor.org/rfc/rfc4287 "The Atom Syndication Format"
 
+The current work and consolidated proposals are documented in the [INSPIRE-MIF Data-Service Linking Simplification GitHub repository](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification) 
   
 ### Other references
 
 An initial proposal for a simplification approach was defined with the "[Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx)" that reflected the discussions in the MIG-T and in the temporary Sub-group 2017.4 on validation and conformity testing on the topic of data-service linking.
-
-The current work and consolidated proposals are documented in the [INSPIRE-MIF Data-Service Linking Simplification GitHub repository](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification) 
   
 ## Relevance & expected benefits
 
