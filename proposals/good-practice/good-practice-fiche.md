@@ -88,7 +88,7 @@ When using this GP, data providers are experiencing no difficulties anymore to e
 
 - The amount of metadata in the INSPIRE Geoportal and the national geoportals could be reduced, making search easier and reducing the size of information to be stored and indexed.
   
-- For client applications, it becomes easier to implement discovery of and access to data sets. This helps implementers to focus on INSPIRE specificity following a data-centric approach, rather than devoting excesive time to documenting the resources, mainly services, and configuring them properly.
+- For client applications, it becomes easier to implement discovery of and access to data sets. This helps implementers to focus on INSPIRE specificity following a data-centric approach, rather than devoting excessive time to documenting the resources, mainly services, and configuring them properly.
   
   
 ## Evidence of implementation & support
