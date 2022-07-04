@@ -78,11 +78,11 @@ The expected benefits are described in the aforementioned Discussion Paper, i.e.
 
 The users of the INSPIRE infrastructure can access all available data via the view and download services.
   
-When using this GP, data providers are experiencing no difficulties anymore to establish downloadable and viewable data sets, because: 
+When using this GP, data providers are not experiencing difficulties anymore to establish downloadable and viewable data sets, because: 
   
 - The requirements described in this good practice for documenting these links are easy to be implemented and understood, and therefore widely used and correctly implemented by MS.
 
-- INSPIRE-specific extensions to existing standards that are not widely supported by existing software products. This GP makes them unnecessary from now onwards, since it allows implementer's organizations to access off-the-shelf software withouth worrying anymore about compliance to INSPIRE-specific extensions. 
+- INSPIRE-specific extensions to existing standards that are not widely supported by existing software products. This GP makes them unnecessary from now onwards, since it allows implementer's organizations to access off-the-shelf software without worrying anymore about compliance to INSPIRE-specific extensions. 
 
 - The duplication of metadata information is reduced. Only one metadata record is required per data set, avoiding the need for documenting additional service metadata records (view, download and possibly direct access / WFS). Only the Capabilities document and service feed for ATOM's are used to document the service metadata, removing possible inconsistencies.
 
