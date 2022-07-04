@@ -13,11 +13,11 @@ The current approach for linking INSPIRE data sets and its related network servi
 
 The approach described above has proved to be difficult to be understood and correctly implemented by many organizations, and therefore neither homogeneously nor widely used by Member States. As a result, the accessibility of data sets through view and download services present in the INSPIRE Geoportal is insufficient. This affects the overall usability of the INSPIRE infrastructure and the performance measured through the metadata-based monitoring and reporting indicators.
  
-This Good Practice (GP) proposes an alternative approach for specifying the data-service linking in order to simplify the process, reduce the effort in documenting INSPIRE metadata while enabling a greater accessibility of INSPIRE data sets through view and download services in the INSPIRE Geoportal.
+This Good Practice (GP) proposes an alternative approach for specifying the data-service linking in order to simplify the process, reduce the effort in documenting INSPIRE metadata while enabling a greater accessibility of INSPIRE data sets through view and download services in the INSPIRE Geoportal. It does not preclude the current approach foreseen in the Technical Guidelines (scenarios 1 and 2), which remain also valid.
 
 When this new approach is used, the following assumptions apply:
   - the data set metadata record shall include additional elements related to view and download services;
-  - there is no need for view and download services to be documented through their corresponding service metadata records. The metadata returned by the service itself, as a response to a Get View/Download Service Metadata request, is enough to provide or point to the required information;
+  - there is no need for view and download services to be documented through their corresponding service metadata records. The metadata returned by the service itself, as a response to a Get View/Download Service Metadata request, is enough to provide the required information;
   - as a result, the metadata returned by the OGC web services (OWS) can follow an OGC-compliant structure, no longer including the Extended Capabilities section.
 
   
@@ -123,6 +123,6 @@ Do we have examples where the Download and view services are no longer documente
 
 ## Limitations
 
-This GP is not applicable for services based on the [OGC API family of standards](https://ogcapi.ogc.org/). This is because a mapping between the INSPIRE metadata elements and the [OpenAPI Specification]([url](https://spec.openapis.org/oas/latest.html)) has not yet been agreed. See also the [Technical guidelines for setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md)
+This GP is not applicable for services based on the [OGC API family of standards](https://ogcapi.ogc.org/). This is because a mapping between the INSPIRE metadata elements and the [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) has not yet been agreed. See also the [Technical guidelines for setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md)
   
-Complying with this GP and also providing metadata for services in the discovery service will result in the duplication of certain INSPIRE metadata elements, which can lead to inconsistencies if the metadata elements are not kept in sync by means of automated processes.
+Complying with this GP and providing metadata for services in the discovery service will result in the duplication of certain INSPIRE metadata elements, which can lead to inconsistencies if the metadata elements are not kept in sync by means of automated processes.
