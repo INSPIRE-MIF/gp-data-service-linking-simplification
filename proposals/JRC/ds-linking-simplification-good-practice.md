@@ -102,7 +102,9 @@ _TO_BE_REVIEWED_
 
 ### 7.2. Resources <a name="resources"></a>
 
-![Diagram of Simplified linkage model](INSPIRE%20models_v1.1.jpg)
+![Diagram of Simplified linkage model](INSPIRE%20models_v1.3_2.jpg)
+
+![Diagram of Simplified linkage model - Mandatory linkage in the simplification approach](INSPIRE%20models_v1.3_2.jpg)
 
 ## 8. Requirements classes <a name="rcs"></a>
 
