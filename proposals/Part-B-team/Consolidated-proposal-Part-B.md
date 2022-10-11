@@ -339,13 +339,12 @@ _In case of view and download services, when the service metadata is provided as
 
 - After adding the text related to a scenario 3 in the section [4.2.3.3.1. View service metadata](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/services/view-wms/ViewServices.adoc#42331-view-service-metadata), add the new mapped elements for conformity in the new table (see PR https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), as per proposal described above.
 - In the section _4.2.3.3.1.11 CONFORMITY_:
-- 	revise the Implementation Requirement 23 as follows (in _italics_ the modified/added parts):
-
-Implementation Requirement 23 - _In case of the scenario 2,_ an extension shall be used to map this to an <inspire_common:Conformity> element within an <inspire_vs:ExtendedCapabilities> element. _In case of the scenario 3, use `wms:Keyword` element for each specification against the service is conformant, included within an specific `wms:KeyworList` group. The specification shall be encoded using the related URI._
-
--	add the note _If a specific keyword referencing the interoperable URI representing a specification is not present, the value of the degree of conformity of the service to this specification will NOT be considered `conformant` (i.e. `non-conformant` or `not evaluated`). Therefore, differentiation between `non-conformant` and `not evaluated` will not be possible when using the simplified approach for data and service linking._
--	add the example proposed above.
-
+ 	- reword the Implementation Requirement 23 as follows (in _italics_ the modified/added parts):
+ 	
+ 	>Implementation Requirement 23 - _In case of the scenario 2,_ an extension shall be used to map this to an <inspire_common:Conformity> element within an ><inspire_vs:ExtendedCapabilities> element. _In case of the scenario 3, use `wms:Keyword` element for each specification against the service is conformant, included >within an specific `wms:KeyworList` group. The specification shall be encoded using the related URI._
+ 	
+ 	- add the note _If a specific keyword referencing the interoperable URI representing a specification is not present, the value of the degree of conformity of the service to this specification will NOT be considered `conformant` (i.e. `non-conformant` or `not evaluated`). Therefore, differentiation between `non-conformant` and `not evaluated` will not be possible when using the simplified approach for data and service linking._
+ 	- add the example proposed above.
 
 
 ### 3.6. Metadata point of contact <a name="metadata-point-of-contact"></a>
