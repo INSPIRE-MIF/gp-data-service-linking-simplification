@@ -472,11 +472,13 @@ Currently, the mapping of the metadata language to OWS service capabilities and 
 
 #### Proposed mapping and rationale
 
-The default language will be set to the data set metadata default language.
+The default language will be set to the data set metadata default language `gmd:MD_Metadata/gmd:language/gmd:LanguageCode`.
 
-The other supported language (if any) will be mapped to the `xml:lang` attributes for WFS and ATOM and the SupportedLanguages element of the INSPIRE GetCapabilities extension.
+The other supported language (if any) will be mapped to the `xml:lang` attributes for WFS and ATOM and the SupportedLanguages element of the INSPIRE GetCapabilities extension for WMS.
 
 #### Detailed mapping description
+
+If only one language is used 
 
 For multiple language support:
 
@@ -503,6 +505,9 @@ For multiple language support:
 
 #### Changes to the current INSPIRE framework
 
-In the Download Service Technical Guidelines, add the following requirement:
+In the Download Service Technical Guidelines (WFS + ATOM), add the following requirement:
 **Requirement**: If the service supports several languages and if there is no Extended Capabilities, the xml:lang attribute shall be used to define the language used.
 (insert the example above)
+
+In view service tecjhnical guidelines add a note:
+Note : If several languages are supported, the "simplification" scenario cannot be used and the Extended service capabilities are required. 
