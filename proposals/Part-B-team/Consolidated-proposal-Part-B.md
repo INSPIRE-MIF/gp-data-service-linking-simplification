@@ -410,13 +410,16 @@ Metadata Point of Contact - organisation name: `feed/author/name`
 Metadata Point of Contact - e-mail: `feed/author/email`
 
 ```xml
-<author> <name>organisation name</name> <email>contact@myorg.eu</email> </author>
+<author> 
+	<name>organisation name</name>
+	<email>contact@myorg.eu</email>
+</author>
 ```
 
 #### Changes to the current INSPIRE framework
 
 Note to be added to the Service Technical Guidelines:
-**Note**: In cases where external ISO 19139 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider.
+**Note**: In cases where external ISO 19119 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider.
 
 ### 3.7. Metadata date <a name="metadata-date"></a>
 
