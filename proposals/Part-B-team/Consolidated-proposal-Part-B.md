@@ -512,4 +512,3 @@ In the Download Service Technical Guidelines (WFS + ATOM), add the following req
 **Requirement**: If the service supports several languages and if there is no Extended Capabilities, the xml:lang attribute shall be used to define the language used.
 (insert the example above)
 
-## 4. Mapping of INSPIRE metadata elements per service type (protocol) <a name="mapping-per-service"></a>
