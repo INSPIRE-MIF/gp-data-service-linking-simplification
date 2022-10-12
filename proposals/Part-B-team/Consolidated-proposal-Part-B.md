@@ -337,7 +337,7 @@ _In case of view and download services, when the service metadata is provided as
 
 **Changes to [View Services TGs](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/services/view-wms/ViewServices.adoc)**
 
-- After adding the text related to a scenario 3 in the section [4.2.3.3.1. View service metadata](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/services/view-wms/ViewServices.adoc#42331-view-service-metadata), add the new mapped elements for conformity in the new table (see PR https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), as per proposal described above.
+- After adding the text related to a scenario 3 in the section [4.2.3.3.1. View service metadata](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/services/view-wms/ViewServices.adoc#42331-view-service-metadata), add the new mapped elements for conformity for WMS services in the new table (see PR https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), as per proposal described above.
 - In the section _4.2.3.3.1.11 CONFORMITY_:
  	- reword the Implementation Requirement 23 as follows (in _italics_ the modified/added parts):
  	
@@ -345,6 +345,17 @@ _In case of view and download services, when the service metadata is provided as
  	
  	- add the note _If a specific keyword referencing the interoperable URI representing a specification is not present, the value of the degree of conformity of the service to this specification will NOT be considered `conformant` (i.e. `non-conformant` or `not evaluated`). Therefore, differentiation between `non-conformant` and `not evaluated` will not be possible when using the simplified approach for data and service linking._
  	- add the example proposed above.
+
+**Changes to [Download Services TGs](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services)**
+
+- In the section 5.1, in the new table proposed in the PR [#61](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), add the new mapped elements for conformity for Atom services as per the proposal above;
+- in the section 5.1, add new sub-sections in order to describe the new mapped elements shown in the table mentioned above;
+- in the section 5.1.3, add the following statement in the text of the TG Requirement 6 "_In case of view and download services, when the service metadata is provided as response to a Get Download Service Metadata request, this requirement shall not to be applied_", also rewording accordingly the text before the mentioned TG Requirement;
+- in the section 6.6, after adding the text related to a third option before the Table 19, add the new mapped elements for conformity for WFS services in the new table (see PR https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), as per proposal described above;
+- in the section 6.6, reword the TG Requirement 53 as follows (in _italics_ the modified/added parts):
+ 	
+ 	>TG Requirement 53 - INSPIRE Metadata for the Download Service shall _be provided using one of the following ways:_ - linking to via an <inspire_common:MetadataURL> in an extended capabilities section; - _using_ the extended capabilities section containing all the INSPIRE Metadata for the Download Service in accordance with Table _19_ and the inspire_dls:ExtendedCapabilities schema; - _in case of view and download services, using the response to a Get Download Service Metadata request containing all the INSPIRE Metadata for the Download Service in accordance with Table xxx_;
+- in the section 6.6, add the example proposed above.
 
 
 ### 3.6. Metadata point of contact <a name="metadata-point-of-contact"></a>
