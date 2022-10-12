@@ -505,9 +505,10 @@ For multiple language support:
 
 #### Changes to the current INSPIRE framework
 
+In view service technical guidelines add a note:
+Note : If several languages are supported, the "simplification" scenario cannot be used and the Extended service capabilities are required. 
+
 In the Download Service Technical Guidelines (WFS + ATOM), add the following requirement:
 **Requirement**: If the service supports several languages and if there is no Extended Capabilities, the xml:lang attribute shall be used to define the language used.
 (insert the example above)
 
-In view service tecjhnical guidelines add a note:
-Note : If several languages are supported, the "simplification" scenario cannot be used and the Extended service capabilities are required. 
