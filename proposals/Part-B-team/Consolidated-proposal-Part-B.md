@@ -317,7 +317,46 @@ According to the mapping proposed and the mentioned interoperable URIs, the XML 
 
 #### Changes to the current INSPIRE framework
 
-TBD
+**Changes to [metadata TGs](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc)**
+
+1. Add the following statement in the text of the TG Requirements C.20, C.21 and C.22 in the section [2.4.1 Conformity](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#241-conformity):
+
+_In case of view and download services, when the service metadata is provided as response to a Get Download/View Service Metadata request, this requirement shall not to be applied_.
+
+2. Add the following TG Requirement in the section [4.2.2.1 Conformity](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc#conformity-2):
+
+>TG Requirement 4.2
+>
+>In case of view and download services, when the service metadata is provided as response to a Get Download/View Service Metadata request, the degree of conformity of the service shall be given using:
+>
+>- the ISO 19128 elements of <WMS_Capabilities> in the GetCapabilities response shown in the Table xxx in [TG ViewS], in case of view services;
+>
+>- the Atom feed elements shown in the Table xxx or the ISO 19142 elements of <WFS_Capabilities> in the GetCapabilities response shown in the Table xxx in [TG DownloadS], respectively in case of Atom or WFS services.
+>
+>The elements above shall be present in the service Capabilities document or ATOM Feed document in order to consider the value of the degree of conformity as `conformant`. Consequently, when the elements above are not present in the service Capabilities document or ATOM Feed document, the degree of conformity is considered `not conformant` or `not evaluated`.
+
+**Changes to [View Services TGs](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/services/view-wms/ViewServices.adoc)**
+
+- After adding the text related to a scenario 3 in the section [4.2.3.3.1. View service metadata](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/services/view-wms/ViewServices.adoc#42331-view-service-metadata), add the new mapped elements for conformity for WMS services in the new table (see PR https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), as per proposal described above.
+- In the section _4.2.3.3.1.11 CONFORMITY_:
+ 	- reword the Implementation Requirement 23 as follows (in _italics_ the modified/added parts):
+ 	
+ 	>Implementation Requirement 23 - _In case of the scenario 2,_ an extension shall be used to map this to an <inspire_common:Conformity> element within an <inspire_vs:ExtendedCapabilities> element. _In case of the scenario 3, use `wms:Keyword` element for each specification against the service is conformant, included within an specific `wms:KeyworList` group. The specification shall be encoded using the related URI._
+ 	
+ 	- add the note _If a specific keyword referencing the interoperable URI representing a specification is not present, the value of the degree of conformity of the service to this specification will NOT be considered `conformant` (i.e. `non-conformant` or `not evaluated`). Therefore, differentiation between `non-conformant` and `not evaluated` will not be possible when using the simplified approach for data and service linking._
+ 	- add the example proposed above.
+
+**Changes to [Download Services TGs](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services)**
+
+- In the section 5.1, in the new table proposed in the PR [#61](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), add the new mapped elements for conformity for Atom services as per the proposal above;
+- in the section 5.1, add new sub-sections in order to describe the new mapped elements shown in the table mentioned above;
+- in the section 5.1.3, add the following statement in the text of the TG Requirement 6 "_In case of view and download services, when the service metadata is provided as response to a Get Download Service Metadata request, this requirement shall not to be applied_", also rewording accordingly the text before the mentioned TG Requirement;
+- in the section 6.6, after adding the text related to a third option before the Table 19, add the new mapped elements for conformity for WFS services in the new table (see PR https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), as per proposal described above;
+- in the section 6.6, reword the TG Requirement 53 as follows (in _italics_ the modified/added parts):
+ 	
+ 	>TG Requirement 53 - INSPIRE Metadata for the Download Service shall _be provided using one of the following ways:_ - linking to via an <inspire_common:MetadataURL> in an extended capabilities section; - _using_ the extended capabilities section containing all the INSPIRE Metadata for the Download Service in accordance with Table _19_ and the inspire_dls:ExtendedCapabilities schema; - _in case of view and download services, using the response to a Get Download Service Metadata request containing all the INSPIRE Metadata for the Download Service in accordance with Table xxx_;
+- in the section 6.6, add the example proposed above.
+
 
 ### 3.6. Metadata point of contact <a name="metadata-point-of-contact"></a>
 
@@ -371,13 +410,16 @@ Metadata Point of Contact - organisation name: `feed/author/name`
 Metadata Point of Contact - e-mail: `feed/author/email`
 
 ```xml
-<author> <name>organisation name</name> <email>contact@myorg.eu</email> </author>
+<author> 
+	<name>organisation name</name>
+	<email>contact@myorg.eu</email>
+</author>
 ```
 
 #### Changes to the current INSPIRE framework
 
 Note to be added to the Service Technical Guidelines:
-**Note**: In cases where external ISO 19139 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider.
+**Note**: In cases where external ISO 19119 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider.
 
 ### 3.7. Metadata date <a name="metadata-date"></a>
 
@@ -430,11 +472,13 @@ Currently, the mapping of the metadata language to OWS service capabilities and 
 
 #### Proposed mapping and rationale
 
-The default language will be set to the data set metadata default language.
+The default language will be set to the data set metadata default language `gmd:MD_Metadata/gmd:language/gmd:LanguageCode`.
 
-The other supported language (if any) will be mapped to the `xml:lang` attributes for WFS and ATOM and the SupportedLanguages element of the INSPIRE GetCapabilities extension.
+The other supported language (if any) will be mapped to the `xml:lang` attributes for WFS and ATOM and the SupportedLanguages element of the INSPIRE GetCapabilities extension for WMS.
 
 #### Detailed mapping description
+
+If only one language is used 
 
 For multiple language support:
 
@@ -461,7 +505,10 @@ For multiple language support:
 
 #### Changes to the current INSPIRE framework
 
-In the Download Service Technical Guidelines, add the following requirement:
+In view service technical guidelines add a note:
+Note : If several languages are supported, the "simplification" scenario cannot be used and the Extended service capabilities are required. 
+
+In the Download Service Technical Guidelines (WFS + ATOM), add the following requirement:
 **Requirement**: If the service supports several languages and if there is no Extended Capabilities, the xml:lang attribute shall be used to define the language used.
 (insert the example above)
 
@@ -538,3 +585,4 @@ Note: see table 3 in the TG View for the mapping in scenario 2, with the extende
 | Metadata Language (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43 |
 
 Note: see table 17 in the TG Download for the current Atom mapping.
+=======
