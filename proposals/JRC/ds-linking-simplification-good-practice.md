@@ -115,7 +115,11 @@ _TO_BE_REVIEWED_
 | Target type | ISO/TS 19139:2007 Geographic information Metadata XML schema implementation |
 | Dependency | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (*) |
 
-(*) NOTE: URI of the Conformance class, not of the requirements class.
+(*) NOTE: URI of the Conformance class, not of the requirements class --> Refer to Chapter 3.1
+
+-- INCLUDE PICTURE ON DEPENDENCY --
+
+INCLUDE
 
 -- INTRODUCTION - STILL VALID? --
 The Resource Locator element of a data set metadata record shall point to the URL where the service can be contacted. 
