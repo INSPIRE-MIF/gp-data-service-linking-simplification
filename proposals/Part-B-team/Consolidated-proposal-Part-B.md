@@ -150,6 +150,8 @@ Temporal reference[^note_temporal_reference_19139] will be mapped to
 - The optional `updateSequence` attribute in case of a WXS if in this attribute a timestamp value[^note_format_updatesequence] is present;
 - The mandatory `<updated>` in case of an Atom[^note_format_updated].
 
+This means that the last update of the service metadata is assumed equal to the update date of the service.
+
 [^note_temporal_reference_19139]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
 
 [^note_format_updatesequence]: The extended ISO 8601:2000 format, ccyy-mm-ddThh:mm:ss.sssZ whereby the precision may be reduced by omitting least-significant digits, e.g. 2022-01-26 or 2022-01-26T09:30Z, shall be used according to the [WMS specification](http://portal.opengeospatial.org/files/?artifact_id=14416). No reference to or description of the precise ISO 8601 format to be used, extended or basic, is present in the [OWS specification](https://portal.ogc.org/files/?artifact_id=20040).
@@ -162,7 +164,7 @@ If in the optional `updateSequence` attribute a timestamp value is not present (
 2. If a date of type `revision` is present, take this value as Temporal Reference;
 3. Otherwise, take the date of type `creation` as value of the Temporal Reference.
 
-For a WXS, this means that the last update of the service metadata is assumed to be the same as the publication, revision or creation date of the data set. For Atom, this means that the last update of the service metadata is assumed equal to the update date of the service.
+For a WXS where the optional `updateSequence` is not present, this means that the last update of the service metadata is assumed to be the same as the publication, revision or creation date of the data set.
 
 The same mapping is also used to derive the [Metadata date](#metadata-date) of the service.
 
@@ -258,7 +260,27 @@ For an **ATOM feed**:
 
 #### Changes to the current INSPIRE framework
 
-TBD
+Mapping of INSPIRE metadata elements per service type (protocol) <a name="mapping-per-service"></a>
+### WMS 1.3
+| INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+
+
+### WFS 2.0
+| INSPIRE Metadata element | WFS 2.0 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+
+
+### Atom
+| INSPIRE Metadata element | Atom + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Temporal Reference (M) |  `/feed/updated`  | |
+
+
+
+
 
 ### 3.5. Conformity <a name="conformity"></a>
 
@@ -459,7 +481,26 @@ See the detailed mapping for [Temporal](#temporal-reference).
 
 #### Changes to the current INSPIRE framework
 
-TBD
+Mapping of INSPIRE metadata elements per service type (protocol) <a name="mapping-per-service"></a>
+### WMS 1.3
+| INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+
+### WFS 2.0
+| INSPIRE Metadata element | WFS 2.0 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+
+### Atom
+| INSPIRE Metadata element | Atom + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Metadata Date (M) |   `/feed/updated`  | |
+
+
+
+
+
 
 ### 3.8. Supported languages <a name="supported-languages"></a>
 
