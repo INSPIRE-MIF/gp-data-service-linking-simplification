@@ -18,7 +18,7 @@ _TO_BE_REVISED_
   * [3.6. Metadata point of contact](#metadata-point-of-contact)
   * [3.7. Metadata date](#metadata-date)
   * [3.8. Supported languages](#supported-languages)
-  
+* [4. Mapping of INSPIRE metadata elements per service type (protocol)](#mapping-per-service)  
 
 ## 1. Introduction <a name="introduction"></a>
 
@@ -264,13 +264,13 @@ Mapping of INSPIRE metadata elements per service type (protocol) <a name="mappin
 ### WMS 1.3
 | INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
 |---|---|---|
-| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
 
 
 ### WFS 2.0
 | INSPIRE Metadata element | WFS 2.0 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
 |---|---|---|
-| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
 
 
 ### Atom
@@ -553,3 +553,80 @@ In the Download Service Technical Guidelines (WFS + ATOM), add the following req
 **Requirement**: If the service supports several languages and if there is no Extended Capabilities, the xml:lang attribute shall be used to define the language used.
 (insert the example above)
 
+## 4. Mapping of INSPIRE metadata elements per service type (protocol) <a name="mapping-per-service"></a>
+
+### WFS 2.0
+
+| INSPIRE Metadata element | WFS 2.0 without ExtendedCapabilities | Note |
+|---|---|---|
+| Resource Title (M) | `ows:ServiceIdentification/ows:Title` |  |
+| Resource Abstract (M) | `ows:ServiceIdentification/ows:Abstract` |  |
+| Resource Type (M) | - | Is by default "service" |
+| Resource Locator (C) | - | Resource Locator of the data set |
+| Coupled Resource (C) | `wfs:MetadataURL` (per feature type) |  |
+| Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
+| Keyword (M) | `ows:Keywords/ows:Keyword` |  |
+| Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Spatial Resolution (C) | - | Spatial Resolution of the data set |
+| Conformity (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 |  |
+| Conditions for Access and Use (M) | `ows:ServiceIdentification/ows:Fees` |  |
+| Limitations on Public Access (M) | `ows:ServiceIdentification/ows:AccessConstraints` |  |
+| Responsible Organisation (M) | `ows:ServiceProvider/ows:ProviderName` and `ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo` |  |
+| Metadata Point of Contact (M) | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
+| Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Metadata Language (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43 |  |
+
+
+Note: see table 19 in the TG Download for the mapping in scenario 2, with the extended capabilities.
+
+### WMS 1.3
+
+| INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities | Note |
+|---|---|---|
+| Resource Title (M) | `wms:Title` |  |
+| Resource Abstract (M) | `wms:Abstract` |  |
+| Resource Type (M) | - |  Is by default "service" |
+| Resource Locator (C) | - | Resource Locator of the data set |
+| Coupled Resource (C) | `wms:MetadataURL` (per layer) |  |
+| Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
+| Keyword (M) | `wms:Keyword` |  |
+| Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Spatial Resolution (C) | - | Spatial Resolution of the data set |
+| Conformity (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 |  |
+| Conditions for Access and Use (M) | `wms:Fees` |  |
+| Limitations on Public Access (M) | `wms:AccessConstraints` |  |
+| Responsible Organisation (M) | `wms:ContactInformation` |  |
+| Metadata Point of Contact (M) | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
+| Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Metadata Language (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43 |  |
+
+
+Note: see table 3 in the TG View for the mapping in scenario 2, with the extended capabilities.
+
+### Atom
+
+| INSPIRE Metadata element | Atom | Note |
+|---|---|---|
+| Resource Title (M) | `/feed/title` |  |
+| Resource Abstract (M) | `/feed/subtitle` |  |
+| Resource Type (M) | - |  Is by default "service" |
+| Resource Locator (C) | `/feed/link[@rel="self"]` in the top Atom feed | Resource Locator of the data set |
+| Coupled Resource (C) | `/feed/entry/link[@rel="describedby"]` in the top Atom feed |  |
+| Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
+| Keyword (M) | not mapped? Keyword of the data set? |  |
+| Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
+| Temporal Reference (M) | `/feed/updated` |  |
+| Spatial Resolution (C) | Spatial Resolution of the data set |  |
+| Conformity (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 |  |
+| Conditions for Access and Use (M) | not mapped? Conditions for Access and Use of the data set? |  |
+| Limitations on Public Access (M) | `/feed/rights` in the top Atom feed |  |
+| Responsible Organisation (M) | `/feed/author` in the top Atom feed |  |
+| Metadata Point of Contact (M) | `/feed/author` in the top Atom feed (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
+| Metadata Date (M) | `/feed/updated` |  |
+| Metadata Language (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43 |  |
+
+
+Note: see table 17 in the TG Download for the current Atom mapping.
+=======
