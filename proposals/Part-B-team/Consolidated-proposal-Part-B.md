@@ -557,7 +557,7 @@ In the Download Service Technical Guidelines (WFS + ATOM), add the following req
 | Responsible Organisation (M) | `ows:ServiceProvider/ows:ProviderName` and `ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo` |  |
 | Metadata Point of Contact (M) | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
 | Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
-| Metadata Language (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43 |  |
+| Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) will be mapped to the `xml:lang` (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
 
 
 Note: see table 19 in the TG Download for the mapping in scenario 2, with the extended capabilities.
@@ -582,7 +582,7 @@ Note: see table 19 in the TG Download for the mapping in scenario 2, with the ex
 | Responsible Organisation (M) | `wms:ContactInformation` |  |
 | Metadata Point of Contact (M) | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
 | Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
-| Metadata Language (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43 |  |
+| Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) would require the `SupportedLanguages` element of the INSPIRE GetCapabilities extension for WMS (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
 
 
 Note: see table 3 in the TG View for the mapping in scenario 2, with the extended capabilities.
@@ -607,7 +607,7 @@ Note: see table 3 in the TG View for the mapping in scenario 2, with the extende
 | Responsible Organisation (M) | `/feed/author` in the top Atom feed |  |
 | Metadata Point of Contact (M) | `/feed/author` in the top Atom feed (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
 | Metadata Date (M) | `/feed/updated` |  |
-| Metadata Language (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43 |  |
+| Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) will be mapped to the `xml:lang` (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
 
 
 Note: see table 17 in the TG Download for the current Atom mapping.
