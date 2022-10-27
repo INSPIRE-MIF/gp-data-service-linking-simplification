@@ -551,7 +551,7 @@ In the Download Service Technical Guidelines (WFS + ATOM), add the following req
 | Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
 | Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
 | Spatial Resolution (C) | - | Spatial Resolution of the data set |
-| Conformity (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 |  |
+| Conformity (M) | `ows:Keywords`/`ows:Keyword` + `ows:Keywords`/`ows:Type` https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `ows:Keyword` element for each specification against the service is **conformant**, included within a specific `ows:Keywords` group including an `ows:Type` element of type URI |
 | Conditions for Access and Use (M) | `ows:ServiceIdentification/ows:Fees` |  |
 | Limitations on Public Access (M) | `ows:ServiceIdentification/ows:AccessConstraints` |  |
 | Responsible Organisation (M) | `ows:ServiceProvider/ows:ProviderName` and `ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo` |  |
@@ -576,7 +576,7 @@ Note: see table 19 in the TG Download for the mapping in scenario 2, with the ex
 | Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
 | Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
 | Spatial Resolution (C) | - | Spatial Resolution of the data set |
-| Conformity (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 |  |
+| Conformity (M) | `wms:KeyworList`/`wms:Keyword` https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `wms:Keyword` element for each specification against the service is **conformant**, included within an specific `wms:KeyworList` group. |
 | Conditions for Access and Use (M) | `wms:Fees` |  |
 | Limitations on Public Access (M) | `wms:AccessConstraints` |  |
 | Responsible Organisation (M) | `wms:ContactInformation` |  |
@@ -601,7 +601,7 @@ Note: see table 3 in the TG View for the mapping in scenario 2, with the extende
 | Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
 | Temporal Reference (M) | `/feed/updated` |  |
 | Spatial Resolution (C) | Spatial Resolution of the data set |  |
-| Conformity (M) | https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 |  |
+| Conformity (M) | `atom:category` element https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `atom:category` element for each specification against which the service is **conformant** |
 | Conditions for Access and Use (M) | not mapped? Conditions for Access and Use of the data set? |  |
 | Limitations on Public Access (M) | `/feed/rights` in the top Atom feed |  |
 | Responsible Organisation (M) | `/feed/author` in the top Atom feed |  |
