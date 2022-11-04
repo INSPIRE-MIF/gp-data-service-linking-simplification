@@ -38,8 +38,8 @@ The Table below provides a summary of the new mapping of INSPIRE metadata elemen
 
 | INSPIRE metadata elements | New allocation | Applicable on Service type |
 | :- | :- | :- |
-| Resource Type          | No element mapped | WMS - WFS - Atom |
-| Resource Locator       | No element mapped| WMS - WFS - Atom |
+| Resource Type          | Not applicable | WMS - WFS - Atom |
+| Resource Locator       | Not applicable| WMS - WFS - Atom |
 | Spatial Data Service Type| `gmd:applicationProfile` element (in data set metadata record) | WMS - WFS - Atom |
 | Temporal Reference     | `updateSequence` attribute in the `WMS_Capabilities`/`WFS_Capabilities` root element. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | WMS - WFS |
 |                        | `feed/updated` element in the Atom feed. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types: - _publication_, - _revision_ or - _creation_ | Atom |
@@ -597,12 +597,12 @@ Note: see table 3 in the TG View for the mapping in scenario 2, with the extende
 | Resource Locator (C) | `/feed/link[@rel="self"]` in the top Atom feed | Resource Locator of the data set |
 | Coupled Resource (C) | `/feed/entry/link[@rel="describedby"]` in the top Atom feed |  |
 | Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
-| Keyword (M) | not mapped? Keyword of the data set? |  |
+| Keyword (M) | `/feed/category` see https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/67 |  |
 | Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
 | Temporal Reference (M) | `/feed/updated` |  |
 | Spatial Resolution (C) | Spatial Resolution of the data set |  |
 | Conformity (M) | `atom:category` element https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `atom:category` element for each specification against which the service is **conformant** |
-| Conditions for Access and Use (M) | not mapped? Conditions for Access and Use of the data set? |  |
+| Conditions for Access and Use (M) | `identificationInfo[1]/*/resourceConstraints/*/accessConstraints`  in the ISO/TS 19139:2007 metadata record dataset |  |
 | Limitations on Public Access (M) | `/feed/rights` in the top Atom feed |  |
 | Responsible Organisation (M) | `/feed/author` in the top Atom feed |  |
 | Metadata Point of Contact (M) | `/feed/author` in the top Atom feed (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
