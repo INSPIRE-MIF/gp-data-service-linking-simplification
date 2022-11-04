@@ -539,7 +539,7 @@ In the Download Service Technical Guidelines (WFS + ATOM), add the following req
 
 ### WFS 2.0
 
-| INSPIRE Metadata element | WFS 2.0 without ExtendedCapabilities | Note |
+| INSPIRE Metadata element | WFS 2.0 without ExtendedCapabilities | Fallback |
 |---|---|---|
 | Resource Title (M) | `ows:ServiceIdentification/ows:Title` |  |
 | Resource Abstract (M) | `ows:ServiceIdentification/ows:Abstract` |  |
@@ -564,7 +564,7 @@ Note: see table 19 in the TG Download for the mapping in scenario 2, with the ex
 
 ### WMS 1.3
 
-| INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities | Note |
+| INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities | Fallback |
 |---|---|---|
 | Resource Title (M) | `wms:Title` |  |
 | Resource Abstract (M) | `wms:Abstract` |  |
@@ -589,7 +589,7 @@ Note: see table 3 in the TG View for the mapping in scenario 2, with the extende
 
 ### Atom
 
-| INSPIRE Metadata element | Atom | Note |
+| INSPIRE Metadata element | Atom | Fallback |
 |---|---|---|
 | Resource Title (M) | `/feed/title` |  |
 | Resource Abstract (M) | `/feed/subtitle` |  |
@@ -602,7 +602,7 @@ Note: see table 3 in the TG View for the mapping in scenario 2, with the extende
 | Temporal Reference (M) | `/feed/updated` |  |
 | Spatial Resolution (C) | Spatial Resolution of the data set |  |
 | Conformity (M) | `atom:category` element https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `atom:category` element for each specification against which the service is **conformant** |
-| Conditions for Access and Use (M) | `identificationInfo[1]/*/resourceConstraints/*/accessConstraints`  in the ISO/TS 19139:2007 metadata record dataset |  |
+| Conditions for Access and Use (M) | - | `identificationInfo[1]/*/resourceConstraints/*/accessConstraints` in the ISO/TS 19139:2007 metadata record dataset |
 | Limitations on Public Access (M) | `/feed/rights` in the top Atom feed |  |
 | Responsible Organisation (M) | `/feed/author` in the top Atom feed |  |
 | Metadata Point of Contact (M) | `/feed/author` in the top Atom feed (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
@@ -611,4 +611,4 @@ Note: see table 3 in the TG View for the mapping in scenario 2, with the extende
 
 
 Note: see table 17 in the TG Download for the current Atom mapping.
-=======
+
