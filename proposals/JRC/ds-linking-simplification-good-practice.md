@@ -64,8 +64,6 @@ Furthermore, at the time of writing, the requirements expressed here for the Dow
 
 ## 5. Terms and definitions <a name="terms-and-definitions"></a>
 
-_TO_BE_REVIEWED_
-
 For the purposes of this document, the following terms and definitions apply:
 
 | Term | Definition | Source |
@@ -81,8 +79,6 @@ For the purposes of this document, the following terms and definitions apply:
 - [INSPIRE glossary](http://inspire.ec.europa.eu/glossary)
 
 ## 6. Acronyms <a name="acronyms"></a>
-
-_TO_BE_REVIEWED_
 
 | Abbreviation | Term |
 | --- | --- |
@@ -113,13 +109,13 @@ _TO_BE_REVIEWED_
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ds-md-resource-locator |
 | --- | --- |
 | Target type | ISO/TS 19139:2007 Geographic information Metadata XML schema implementation |
-| Dependency | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (*) |
+| Dependency | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (\*) |
 
-(*) NOTE: URI of the Conformance class, not of the requirements class --> Refer to Chapter 3.1
+(\*) NOTE: This is the URI of the Conformance class. Refer to [INSPIRE MD TG] (Chapter 3.1)[https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#31-baseline-metadata-for-data-sets-and-data-set-series] to look up for information about the requirements class itself.
 
 -- INCLUDE PICTURE ON DEPENDENCY --
+The following graphic illustrates the dependency of the “INSPIRE-Data-Set-Metadata-Resource-Locator” requirements class from Conformance Class 1 “INSPIRE data sets and data set series baseline metadata”, which establishes the requirements for metadata records describing an INSPIRE data set or data set series encoded in ISO 19139 based XML format.
 
-INCLUDE
 
 -- INTRODUCTION - STILL VALID? --
 The Resource Locator element of a data set metadata record shall point to the URL where the service can be contacted. 
