@@ -115,7 +115,7 @@ For the purposes of this document, the following terms and definitions apply:
 
 The following graphic illustrates the dependency of the “INSPIRE-Data-Set-Metadata-Resource-Locator” requirements class from Conformance Class 1 “INSPIRE data sets and data set series baseline metadata” defined in Chapter 3.1 of the [INSPIRE MD TG], which establishes the requirements for metadata records describing an INSPIRE data set or data set series encoded in ISO 19139 based XML format.
 
-./TG_MD_ReqClassDependencies_v1.jpg
+![Dependencies on requirements classes from INSPIRE TG MD](https://github.com/jescriu/gp-data-service-linking-simplification/blob/main/proposals/JRC/TG_MD_ReqClassDependencies_v1.jpg)
 
 -- INTRODUCTION - STILL VALID? --
 The Resource Locator element of a data set metadata record shall point to the URL where the service can be contacted. 
