@@ -111,7 +111,7 @@ For the purposes of this document, the following terms and definitions apply:
 | Target type | ISO/TS 19139:2007 Geographic information Metadata XML schema implementation |
 | Dependency | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (\*) |
 
-(\*) NOTE: This is the URI of the Conformance class. Refer to [INSPIRE MD TG] (Chapter 3.1)[https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#31-baseline-metadata-for-data-sets-and-data-set-series] to look up for information about the requirements class itself.
+(\*) NOTE: This is the URI of the Conformance class. Refer to [INSPIRE MD TG] [Chapter 3.1](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#31-baseline-metadata-for-data-sets-and-data-set-series) to look up for information about the requirements class itself.
 
 -- INCLUDE PICTURE ON DEPENDENCY --
 The following graphic illustrates the dependency of the “INSPIRE-Data-Set-Metadata-Resource-Locator” requirements class from Conformance Class 1 “INSPIRE data sets and data set series baseline metadata”, which establishes the requirements for metadata records describing an INSPIRE data set or data set series encoded in ISO 19139 based XML format.
