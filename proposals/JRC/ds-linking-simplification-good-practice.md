@@ -117,23 +117,21 @@ The following graphic illustrates the dependency of the “INSPIRE-Data-Set-Meta
 
 ![Dependencies on requirements classes from INSPIRE TG MD](https://github.com/jescriu/gp-data-service-linking-simplification/blob/main/proposals/JRC/TG_MD_ReqClassDependencies_v1.jpg)
 
--- INTRODUCTION - STILL VALID? --
 The Resource Locator element of a data set metadata record shall point to the URL where the service can be contacted. 
 
-Setting up the correct resource locators is important for the connection between the data sets and the services that provide access to them or for providing additional information concerning the data sets.
+Setting up the correct resource locators is important for the connection between the data sets and the services that provide access to them, or for providing additional information concerning the data sets.
 
 In particular, **TG Requirement 1.8** of [INSPIRE MD TG] expresses the obligation to provide online access, if available, to the described data set or data set series.
 
 Furthermore, the INSPIRE legal framework requires that data sets are made available through View and Download services, which in turn implies that at least two locators need to be expressed in the data set metadata: one for a View Service and one for a Download Service.
 
-The following requirements are also an enforcement of **TG Recommendation 1.9** in [INSPIRE MD TG] for the data set metadata record.
+The “/req/view-linkage” and “/req/download-linkage” requirements below are an enforcement of **TG Recommendation 1.9** in [INSPIRE MD TG] for the data set metadata record.
 
-This class requires that the Resource Locator element shall point to the set of additional information about a service resource (i.e. "Get Download/View Service Metadata" operation). 
+The class described in this section requires that the Resource Locator element shall point to the set of additional information about a service resource (i.e. "Get Download/View Service Metadata" operation). 
 
-This class requires the presence of `<gmd:protocol>` and `<gmd:applicationProfile>`, paired with the defined codelist values from the INSPIRE Registry. This would imply fulfilling this portion of the simplification described here.
+Additionally, The class described in this section requires the presence of `<gmd:protocol>` and `<gmd:applicationProfile>`, paired with the defined codelist values from the INSPIRE Registry. This would imply fulfilling this portion of the simplification described here.
 
 The presence of additional Resource Locator elements, pointing to the data set itself (e.g. "Get Spatial Data Set" request of a Download Service), is allowed, due to the multiplicity expressed by **TG Requirement 1.8**. Consequently, these additional Resource Locator elements should avoid at least the use of the `<gmd:applicationProfile>` element specified below, in order to reduce the complexity of a machine-to-machine element recognition made by an INSPIRE software implementation such as the INSPIRE Geoportal.
--- /END --
 
 ### Recommendation: \<gmd:protocol\> element
 
@@ -166,11 +164,9 @@ _NOTE_: At the time of writing, the above examples use `eng` as metadata languag
 
 - For this element, the INSPIRE Registry provides the values from the [SpatialDataServiceType codelist](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType).
 - Regarding the label of a codelist, the INSPIRE Registry specifies the text to be used, which should follow the metadata language.
-- The [INSPIRE MD TG] already recommends the use of the `gmx:Anchor` element, instead of `gco:CharacterString`, when the provided text is a term or code. 
+- The [INSPIRE MD TG] already recommends the use of the `gmx:Anchor` element, instead of `gco:CharacterString`, when the provided text is a term or code.
+- The existence of the element `gco:CharacterString` is allowed for backward compatibility with an existing Resource Locator description that might be already compliant **with this simplification **.
 
--- TO BE REVISED --
-- The existence of the element `gco:CharacterString` is allowed for backward compatibility with an existing Resource Locator description that might be already compliant **with this simplification ? **.
--- /END --
 
 | **Recommendation** | **/rec/resource-locator-application-profile** |
 | --- | --- |
@@ -194,6 +190,8 @@ _NOTE_: At the time of writing, the above examples use `dut` as metadata languag
 
 ### Requirement: INSPIRE View Service linking
 
+- Within the element `gmd:URL` linking to a view service, the URL shall point to the response of a "Get View Service Metadata" request of the service providing access to this data set (e.g. the "GetCapabilities" document in the case of an OGC:WMS service).
+
 | Requirement | /req/view-linkage |
 |---|---|
 | A | A Resource Locator to an INSPIRE View Service providing view access to the described data set or data set series SHALL be given. It SHALL be encoded using the `/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource` element. |
@@ -205,17 +203,12 @@ _NOTE_: At the time of writing, the above examples use `dut` as metadata languag
 | G | If the element `gmd:applicationProfile` is encoded using `gmx:Anchor`, the attribute `gmx:Anchor/@xlink:href` SHALL point to https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/view. |
 | H | If the element `gmd:applicationProfile` is encoded using `gco:CharacterString`, the text value of `gco:CharacterString` SHALL match the label of https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/view in the language of the metadata language. |
 
--- TO BE REVISED, AND ADD NOTE ALSO FOR /req/download-linkage --
-
-- Within this element, the URL shall point to the response of a "Get View/Download Service Metadata" request of the service providing access to this data set (e.g. the "GetCapabilities" document in the case of an OGC:WFS service).
-
-- The [INSPIRE MD TG] already recommends the use of the `gmx:Anchor` element, instead of `gco:CharacterString`, when the provided text is a term or code. **This requirements class** enforces the use of this element.
-- The [INSPIRE MD TG] already recommends the use of the `gmx:Anchor` element, instead of `gco:CharacterString`, when the provided text is a term or code. **This requirements class** enforces the use of this element.
--- /END --
-
 See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
+
 ### Requirement: INSPIRE Download Service linkage
+
+- Within the element `gmd:URL` linking to a download service, the URL shall point to the response of a "Get Download Service Metadata" request of the service providing access to this data set (e.g. the "GetCapabilities" document in the case of an OGC:WFS service).
 
 | Requirement | /req/download-linkage |
 |---|---|
