@@ -1,0 +1,1 @@
+This folder contains the different version of the graphics created to illustrate the good practice ('INSPIRE models') related to the Data-Service-Linking Simplification good practice, and other graphics.
