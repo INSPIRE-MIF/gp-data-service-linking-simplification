@@ -108,14 +108,14 @@ For the purposes of this document, the following terms and definitions apply:
 
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ds-md-resource-locator |
 | --- | --- |
-| Target type | ISO/TS 19139:2007 Geographic information Metadata XML schema implementation |
+| Target type | ISO/TS 19139:2007 Geographic information Metadata XML schema implementation (Data sets and Data set series metadata) |
 | Dependency | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (\*) |
 
 (\*) NOTE: This is the URI of the Conformance class. Refer to [INSPIRE MD TG] [Chapter 3.1](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#31-baseline-metadata-for-data-sets-and-data-set-series) to look up for information about the requirements class itself.
 
 The following graphic illustrates the dependency of the “INSPIRE-Data-Set-Metadata-Resource-Locator” requirements class from Conformance Class 1 “INSPIRE data sets and data set series baseline metadata” defined in Chapter 3.1 of the [INSPIRE MD TG], which establishes the requirements for metadata records describing an INSPIRE data set or data set series encoded in ISO 19139 based XML format.
 
-![Dependencies on requirements classes from INSPIRE TG MD](./graphics/Clause_8-1_ReqClassDependencies_v1.jpg)
+![Requirement classes dependencies of Clause 8.1 on INSPIRE TG MD](./graphics/Clause_8-1_ReqClassDependencies_v1.jpg)
 
 The Resource Locator element of a data set metadata record shall point to the URL where the service can be contacted. 
 
@@ -228,8 +228,16 @@ See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ns-md-coupled-resource |
 | --- | --- |
-| Target type | Service metadata |
-| Dependency | N/A |
+| Target type | ISO/TS 19139:2007 Geographic information Metadata XML schema implementation (Service metadata) |
+| Dependencies | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (\*)) |
+| --- | N/A |
+
+(\*) NOTE 1: This is the URI of the Conformance class. Refer to [INSPIRE MD TG] [Chapter 4.1](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#41-baseline-metadata-for-spatial-data-services) to look up for information about the requirements class itself.
+
+The following graphic illustrates the dependency of the “INSPIRE-Network-Service-Metadata-Coupled-Resource” requirements class from Conformance Class 3 “INSPIRE Spatial Data Service baseline metadata” defined in Chapter 4.1 of the [INSPIRE MD TG], which establishes the requirements for metadata records describing INSPIRE spatial data services encoded in ISO 19139 based XML format.
+
+![Requirement classes dependencies of Clause 8.2 on INSPIRE TG MD](./graphics/Clause_8-2_ReqClassDependencies_TG-MD_v1.jpg)
+
 
 The Coupled Resource metadata element refers to, where relevant, the target spatial data set(s) of the described service.  
 It is implemented by reference, i.e. through a URL that points to the metadata record of the data set on which the service operates. It therefore helps to link services to the relevant data sets.
