@@ -106,7 +106,7 @@ No element is identified in the GetCapabilities document for the mapping with th
 
 #### Changes to the current INSPIRE framework
 
-TBD
+_No change required._ 
 
 ### 3.3. Spatial data service type <a name="spatial-data-service-type"></a>
 
@@ -132,7 +132,7 @@ For WFS and ATOM, the value to be used for the encoding of the `gmd:applicationP
 
 #### Changes to the current INSPIRE framework
 
-TBD
+_No changes required._ (Changes already taken into account in part A)
 
 ### 3.4. Temporal reference <a name="temporal-reference"></a>
 
