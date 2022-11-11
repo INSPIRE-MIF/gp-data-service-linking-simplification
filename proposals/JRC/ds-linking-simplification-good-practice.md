@@ -229,7 +229,7 @@ See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ns-md-coupled-resource |
 | --- | --- |
 | Target type | ISO/TS 19139:2007 Geographic information Metadata XML schema implementation (Service metadata) |
-| Dependencies | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (See NOTE 1)) |
+| Dependencies | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (See NOTE 1) |
 | --- | N/A |
 
 \* NOTE 1: This is the URI of the Conformance class. Refer to [INSPIRE MD TG] [Chapter 4.1](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#41-baseline-metadata-for-spatial-data-services) to look up for information about the requirements class itself.
