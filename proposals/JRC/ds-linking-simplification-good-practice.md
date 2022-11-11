@@ -247,9 +247,13 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 
 ### Requirement: \<srv:operatesOn\> element
 
+-- NOTE: THIS REQUIREMENT IS A DUPLICATE (although not eaxctly) of requirement metadata/2.0/req/sds/coupled-resource from the TG metadata -- 
+
 | **Requirement** | **/req/coupled-resource-operateson-locator** |
 | --- | --- |
 | A | The `xlink:href` attribute of each of the `srv:operatesOn` elements SHALL contain a URL pointing to the metadata record of the provided data set or data set series, available in a Discovery Service catalog. |
+
+-- END NOTE --
 
 ### Recommendation: \<srv:operatesOn\> element priority over \<wms:MetadataURL\> and \<wfs:MetadataURL\> elements
 
@@ -265,9 +269,13 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 
 ### Requirement: \<wms:MetadataURL\> and \<wfs:MetadataURL\> elements
 
+-- NOTE: THIS REQUIREMENT IS A DUPLICATE of requirements 13 and 14 of the TG View -- 
+
 | **Requirement** | **/req/coupled-resource-metadataurl-locator** |
 | --- | --- |
 | A | The URL expressed within the element `metadataURL` SHALL point to the metadata record of the provided data set or data set series, available in a Discovery Service catalog. |
+
+-- END NOTE --
 
 ## 9. Future developments <a name="future-dev"></a>
 
