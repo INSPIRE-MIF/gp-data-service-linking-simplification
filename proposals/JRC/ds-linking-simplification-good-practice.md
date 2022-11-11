@@ -115,7 +115,7 @@ For the purposes of this document, the following terms and definitions apply:
 
 The following graphic illustrates the dependency of the “INSPIRE-Data-Set-Metadata-Resource-Locator” requirements class from Conformance Class 1 “INSPIRE data sets and data set series baseline metadata” defined in Chapter 3.1 of the [INSPIRE MD TG], which establishes the requirements for metadata records describing an INSPIRE data set or data set series encoded in ISO 19139 based XML format.
 
-![Dependencies on requirements classes from INSPIRE TG MD](./graphics/TG_MD_ReqClassDependencies_v1.jpg)
+![Dependencies on requirements classes from INSPIRE TG MD](./graphics/Clause_8-1_ReqClassDependencies_v1.jpg)
 
 The Resource Locator element of a data set metadata record shall point to the URL where the service can be contacted. 
 
@@ -247,7 +247,15 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 
 ### Requirement: \<srv:operatesOn\> element
 
--- NOTE: THIS REQUIREMENT IS A DUPLICATE (although not eaxctly) of requirement metadata/2.0/req/sds/coupled-resource from the TG metadata -- 
+-- NOTE: THIS REQUIREMENT IS A DUPLICATE (although not eaxctly) of TG Requirement 3.6: metadata/2.0/req/sds/coupled-resource from the TG metadata: 
+
+Links pointing to the online metadata descriptions of data sets provided by the described service shall be given using srv:operatesOn element.
+
+The multiplicity of this element is 0..n.
+
+This property shall be implemented by reference. The xlink:href attribute of each of the srv:operatesOn elements shall contain a URI pointing to the gmd:MD_DataIdentification element of the metadata record of the provided the data set or data set series.
+
+-- 
 
 | **Requirement** | **/req/coupled-resource-operateson-locator** |
 | --- | --- |
