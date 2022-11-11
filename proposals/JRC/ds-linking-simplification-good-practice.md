@@ -109,9 +109,9 @@ For the purposes of this document, the following terms and definitions apply:
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ds-md-resource-locator |
 | --- | --- |
 | Target type | ISO/TS 19139:2007 Geographic information Metadata XML schema implementation (Data sets and Data set series metadata) |
-| Dependency | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (\*) |
+| Dependency | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (See NOTE below) |
 
-(\*) NOTE: This is the URI of the Conformance class. Refer to [INSPIRE MD TG] [Chapter 3.1](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#31-baseline-metadata-for-data-sets-and-data-set-series) to look up for information about the requirements class itself.
+\* NOTE: This is the URI of the Conformance class. Refer to [INSPIRE MD TG] [Chapter 3.1](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#31-baseline-metadata-for-data-sets-and-data-set-series) to look up for information about the requirements class itself.
 
 The following graphic illustrates the dependency of the “INSPIRE-Data-Set-Metadata-Resource-Locator” requirements class from Conformance Class 1 “INSPIRE data sets and data set series baseline metadata” defined in Chapter 3.1 of the [INSPIRE MD TG], which establishes the requirements for metadata records describing an INSPIRE data set or data set series encoded in ISO 19139 based XML format.
 
@@ -229,10 +229,10 @@ See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ns-md-coupled-resource |
 | --- | --- |
 | Target type | ISO/TS 19139:2007 Geographic information Metadata XML schema implementation (Service metadata) |
-| Dependencies | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (\*)) |
+| Dependencies | https://inspire.ec.europa.eu/id/ats/metadata/2.0/datasets-and-series (See NOTE 1)) |
 | --- | N/A |
 
-(\*) NOTE 1: This is the URI of the Conformance class. Refer to [INSPIRE MD TG] [Chapter 4.1](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#41-baseline-metadata-for-spatial-data-services) to look up for information about the requirements class itself.
+\* NOTE 1: This is the URI of the Conformance class. Refer to [INSPIRE MD TG] [Chapter 4.1](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc#41-baseline-metadata-for-spatial-data-services) to look up for information about the requirements class itself.
 
 The following graphic illustrates the dependency of the “INSPIRE-Network-Service-Metadata-Coupled-Resource” requirements class from Conformance Class 3 “INSPIRE Spatial Data Service baseline metadata” defined in Chapter 4.1 of the [INSPIRE MD TG], which establishes the requirements for metadata records describing INSPIRE spatial data services encoded in ISO 19139 based XML format.
 
@@ -311,7 +311,7 @@ Example:
 > `<srv:operateson xlink:href="https://geometadaten.lfrz.at/at.lfrz.discoveryservices/srv/ger/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;ID=9db8a0c3-e92a-4df4-9d55-8210e326a7ed&amp;OUTPUTSCHEMA=http://www.isotc211.org/2005/gmd&amp;ELEMENTSETNAME=full">
 > </srv:operateson>`
 > 
-> Example _X.Y_: Working example from the Austrian national SDI based on the previous pattern. 
+> Example _X.Y_: Working example from the Austrian national SDI based on the previous pattern - Linked URL: https://geometadaten.lfrz.at/at.lfrz.discoveryservices/srv/ger/csw?SERVICE=CSW&VERSION=2.0.2&REQUEST=GetRecordById&ID=9db8a0c3-e92a-4df4-9d55-8210e326a7ed&OUTPUTSCHEMA=http://www.isotc211.org/2005/gmd&ELEMENTSETNAME=full. 
 
 
 ### Recommendation: \<srv:operatesOn\> element priority over \<wms:MetadataURL\> and \<wfs:MetadataURL\> elements
