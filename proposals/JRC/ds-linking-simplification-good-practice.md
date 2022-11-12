@@ -410,9 +410,7 @@ This requirements class applies to INSPIRE Network service - Scenario 2.
 
 ### Requirement: Download Service Feed \<entry\> element
 
-According **TG Requirement 14** of [INSPIRE NS - Download Service TG], 
-
-Each feed `<entry>` in a 'Download Service Feed' shall contain a link to a data set metadata record. This link shall have a `rel` attribute with a value of `describedby` and a `type` attribute with a value `application/xml`.
+According **TG Requirement 14** of [INSPIRE NS - Download Service TG], each feed `<entry>` in a 'Download Service Feed' shall contain a link to a data set metadata record. This link shall have a `rel` attribute with a value of `describedby` and a `type` attribute with a value `application/xml`.
 
 
 ## 9. Future developments <a name="future-dev"></a>
