@@ -18,8 +18,10 @@ _TO_BE_REVIEWED_
     * [7.1. Main principles](#main-principles)
     * [7.2. Resources](#resources)
 * [8. Requirements classes](#rcs)
-    * [8.1. Requirements class: “INSPIRE-Data-set-Metadata-Resource-Locator”](#rc-ds-md-resloc)
-    * [8.2. Requirements class: “INSPIRE-Network-Service-Metadata-Coupled-Resource”](#rc-ns-md-coupledres)
+    * [8.1. INSPIRE Data Set Metadata Resource Locator](#rcs-ds-md-resloc)
+        * [8.1.1. Requirements class: “INSPIRE-Data-set-Metadata-Resource-Locator”](#rc-ds-md-resloc)
+    * [8.2. INSPIRE Network Service Metadata Coupled Resource](#rcs-ns-md-coupledres)
+        * [8.2.1. Requirements class: “INSPIRE-Network-Service-Metadata-Coupled-Resource”](#rc-ns-md-coupledres)
 *  [9. Future developments](#future-dev)
 * [Annex A: Examples](#annex-a)
 * [Annex B: Mapping of INSPIRE elements in ExtendedCapabilities](#annex-b)
@@ -106,7 +108,9 @@ For the purposes of this document, the following terms and definitions apply:
 
 ## 8. Requirements classes <a name="rcs"></a>
 
-### 8.1. Requirements class “INSPIRE-Data-Set-Metadata-Resource-Locator” <a name="rc-ds-md-resloc"></a>
+### 8.1. INSPIRE Data Set Metadata Resource Locator” <a name="rcs-ds-md-resloc"></a>
+
+### 8.1.1. Requirements class “INSPIRE-Data-Set-Metadata-Resource-Locator” <a name="rc-ds-md-resloc"></a>
 
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ds-md-resource-locator |
 | --- | --- |
@@ -117,7 +121,7 @@ For the purposes of this document, the following terms and definitions apply:
 
 The following graphic illustrates the dependency of the “INSPIRE-Data-Set-Metadata-Resource-Locator” requirements class from Conformance Class 1 “INSPIRE data sets and data set series baseline metadata” defined in Chapter 3.1 of the [INSPIRE MD TG], which establishes the requirements for metadata records describing an INSPIRE data set or data set series encoded in ISO 19139 based XML format.
 
-![Requirement classes dependencies of Clause 8.1 on INSPIRE TG MD](./graphics/Clause_8-1_ReqClassDependencies_v1.jpg)
+![Requirement classes dependencies of Clause 8.1.1 on INSPIRE TG MD](./graphics/Clause_8-1_ReqClassDependencies_v1.jpg)
 
 The Resource Locator element of a data set metadata record shall point to the URL where the service can be contacted. 
 
@@ -135,7 +139,7 @@ Additionally, The class described in this section requires the presence of `<gmd
 
 The presence of additional Resource Locator elements, pointing to the data set itself (e.g. "Get Spatial Data Set" request of a Download Service), is allowed, due to the multiplicity expressed by **TG Requirement 1.8**. Consequently, these additional Resource Locator elements should avoid at least the use of the `<gmd:applicationProfile>` element specified below, in order to reduce the complexity of a machine-to-machine element recognition made by an INSPIRE software implementation such as the INSPIRE Geoportal.
 
-### Recommendation: \<gmd:protocol\> element
+#### Recommendation: \<gmd:protocol\> element
 
 - For this element, the INSPIRE Registry offers a set of external codelist values from the [ProtocolValue codelist](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue).
 - Regarding the label of a codelist, the INSPIRE Registry specifies the text to be used, which should follow the metadata language.
@@ -146,14 +150,14 @@ The presence of additional Resource Locator elements, pointing to the data set i
 | --- | --- |
 | A | The `protocol` element SHOULD be encoded as `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the ProtocolValue codelist. The text value should match the related codelist label, expressed in the metadata language where available. |
 
-#### Example of a View Service locator with `<gmx:Anchor>` encoding
+##### Example of a View Service locator with `<gmx:Anchor>` encoding
 ```xml
 <gmd:protocol>
     <gmx:Anchor xlink:href="http://www.opengis.net/def/serviceType/ogc/wms">OGC Web Map Service</gmx:Anchor>
 </gmd:protocol>
 ```
 
-#### Example of a View Service locator with `<gco:CharacterString>` encoding
+##### Example of a View Service locator with `<gco:CharacterString>` encoding
 ```xml
 <gmd:protocol>
     <gco:CharacterString>OGC Web Map Service</gco:CharacterString>
@@ -162,7 +166,7 @@ The presence of additional Resource Locator elements, pointing to the data set i
 
 _NOTE_: At the time of writing, the above examples use `eng` as metadata language, and they express the codelist `http://www.opengis.net/def/serviceType/ogc/wms` with the label "OGC Web Map Service". Please, check and use always the codelist label currently in force within the INSPIRE Registry.
 
-### Recommendation: \<gmd:applicationProfile\> element
+#### Recommendation: \<gmd:applicationProfile\> element
 
 - For this element, the INSPIRE Registry provides the values from the [SpatialDataServiceType codelist](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType).
 - Regarding the label of a codelist, the INSPIRE Registry specifies the text to be used, which should follow the metadata language.
@@ -174,14 +178,14 @@ _NOTE_: At the time of writing, the above examples use `eng` as metadata languag
 | --- | --- |
 | A | The element `applicationProfile` SHOULD be encoded with `gmx:Anchor`. The attribute `xlink:href` should point to a valid unique resource identifier of the mentioned codelist. The text value should match the related codelist label, expressed in the metadata language where available. |
 
-#### Example of a Download Service locator with `<gmx:Anchor>` encoding
+##### Example of a Download Service locator with `<gmx:Anchor>` encoding
 ```xml
 <gmd:applicationProfile>
     <gmx:Anchor xlink:href="https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download">Downloaddienst</gmx:Anchor>
 </gmd:applicationProfile>
 ```
 
-#### Example of a Download Service locator with а `<gco:CharacterString>` encoding
+##### Example of a Download Service locator with а `<gco:CharacterString>` encoding
 ```xml
 <gmd:applicationProfile>
     <gco:CharacterString>Downloaddienst</gco:CharacterString>
@@ -190,7 +194,7 @@ _NOTE_: At the time of writing, the above examples use `eng` as metadata languag
 
 _NOTE_: At the time of writing, the above examples use `dut` as metadata language, and they express the codelist `https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download` with the label "Downloaddienst". Please, check and use always the codelist label currently in force within the INSPIRE Registry.
 
-### Requirement: INSPIRE View Service linking
+#### Requirement: INSPIRE View Service linking
 
 - Within the element `gmd:URL` linking to a view service, the URL shall point to the response of a "Get View Service Metadata" request of the service providing access to this data set (e.g. the "GetCapabilities" document in the case of an OGC:WMS service).
 
@@ -208,7 +212,7 @@ _NOTE_: At the time of writing, the above examples use `dut` as metadata languag
 See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
 
-### Requirement: INSPIRE Download Service linkage
+#### Requirement: INSPIRE Download Service linkage
 
 - Within the element `gmd:URL` linking to a download service, the URL shall point to the response of a "Get Download Service Metadata" request of the service providing access to this data set (e.g. the "GetCapabilities" document in the case of an OGC:WFS service).
 
@@ -225,8 +229,9 @@ See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
 See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
+### 8.2. INSPIRE Network Service Metadata Coupled Resource  <a name="#rcs-ns-md-coupledres"></a>
 
-### 8.2. Requirements class “INSPIRE-Network-Service-Metadata-Coupled-Resource”  <a name="rc-ns-md-coupledres"></a>
+#### 8.2.1. Requirements class “INSPIRE-Network-Service-Metadata-Coupled-Resource”  <a name="rc-ns-md-coupledres"></a>
 
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ns-md-coupled-resource |
 | --- | --- |
@@ -249,13 +254,13 @@ Regarding the definition of a Network Service metadata, two scenarios have been 
 
 **NOTE** For the ATOM implementation, the [INSPIRE NS - Download Service TG] does not offer a similar multiple scenario configuration due to the lack of mapping elements in such an implementation.
 
-### 8.2.1 INSPIRE Network service - Scenario 1
+#### 8.2.1.1. INSPIRE Network service - Scenario 1
 
 - In Scenario 1, the INSPIRE network service metadata is available in a Discovery Service catalog and is referenced through the `<inspire_common:MetadataURL>` element within the INSPIRE ExtendedCapabilities section of such service.
 - The service metadata shall define a `<srv:operatesOn>` element for every defined data set published by the service.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
-### Recommendation: \<srv:operatesOn\> element
+#### Recommendation: \<srv:operatesOn\> element
 
 According **TG Requirement 3.6** of [INSPIRE MD TG], the links pointing to the online metadata descriptions of data sets provided by the described service shall be given using `<srv:operatesOn>` element. The multiplicity of this element is 0..n.
 
@@ -263,10 +268,10 @@ Futhermore, this property shall be implemented by reference. The `xlink:href` at
 
 This specification proposes to relax the implementation of the Coupled Resource by making the linkage to the `<gmd:MD_DataIdentification>` element of the data set metadata an optional feature, just pointing to the URL of the metadata, with or without the additional `#MD_DataIdentification` pointer).
 
-#### Rationale
+##### Rationale
 Although [ISO 19119:2016] requires that the target of the `<srv:operatesOn>` element (Coupled Resource) is the `#MD_DataIdentification` class of the linked dataset metadata, due to the different existing metadata implementations, this specification proposes to allow a more simple implementation of the Coupled Resource linkage, as stated above. 
 
-#### Changes to the current INSPIRE framework
+##### Changes to the current INSPIRE framework
 
 In [Section 4.1.2.4](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc#4124-linking-to-provided-data-sets-using-coupled-resource) of the [INSPIRE MD TG]:
 
@@ -316,14 +321,14 @@ Example:
 > Example _X.Y_: Working example from the Austrian national SDI based on the previous pattern - Linked URL: https://geometadaten.lfrz.at/at.lfrz.discoveryservices/srv/ger/csw?SERVICE=CSW&VERSION=2.0.2&REQUEST=GetRecordById&ID=9db8a0c3-e92a-4df4-9d55-8210e326a7ed&OUTPUTSCHEMA=http://www.isotc211.org/2005/gmd&ELEMENTSETNAME=full. 
 
 
-### Recommendation: \<srv:operatesOn\> element priority over \<wms:MetadataURL\> and \<wfs:MetadataURL\> elements
+#### Recommendation: \<srv:operatesOn\> element priority over \<wms:MetadataURL\> and \<wfs:MetadataURL\> elements
 
 | **Recommendation** | **/rec/coupled-resource-operateson-match-metadataurl** |
 | --- | --- |
 | A | Within the Scenario 1 implementation, the references described with these optional `metadataURL` elements should match each of the `srv:operatesOn` elements contained in the service metadata record. In case of discrepancies, the references expressed with `srv:operatesOn` prevail over the other associations. |
 
 
-### 8.2.2 INSPIRE Network service - Scenario 2
+#### 8.2.1.2. INSPIRE Network service - Scenario 2
 
  - In Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service (i.e. ATOM feed elements or OGC Capabilities), and for OGC services, it currently relies on the ExtendedCapabilities section for the remaining elements.  [Annex B](#annex-b), which is subject to future work proposes an approach for the revision of the mapping of the INSPIRE requirements with the aim to possibly remove the Extended Capabilities section.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
