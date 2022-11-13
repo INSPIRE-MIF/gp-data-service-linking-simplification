@@ -353,7 +353,7 @@ This requirements class applies when INSPIRE Network service - Scenario 2 is use
 
 \* NOTE: This is the URI of the Conformance class. Refer to [INSPIRE NS - View Service TG] Chapter 4 "INSPIRE Profile of ISO 19128" to look up for information about the requirements class itself.
 
-### Requirements: \<wms:MetadataURL\> element
+#### Requirements: \<wms:MetadataURL\> element
 
 According **TG Requirement 13** of [INSPIRE NS - View Service TG], the Coupled Resource metadata element shall be mapped to the `<wms:MetadataURL>` elements of the Layer elements of the service capabilities. If linkage to the data sets or series on which the service operates are available, then the linkage to these resources shall be provided as stated by the [INSPIRE MD TG].
 
@@ -376,7 +376,7 @@ This requirements class applies when INSPIRE Network service - Scenario 2 is use
 | Target type | ISO 19142:2010 - Geographic information — Web Feature Service (OGC WFS Download service) |
 | Dependency | --- |
 
-### Requirement: \<wfs:MetadataURL\> element
+#### Requirement: \<wfs:MetadataURL\> element
 
 Section 6.6 of [INSPIRE NS - Download Service TG], in Chapter 6 "Web Feature Service and Filter Encoding Implementation of Pre-defined Dataset Download Service", defines two options to make the Download Service INSPIRE metadata elements available in a standard Web Feature Service (WFS).
 
@@ -410,7 +410,7 @@ This requirements class applies when INSPIRE Network service - Scenario 2 is use
 
 \* NOTE: This is the URI of the Conformance class. Refer to [INSPIRE NS - Download Service TG] Chapter 5 "Atom Implementation of Pre-defined Dataset Download Service" to look up for information about the requirements class itself.
 
-### Requirement: Download Service Feed \<entry\> element
+#### Requirement: Download Service Feed \<entry\> element
 
 According **TG Requirement 14** of [INSPIRE NS - Download Service TG], each feed `<entry>` in a 'Download Service Feed' shall contain a link to a data set metadata record. This link shall have a `rel` attribute with a value of `describedby` and a `type` attribute with a value `application/xml`.
 
