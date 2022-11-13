@@ -255,7 +255,7 @@ In this scenario, the Coupled Resource metadata element is implemented by refere
 
 #### Requirements class
 
-This requirements class applies to INSPIRE Network service - Scenario 1.
+This requirements class applies when INSPIRE Network service - Scenario 1 is used.
 
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ns-md-coupled-resource-svr-md |
 | --- | --- |
@@ -339,56 +339,58 @@ Example:
 
 #### INSPIRE Network service - Scenario 2
 
--- MODIFY --
- - In Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service (i.e. ATOM feed elements or OGC Capabilities), and for OGC services, it currently relies on the ExtendedCapabilities section for the remaining elements.  [Annex B](#annex-b), which is subject to future work proposes an approach for the revision of the mapping of the INSPIRE requirements with the aim to possibly remove the Extended Capabilities section.
--- END --
+- In Scenario 2, the [INSPIRE NS - View Service TG] maps all INSPIRE metadata elements to the applicable elements in the service, e.g. OGC WMS Capabilities in this case. For OGC WMS services, it currently relies on the ExtendedCapabilities section for the remaining elements. [Annex B](#annex-b), which is subject to future work proposes an approach for the revision of the mapping of the INSPIRE requirements with the aim to possibly remove the Extended Capabilities section.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
 #### Requirements class
 
-This requirements class applies to INSPIRE Network service - Scenario 2.
+This requirements class applies when INSPIRE Network service - Scenario 2 is used for Web Map Services.
 
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ns-md-coupled-resource-view-wms |
 | --- | --- |
 | Target type | ISO 19128:2005 - Geographic information — Web map server interface (OGC WMS View service) |
-| Dependency | --- |
+| Dependency | https://inspire.ec.europa.eu/id/ats/view-service (see NOTE below) |
 
-### Requirement: \<wms:MetadataURL\> and \<wfs:MetadataURL\> elements
+\* NOTE: This is the URI of the Conformance class. Refer to [INSPIRE NS - View Service TG] Chapter 4 "INSPIRE Profile of ISO 19128" to look up for information about the requirements class itself.
 
--- NOTE: THIS REQUIREMENT IS A DUPLICATE of requirements 13 and 14 of the TG View -- 
+### Requirements: \<wms:MetadataURL\> element
 
-| **Requirement** | **/req/coupled-resource-metadataurl-locator** |
-| --- | --- |
-| A | The URL expressed within the element `metadataURL` SHALL point to the metadata record of the provided data set or data set series, available in a Discovery Service catalog. |
+According **TG Requirement 13** of [INSPIRE NS - View Service TG], the Coupled Resource metadata element shall be mapped to the `<wms:MetadataURL>` elements of the Layer elements of the service capabilities. If linkage to the data sets or series on which the service operates are available, then the linkage to these resources shall be provided as stated by the [INSPIRE MD TG].
 
--- END NOTE --
+Aditionally, according **TG Requirement 14** of [INSPIRE NS - View Service TG], each of the `<wms:MetadataURL>` elements shall be populated with a URL that allows access to an unambiguous metadata record. The URL shall be either an HTTP/GET call on the `GetRecordById` operation of the Discovery Service or a direct link to the ISO 19139 data set or data set series metadata document.
 
 
 #### 8.2.3. Requirements class “INSPIRE-Network-Service-Metadata-Coupled-Resource-Download-Service-WFS”  <a name="rc-ns-md-coupledres-dwnl-wfs"></a>
 
 #### INSPIRE Network service - Scenario 2
 
- - In Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service (i.e. ATOM feed elements or OGC Capabilities), and for OGC services, it currently relies on the ExtendedCapabilities section for the remaining elements.  [Annex B](#annex-b), which is subject to future work proposes an approach for the revision of the mapping of the INSPIRE requirements with the aim to possibly remove the Extended Capabilities section.
+ - In Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service, e.g. WFS OGC Capabilities in this case. For OGC WFS services, it currently relies on the ExtendedCapabilities section for the remaining elements. [Annex B](#annex-b), which is subject to future work proposes an approach for the revision of the mapping of the INSPIRE requirements with the aim to possibly remove the Extended Capabilities section.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
 #### Requirements class
 
-This requirements class applies to INSPIRE Network service - Scenario 2.
+This requirements class applies when INSPIRE Network service - Scenario 2 is used for Web Feature Services.
 
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ns-md-coupled-resource-dwnl-wfs |
 | --- | --- |
 | Target type | ISO 19142:2010 - Geographic information — Web Feature Service (OGC WFS Download service) |
 | Dependency | --- |
 
-### Requirement: \<wms:MetadataURL\> and \<wfs:MetadataURL\> elements
+### Requirement: \<wfs:MetadataURL\> element
 
--- NOTE: THIS REQUIREMENT IS A DUPLICATE of requirements ??? of the TG Down WFS -- 
+Section 6.6 of [INSPIRE NS - Download Service TG], in Chapter 6 "Web Feature Service and Filter Encoding Implementation of Pre-defined Dataset Download Service", defines two options to make the Download Service INSPIRE metadata elements available in a standard Web Feature Service (WFS).
+
+The first option is to use the `ows:ExtendedCapabilities` to publish a link to a Download Service metadata record. (e.g. in a discovery service). This should be done using a `<inspire_common:MetadataURL>` in the extended capabilities section of the INSPIRE WFS service. 
+The second option is to publish all the metadata elements directly in the `<WFS_Capabilities>` (and `ows:ExtendedCapabilities`) using a predefined mapping specified in this section.
+
+The mapping described for the second option, sets the mapping of the Coupled Resource metadata element to the `wfs:MetadataURL` element of an ISO 19142 `<WFS_Capabilities>` Web Feature Service.
+
+This specification reinforces the use of this second option with the requirements class defined below.
 
 | **Requirement** | **/req/coupled-resource-metadataurl-locator** |
 | --- | --- |
-| A | The URL expressed within the element `metadataURL` SHALL point to the metadata record of the provided data set or data set series, available in a Discovery Service catalog. |
+| A | The URL expressed within the `wfs:MetadataURL` element SHALL point to the metadata record of the provided data set or data set series, available in a Discovery Service catalog. |
 
--- END NOTE --
 
 #### 8.2.4. Requirements class “INSPIRE-Network-Service-Metadata-Coupled-Resource-Download-Service-Atom”  <a name="rc-ns-md-coupledres-dwnl-atom"></a>
 
@@ -399,14 +401,14 @@ This requirements class applies to INSPIRE Network service - Scenario 2.
 
 #### Requirements class
 
-This requirements class applies to INSPIRE Network service - Scenario 2.
+This requirements class applies when INSPIRE Network service - Scenario 2 is used for Atom download services.
 
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ns-md-coupled-resource-dwnl-atom |
 | --- | --- |
 | Target type | Atom Syndication Format (Atom download service) |
 | Dependency | https://inspire.ec.europa.eu/id/ats/download-atom (see NOTE below) |
 
-\* NOTE: This is the URI of the Conformance class. Refer to [INSPIRE NS - Download Service TG] Chapter 5 to look up for information about the requirements class itself.
+\* NOTE: This is the URI of the Conformance class. Refer to [INSPIRE NS - Download Service TG] Chapter 5 "Atom Implementation of Pre-defined Dataset Download Service" to look up for information about the requirements class itself.
 
 ### Requirement: Download Service Feed \<entry\> element
 
