@@ -353,7 +353,7 @@ This requirements class applies when INSPIRE Network service - Scenario 2 is use
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ns-md-coupled-resource-dwnl-wfs |
 | --- | --- |
 | Target type | [ISO 19142:2010] - Geographic information — Web Feature Service (OGC WFS Download service) |
-| Dependency | https://inspire.ec.europa.eu/id/ats/download-wfs (see NOTE below)) |
+| Dependency | https://inspire.ec.europa.eu/id/ats/download-wfs (see NOTE below) |
 
 \* NOTE: This is the URI of the Conformance class. Refer to [INSPIRE NS - Download Service TG] Chapter 6 "Web Feature Service and Filter Encoding Implementation of Pre-defined Dataset Download Service" to look up for information about the requirements class itself.
 
