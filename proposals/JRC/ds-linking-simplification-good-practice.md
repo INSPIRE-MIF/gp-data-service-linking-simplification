@@ -49,6 +49,8 @@ Furthermore, at the time of writing, the requirements expressed here for the Dow
 - **[ISO 19115:2005]** - EN ISO 19115:2005, *Geographic information — Metadata*
 - **[ISO 19119:2016]** - EN ISO 19119:2016, *Geographic information — Services*
 - **[ISO/TS 19139:2007]** - ISO/TS 19139:2007, *Geographic information — Metadata — XML schema implementation*
+- **[ISO 19128:2005]** - EN ISO 19128:2005, *Geographic information — Web map server interface*
+- **[ISO 19142:2010]** - EN ISO 19142:2010, *Geographic information — Web Feature Service*
 - **[IRs for NS]** - Commission Regulation (EC) No 976/2009 of 19 October 2009 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the Network Services
 - **[IRs for ISDSS]** - Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services
 - **[INSPIRE MD TG]** - JRC. *Technical Guidance for the implementation of INSPIRE dataset and service metadata based on ISO/TS 19139:2007*.  v2.0.1 - 2017-03-02
@@ -60,6 +62,8 @@ Furthermore, at the time of writing, the requirements expressed here for the Dow
 [ISO 19115:2005]: https://www.isotc211.org/2005/gmd "ISO 19115:2005, Geographic information — Metadata"
 [ISO 19119:2016]: https://www.iso.org/standard/59221.html?browse=tc "ISO 19119:2016, Geographic information — Services"
 [ISO/TS 19139:2007]: https://www.isotc211.org/2005/gmd/ "ISO/TS 19139:2007, Geographic information — Metadata — XML schema implementation"
+[ISO 19128:2005]: https://www.iso.org/standard/32546.html?browse=tc "Geographic information — Web map server interface"
+[ISO 19142:2010]: https://www.iso.org/standard/42136.html?browse=tc "EN ISO 19142:2010, Geographic information — Web Feature Service"
 [IRs for NS]: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02009R0976-20141231&from=EN "Implementing Rules for Network Services (consolidated version of 31/12/2014)"
 [IRs for ISDSS]: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02010R1089-20141231&from=EN "Implementing Rules for interoperability of spatial data sets and services (consolidated version of 31/12/2014)"
 [INSPIRE MD TG]: https://inspire.ec.europa.eu/id/document/tg/metadata-iso19139 "Technical Guidance for the implementation of INSPIRE dataset and service metadata based on ISO/TS 19139:2007"
@@ -326,7 +330,7 @@ Example:
 - In Scenario 2, the [INSPIRE NS - View Service TG] maps all INSPIRE metadata elements to the applicable elements in the service, e.g. OGC WMS Capabilities in this case. For OGC WMS services, it currently relies on the ExtendedCapabilities section for the remaining elements. [Annex B](#annex-b), which is subject to future work proposes an approach for the revision of the mapping of the INSPIRE requirements with the aim to possibly remove the Extended Capabilities section.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
-For ISO 19128:2005 Web map server interface services (OGC WMS View services) this specification refers to [INSPIRE NS - View Service TG] Chapter 4 "INSPIRE Profile of ISO 19128".
+For [ISO 19128:2005] Web map server interface services (OGC WMS View services) this specification refers to [INSPIRE NS - View Service TG] Chapter 4 "INSPIRE Profile of ISO 19128".
 
 #### Requirements: \<wms:MetadataURL\> element
 
@@ -348,7 +352,7 @@ This requirements class applies when INSPIRE Network service - Scenario 2 is use
 
 | Requirements class | http://inspire.ec.europa.eu/id/spec/ds-linking-simplification/1.0/ns-md-coupled-resource-dwnl-wfs |
 | --- | --- |
-| Target type | ISO 19142:2010 - Geographic information — Web Feature Service (OGC WFS Download service) |
+| Target type | [ISO 19142:2010] - Geographic information — Web Feature Service (OGC WFS Download service) |
 | Dependency | https://inspire.ec.europa.eu/id/ats/download-wfs (see NOTE below)) |
 
 \* NOTE: This is the URI of the Conformance class. Refer to [INSPIRE NS - Download Service TG] Chapter 6 "Web Feature Service and Filter Encoding Implementation of Pre-defined Dataset Download Service" to look up for information about the requirements class itself.
@@ -376,7 +380,7 @@ This specification reinforces the use of this second option with the requirement
  - In Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service, e.g. ATOM feed elements in this case. [Annex B](#annex-b), which is subject to future work proposes an approach for the revision of the mapping of the INSPIRE requirements with the aim to possibly remove the Extended Capabilities section.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
-For Atom Syndication Format services (Atom download service) this specification refers to [INSPIRE NS - Download Service TG] Chapter 5 "Atom Implementation of Pre-defined Dataset Download Service".
+For Atom Syndication Format services (Atom download services - see [RFC 4287]) this specification refers to [INSPIRE NS - Download Service TG] Chapter 5 "Atom Implementation of Pre-defined Dataset Download Service".
 
 #### Requirement: Download Service Feed \<entry\> element
 
