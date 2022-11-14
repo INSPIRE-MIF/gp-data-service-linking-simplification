@@ -18,7 +18,7 @@ _TO_BE_REVISED_
   * [3.6. Metadata point of contact](#metadata-point-of-contact)
   * [3.7. Metadata date](#metadata-date)
   * [3.8. Supported languages](#supported-languages)
-  
+* [4. Mapping of INSPIRE metadata elements per service type (protocol)](#mapping-per-service)  
 
 ## 1. Introduction <a name="introduction"></a>
 
@@ -38,8 +38,8 @@ The Table below provides a summary of the new mapping of INSPIRE metadata elemen
 
 | INSPIRE metadata elements | New allocation | Applicable on Service type |
 | :- | :- | :- |
-| Resource Type          | No element mapped | WMS - WFS - Atom |
-| Resource Locator       | No element mapped| WMS - WFS - Atom |
+| Resource Type          | Not applicable | WMS - WFS - Atom |
+| Resource Locator       | Not applicable| WMS - WFS - Atom |
 | Spatial Data Service Type| `gmd:applicationProfile` element (in data set metadata record) | WMS - WFS - Atom |
 | Temporal Reference     | `updateSequence` attribute in the `WMS_Capabilities`/`WFS_Capabilities` root element. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | WMS - WFS |
 |                        | `feed/updated` element in the Atom feed. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types: - _publication_, - _revision_ or - _creation_ | Atom |
@@ -106,7 +106,7 @@ No element is identified in the GetCapabilities document for the mapping with th
 
 #### Changes to the current INSPIRE framework
 
-TBD
+_No change required._ 
 
 ### 3.3. Spatial data service type <a name="spatial-data-service-type"></a>
 
@@ -132,7 +132,7 @@ For WFS and ATOM, the value to be used for the encoding of the `gmd:applicationP
 
 #### Changes to the current INSPIRE framework
 
-TBD
+_No changes required._ (Changes already taken into account in part A)
 
 ### 3.4. Temporal reference <a name="temporal-reference"></a>
 
@@ -150,6 +150,8 @@ Temporal reference[^note_temporal_reference_19139] will be mapped to
 - The optional `updateSequence` attribute in case of a WXS if in this attribute a timestamp value[^note_format_updatesequence] is present;
 - The mandatory `<updated>` in case of an Atom[^note_format_updated].
 
+This means that the last update of the service metadata is assumed equal to the update date of the service.
+
 [^note_temporal_reference_19139]: In a ISO/TS 19139 metadata record, Temporal reference is mapped to `MD_Metadata.identificationInfo > MD_DataIdentification.citation > CI_Citation.date > CI_Date.date` element, see also [metadata TG](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.1/metadata/metadata-iso19139/metadata-iso19139.adoc).
 
 [^note_format_updatesequence]: The extended ISO 8601:2000 format, ccyy-mm-ddThh:mm:ss.sssZ whereby the precision may be reduced by omitting least-significant digits, e.g. 2022-01-26 or 2022-01-26T09:30Z, shall be used according to the [WMS specification](http://portal.opengeospatial.org/files/?artifact_id=14416). No reference to or description of the precise ISO 8601 format to be used, extended or basic, is present in the [OWS specification](https://portal.ogc.org/files/?artifact_id=20040).
@@ -162,7 +164,7 @@ If in the optional `updateSequence` attribute a timestamp value is not present (
 2. If a date of type `revision` is present, take this value as Temporal Reference;
 3. Otherwise, take the date of type `creation` as value of the Temporal Reference.
 
-For a WXS, this means that the last update of the service metadata is assumed to be the same as the publication, revision or creation date of the data set. For Atom, this means that the last update of the service metadata is assumed equal to the update date of the service.
+For a WXS where the optional `updateSequence` is not present, this means that the last update of the service metadata is assumed to be the same as the publication, revision or creation date of the data set.
 
 The same mapping is also used to derive the [Metadata date](#metadata-date) of the service.
 
@@ -258,7 +260,27 @@ For an **ATOM feed**:
 
 #### Changes to the current INSPIRE framework
 
-TBD
+Mapping of INSPIRE metadata elements per service type (protocol) <a name="mapping-per-service"></a>
+### WMS 1.3
+| INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+
+
+### WFS 2.0
+| INSPIRE Metadata element | WFS 2.0 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+
+
+### Atom
+| INSPIRE Metadata element | Atom + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Temporal Reference (M) |  `/feed/updated`  | |
+
+
+
+
 
 ### 3.5. Conformity <a name="conformity"></a>
 
@@ -317,7 +339,28 @@ According to the mapping proposed and the mentioned interoperable URIs, the XML 
 
 #### Changes to the current INSPIRE framework
 
-TBD
+**Changes to [View Services TGs](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/services/view-wms/ViewServices.adoc)**
+
+- After adding the text related to a scenario 3 in the section [4.2.3.3.1. View service metadata](https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/services/view-wms/ViewServices.adoc#42331-view-service-metadata), add the new mapped elements for conformity for WMS services in the new table (see PR https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), as per proposal described above.
+- In the section _4.2.3.3.1.11 CONFORMITY_:
+ 	- reword the Implementation Requirement 23 as follows (in _italics_ the modified/added parts):
+ 	
+ 	>Implementation Requirement 23 - _In case of the scenario 2,_ an extension shall be used to map this to an <inspire_common:Conformity> element within an <inspire_vs:ExtendedCapabilities> element. _In case of the scenario 3, use `wms:Keyword` element for each specification against the service is conformant, included within an specific `wms:KeyworList` group. The specification shall be encoded using the related URI._
+ 	
+ 	- add the note _If a specific keyword referencing the interoperable URI representing a specification is not present, the value of the degree of conformity of the service to this specification will NOT be considered `conformant` (i.e. `non-conformant` or `not evaluated`). Therefore, differentiation between `non-conformant` and `not evaluated` will not be possible when using the simplified approach for data and service linking._
+ 	- add the example proposed above.
+
+**Changes to [Download Services TGs](https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services)**
+
+- In the section 5.1, in the new table proposed in the PR [#61](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), add the new mapped elements for conformity for Atom services as per the proposal above;
+- in the section 5.1, add new sub-sections in order to describe the new mapped elements shown in the table mentioned above;
+- in the section 5.1.3, add the following statement in the text of the TG Requirement 6 "_In case of view and download services, when the service metadata is provided as response to a Get Download Service Metadata request, this requirement shall not to be applied_", also rewording accordingly the text before the mentioned TG Requirement;
+- in the section 6.6, after adding the text related to a third option before the Table 19, add the new mapped elements for conformity for WFS services in the new table (see PR https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/pull/61), as per proposal described above;
+- in the section 6.6, reword the TG Requirement 53 as follows (in _italics_ the modified/added parts):
+ 	
+ 	>TG Requirement 53 - INSPIRE Metadata for the Download Service shall _be provided using one of the following ways:_ - linking to via an <inspire_common:MetadataURL> in an extended capabilities section; - _using_ the extended capabilities section containing all the INSPIRE Metadata for the Download Service in accordance with Table _19_ and the inspire_dls:ExtendedCapabilities schema; - _in case of view and download services, using the response to a Get Download Service Metadata request containing all the INSPIRE Metadata for the Download Service in accordance with Table xxx_;
+- in the section 6.6, add the example proposed above.
+
 
 ### 3.6. Metadata point of contact <a name="metadata-point-of-contact"></a>
 
@@ -371,13 +414,16 @@ Metadata Point of Contact - organisation name: `feed/author/name`
 Metadata Point of Contact - e-mail: `feed/author/email`
 
 ```xml
-<author> <name>organisation name</name> <email>contact@myorg.eu</email> </author>
+<author> 
+	<name>organisation name</name>
+	<email>contact@myorg.eu</email>
+</author>
 ```
 
 #### Changes to the current INSPIRE framework
 
 Note to be added to the Service Technical Guidelines:
-**Note**: In cases where external ISO 19139 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider.
+**Note**: In cases where external ISO 19119 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider.
 
 ### 3.7. Metadata date <a name="metadata-date"></a>
 
@@ -417,7 +463,26 @@ See the detailed mapping for [Temporal](#temporal-reference).
 
 #### Changes to the current INSPIRE framework
 
-TBD
+Mapping of INSPIRE metadata elements per service type (protocol) <a name="mapping-per-service"></a>
+### WMS 1.3
+| INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+
+### WFS 2.0
+| INSPIRE Metadata element | WFS 2.0 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+
+### Atom
+| INSPIRE Metadata element | Atom + ISO/TS 19139:2007 metadata record dataset | Note |
+|---|---|---|
+| Metadata Date (M) |   `/feed/updated`  | |
+
+
+
+
+
 
 ### 3.8. Supported languages <a name="supported-languages"></a>
 
@@ -430,11 +495,13 @@ Currently, the mapping of the metadata language to OWS service capabilities and 
 
 #### Proposed mapping and rationale
 
-The default language will be set to the data set metadata default language.
+The default language will be set to the data set metadata default language `gmd:MD_Metadata/gmd:language/gmd:LanguageCode`.
 
-The other supported language (if any) will be mapped to the `xml:lang` attributes for WFS and ATOM and the SupportedLanguages element of the INSPIRE GetCapabilities extension.
+The other supported language (if any) will be mapped to the `xml:lang` attributes for WFS and ATOM and the SupportedLanguages element of the INSPIRE GetCapabilities extension for WMS.
 
 #### Detailed mapping description
+
+If only one language is used 
 
 For multiple language support:
 
@@ -461,6 +528,87 @@ For multiple language support:
 
 #### Changes to the current INSPIRE framework
 
-In the Download Service Technical Guidelines, add the following requirement:
+In view service technical guidelines add a note:
+Note : If several languages are supported, the "simplification" scenario cannot be used and the Extended service capabilities are required. 
+
+In the Download Service Technical Guidelines (WFS + ATOM), add the following requirement:
 **Requirement**: If the service supports several languages and if there is no Extended Capabilities, the xml:lang attribute shall be used to define the language used.
 (insert the example above)
+
+## 4. Mapping of INSPIRE metadata elements per service type (protocol) <a name="mapping-per-service"></a>
+
+### WFS 2.0
+
+| INSPIRE Metadata element | WFS 2.0 without ExtendedCapabilities | Fallback |
+|---|---|---|
+| Resource Title (M) | `ows:ServiceIdentification/ows:Title` |  |
+| Resource Abstract (M) | `ows:ServiceIdentification/ows:Abstract` |  |
+| Resource Type (M) | - | Is by default "service" |
+| Resource Locator (C) | - | Resource Locator of the data set |
+| Coupled Resource (C) | `wfs:MetadataURL` (per feature type) |  |
+| Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
+| Keyword (M) | `ows:Keywords/ows:Keyword` |  |
+| Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Spatial Resolution (C) | - | Spatial Resolution of the data set |
+| Conformity (M) | `ows:Keywords`/`ows:Keyword` + `ows:Keywords`/`ows:Type` https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `ows:Keyword` element for each specification against the service is **conformant**, included within a specific `ows:Keywords` group including an `ows:Type` element of type URI |
+| Conditions for Access and Use (M) | `ows:ServiceIdentification/ows:Fees` |  |
+| Limitations on Public Access (M) | `ows:ServiceIdentification/ows:AccessConstraints` |  |
+| Responsible Organisation (M) | `ows:ServiceProvider/ows:ProviderName` and `ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo` |  |
+| Metadata Point of Contact (M) | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
+| Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) will be mapped to the `xml:lang` (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
+
+
+Note: see table 19 in the TG Download for the mapping in scenario 2, with the extended capabilities.
+
+### WMS 1.3
+
+| INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities | Fallback |
+|---|---|---|
+| Resource Title (M) | `wms:Title` |  |
+| Resource Abstract (M) | `wms:Abstract` |  |
+| Resource Type (M) | - |  Is by default "service" |
+| Resource Locator (C) | - | Resource Locator of the data set |
+| Coupled Resource (C) | `wms:MetadataURL` (per layer) |  |
+| Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
+| Keyword (M) | `wms:Keyword` |  |
+| Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Spatial Resolution (C) | - | Spatial Resolution of the data set |
+| Conformity (M) | `wms:KeyworList`/`wms:Keyword` https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `wms:Keyword` element for each specification against the service is **conformant**, included within an specific `wms:KeyworList` group. |
+| Conditions for Access and Use (M) | `wms:Fees` |  |
+| Limitations on Public Access (M) | `wms:AccessConstraints` |  |
+| Responsible Organisation (M) | `wms:ContactInformation` |  |
+| Metadata Point of Contact (M) | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
+| Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) would require the `SupportedLanguages` element of the INSPIRE GetCapabilities extension for WMS (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
+
+
+Note: see table 3 in the TG View for the mapping in scenario 2, with the extended capabilities.
+
+### Atom
+
+| INSPIRE Metadata element | Atom | Fallback |
+|---|---|---|
+| Resource Title (M) | `/feed/title` |  |
+| Resource Abstract (M) | `/feed/subtitle` |  |
+| Resource Type (M) | - |  Is by default "service" |
+| Resource Locator (C) | `/feed/link[@rel="self"]` in the top Atom feed | Resource Locator of the data set |
+| Coupled Resource (C) | `/feed/entry/link[@rel="describedby"]` in the top Atom feed |  |
+| Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
+| Keyword (M) | `/feed/category` see https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/67 |  |
+| Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
+| Temporal Reference (M) | `/feed/updated` |  |
+| Spatial Resolution (C) | Spatial Resolution of the data set |  |
+| Conformity (M) | `atom:category` element https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `atom:category` element for each specification against which the service is **conformant** |
+| Conditions for Access and Use (M) | - | `identificationInfo[1]/*/resourceConstraints/*/accessConstraints` in the ISO/TS 19139:2007 metadata record dataset |
+| Limitations on Public Access (M) | `/feed/rights` in the top Atom feed |  |
+| Responsible Organisation (M) | `/feed/author` in the top Atom feed |  |
+| Metadata Point of Contact (M) | `/feed/author` in the top Atom feed (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
+| Metadata Date (M) | `/feed/updated` |  |
+| Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) will be mapped to the `xml:lang` (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
+
+
+Note: see table 17 in the TG Download for the current Atom mapping.
+
