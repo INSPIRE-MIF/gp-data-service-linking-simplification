@@ -230,7 +230,7 @@ See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
 See [Annex A: Examples](#annex-a) for an example of this linkage requirement.
 
-### 8.2. INSPIRE Network Service Metadata Coupled Resource  <a name="#rcs-ns-md-coupledres"></a>
+### 8.2. INSPIRE Network Service Metadata Coupled Resource  <a name="rcs-ns-md-coupledres"></a>
 
 The Coupled Resource metadata element refers to, where relevant, the target spatial data set(s) of the described service.  
 It is implemented through a URL that points to the metadata record of the data set on which the service operates. Therefore, it helps to link services to the relevant data sets.
