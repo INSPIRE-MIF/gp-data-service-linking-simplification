@@ -1,8 +1,8 @@
 
 # Data Service Linking Simplification: Good Practice guidelines
 
-`Version: draft 2.0`
-`Date: 2022-11-13`
+`Version: draft 2.1`
+`Date: 2022-11-14`
 
 ## Table of Contents
 
