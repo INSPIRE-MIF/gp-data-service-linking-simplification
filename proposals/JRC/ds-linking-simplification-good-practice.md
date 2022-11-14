@@ -1,12 +1,10 @@
 
 # Data Service Linking Simplification: Good Practice guidelines
 
-`Version: draft 1.0`
-`Date: 2021-10-21`
+`Version: draft 2.0`
+`Date: 2022-11-13`
 
 ## Table of Contents
-
-_TO_BE_REVIEWED_
 
 * [1. Introduction](#introduction)
 * [2. Scope](#scope)
