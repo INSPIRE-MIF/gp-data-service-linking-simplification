@@ -442,13 +442,15 @@ Metadata Date [^note_metadata_data_19139] will be mapped to
 - The optional `updateSequence` attribute in case of a WXS if in this attribute a timestamp value[^note_format_updatesequence] is present;
 - The mandatory `<updated>` in case of an Atom[^note_format_updated].
 
+This means that the last update of the service metadata is assumed equal to the update date of the service.
+
 Otherwise, if the optional `updateSequence` attribute is not present (WXS), the Metadata Date is mapped to the Temporal reference[^note_temporal_reference_19139] of the dataset metadata.
 
 - If a date of type 'publication' is present, take this value as Metadata Date;
 - If a date of type 'revision' is present, take this value as Metadata Date;
 - Otherwise, take the date of type 'creation' as value of the Metadata Date.
 
-For a WXS, this means that the last update of the service metadata is assumed to be the same as the publication, revision or creation date of the data set. For Atom, this means that the last update of the service metadata is assumed equal to the update date of the service.
+For a WXS where the optional `updateSequence` is not present, this means that the last update of the service metadata is assumed to be the same as the publication, revision or creation date of the data set.
 
 The same elements are also used to derive the Temporal reference of the service.
 
