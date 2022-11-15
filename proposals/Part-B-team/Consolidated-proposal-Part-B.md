@@ -549,7 +549,7 @@ In the Download Service Technical Guidelines (WFS + ATOM), add the following req
 | Resource Locator (C) | - | Resource Locator of the data set |
 | Coupled Resource (C) | `wfs:MetadataURL` (per feature type) |  |
 | Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
-| Keyword (M) | `ows:Keywords/ows:Keyword` |  |
+| Keyword (M) | `ows:Keywords/ows:Keyword`; note that a keyword indicating the [spatial data service category](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory) is required, see example below this table. |  |
 | Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
 | Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
 | Spatial Resolution (C) | - | Spatial Resolution of the data set |
@@ -561,6 +561,14 @@ In the Download Service Technical Guidelines (WFS + ATOM), add the following req
 | Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
 | Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) will be mapped to the `xml:lang` (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
 
+Example for the the [spatial data service category](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory):
+
+```xml
+<ows:Keywords>
+  <ows:Keyword>http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory/infoFeatureAccessService</ows:Keyword>
+  <ows:Type codeSpace="https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory">spatial data service category</ows:Type>
+</ows:Keywords>
+```
 
 Note: see table 19 in the TG Download for the mapping in scenario 2, with the extended capabilities.
 
@@ -574,7 +582,7 @@ Note: see table 19 in the TG Download for the mapping in scenario 2, with the ex
 | Resource Locator (C) | - | Resource Locator of the data set |
 | Coupled Resource (C) | `wms:MetadataURL` (per layer) |  |
 | Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
-| Keyword (M) | `wms:Keyword` |  |
+| Keyword (M) | `wms:Keyword`; note that a keyword indicating the [spatial data service category](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory) is required, see example below this table. |  |
 | Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
 | Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
 | Spatial Resolution (C) | - | Spatial Resolution of the data set |
@@ -586,6 +594,13 @@ Note: see table 19 in the TG Download for the mapping in scenario 2, with the ex
 | Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
 | Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) would require the `SupportedLanguages` element of the INSPIRE GetCapabilities extension for WMS (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
 
+Example for the the [spatial data service category](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory):
+
+```xml
+<KeywordList>
+  <Keyword vocabulary="https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory">https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory/infoMapAccessService</Keyword>
+</KeywordList>
+```
 
 Note: see table 3 in the TG View for the mapping in scenario 2, with the extended capabilities.
 
@@ -599,7 +614,7 @@ Note: see table 3 in the TG View for the mapping in scenario 2, with the extende
 | Resource Locator (C) | `/feed/link[@rel="self"]` in the top Atom feed | Resource Locator of the data set |
 | Coupled Resource (C) | `/feed/entry/link[@rel="describedby"]` in the top Atom feed |  |
 | Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
-| Keyword (M) | `/feed/category` see https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/67 |  |
+| Keyword (M) | `/feed/category`; note that a keyword indicating the [spatial data service category](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory) is required, see example below this table. |  |
 | Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
 | Temporal Reference (M) | `/feed/updated` |  |
 | Spatial Resolution (C) | Spatial Resolution of the data set |  |
@@ -611,6 +626,11 @@ Note: see table 3 in the TG View for the mapping in scenario 2, with the extende
 | Metadata Date (M) | `/feed/updated` |  |
 | Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) will be mapped to the `xml:lang` (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
 
+Example for the the [spatial data service category](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory):
+
+```xml
+<atom:category term="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory/infoFeatureAccessService" scheme="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory"/>
+```
 
 Note: see table 17 in the TG Download for the current Atom mapping.
 
