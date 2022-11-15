@@ -44,7 +44,7 @@ The Table below provides a summary of the new mapping of INSPIRE metadata elemen
 | Temporal Reference     | `updateSequence` attribute in the `WMS_Capabilities`/`WFS_Capabilities` root element. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types:- _publication_, - _revision_ or - _creation_ | WMS - WFS |
 |                        | `feed/updated` element in the Atom feed. Otherwise, `gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date` element in the data set metadata record, with one of the following prioritised  date types: - _publication_, - _revision_ or - _creation_ | Atom |
 | Conformity            | `wms:Keyword` element for each specification against the service is conformant, included within an specific `wms:KeywordList` group. | WMS |
-|                       | `ows:Keyword` element for each specification against the service is conformant, included within an specific `ows:Keywords` group including an `ows:Type` element of type URI. | WFS |
+|                       | `ows:Keyword` element for each specification against the service is conformant, included within an specific `ows:Keywords` group including the following `ows:Type` element: `<ows:Type codeSpace="http://data.europa.eu/eli">European Legislation Identifier (ELI)</ows:Type>` | WFS |
 |                       |  `atom:category` element for each specification against which the service is conformant. | Atom |
 | Metadata Point of Contact| `WMS_Capabilities/Service/ContactInformation/ContactPersonPrimary/ContactOrganization` and `WMS_Capabilities/Service/ContactInformation/ContactElectronicMailAddress` elements in GetCapabilities | WMS |
 |                          | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` elements in GetCapabilities | WFS |
@@ -296,7 +296,7 @@ Currently, the mapping of the conformity element to OWS service capabilities and
 The conformity of the service to a specification is mapped to an specific keyword element, referencing an interoperable URI which represents this specification. This keyword shall be present in the service Capabilities document or ATOM Feed document in order to consider the value of the degree of conformity as `conformant`:
 
 * For WMS: `wms:Keyword` element for each specification against the service is conformant, included within an specific `wms:KeywordList` group.
-* For WFS: `ows:Keyword` element for each specification against the service is conformant, included within an specific `ows:Keywords` group including an `ows:Type` element of type URI.
+* For WFS: `ows:Keyword` element for each specification against the service is conformant, included within an specific `ows:Keywords` group including the following `ows:Type` element: `<ows:Type codeSpace="http://data.europa.eu/eli">European Legislation Identifier (ELI)</ows:Type>`.
 * For Atom: `atom:category` element for each specification against which the service is conformant.
 
 If a specific keyword referencing the interoperable URI representing a specification is not present, the value of the degree of conformity of the service to this specification will NOT be considered `conformant` (i.e. `non-conformant` or `not evaluated`) - Therefore, differentiation between `non-conformant` and `not evaluated` will not be possible when using the simplified approach for data and service linking.
@@ -326,7 +326,7 @@ According to the mapping proposed and the mentioned interoperable URIs, the XML 
     <ows:Keywords>
         <ows:Keyword>http://data.europa.eu/eli/reg/2009/976</ows:Keyword>
         <ows:Keyword>http://data.europa.eu/eli/reg/2010/1089</ows:Keyword>
-        <ows:Type>URI</ows:Type>
+        <ows:Type codeSpace="http://data.europa.eu/eli">European Legislation Identifier (ELI)</ows:Type>
     </ows:Keywords>
 ```
 * For an **ATOM feed**, the related XML snippet is:
@@ -553,7 +553,7 @@ In the Download Service Technical Guidelines (WFS + ATOM), add the following req
 | Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
 | Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
 | Spatial Resolution (C) | - | Spatial Resolution of the data set |
-| Conformity (M) | `ows:Keywords`/`ows:Keyword` + `ows:Keywords`/`ows:Type` https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `ows:Keyword` element for each specification against the service is **conformant**, included within a specific `ows:Keywords` group including an `ows:Type` element of type URI |
+| Conformity (M) | `ows:Keywords`/`ows:Keyword` + `ows:Keywords`/`ows:Type` | Using a `ows:Keyword` element for each specification against the service is **conformant**, included within a specific `ows:Keywords` group including the following `ows:Type` element: `<ows:Type codeSpace="http://data.europa.eu/eli">European Legislation Identifier (ELI)</ows:Type>` |
 | Conditions for Access and Use (M) | `ows:ServiceIdentification/ows:Fees` |  |
 | Limitations on Public Access (M) | `ows:ServiceIdentification/ows:AccessConstraints` |  |
 | Responsible Organisation (M) | `ows:ServiceProvider/ows:ProviderName` and `ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo` |  |
@@ -578,7 +578,7 @@ Note: see table 19 in the TG Download for the mapping in scenario 2, with the ex
 | Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
 | Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
 | Spatial Resolution (C) | - | Spatial Resolution of the data set |
-| Conformity (M) | `wms:KeywordList`/`wms:Keyword` https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `wms:Keyword` element for each specification against the service is **conformant**, included within an specific `wms:KeywordList` group. |
+| Conformity (M) | `wms:KeywordList`/`wms:Keyword` | Using a `wms:Keyword` element for each specification against the service is **conformant**, included within an specific `wms:KeywordList` group. |
 | Conditions for Access and Use (M) | `wms:Fees` |  |
 | Limitations on Public Access (M) | `wms:AccessConstraints` |  |
 | Responsible Organisation (M) | `wms:ContactInformation` |  |
@@ -603,7 +603,7 @@ Note: see table 3 in the TG View for the mapping in scenario 2, with the extende
 | Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
 | Temporal Reference (M) | `/feed/updated` |  |
 | Spatial Resolution (C) | Spatial Resolution of the data set |  |
-| Conformity (M) | `atom:category` element https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/39 | Using a `atom:category` element for each specification against which the service is **conformant** |
+| Conformity (M) | `atom:category` element | Using a `atom:category` element for each specification against which the service is **conformant** |
 | Conditions for Access and Use (M) | - | `identificationInfo[1]/*/resourceConstraints/*/accessConstraints` in the ISO/TS 19139:2007 metadata record dataset |
 | Limitations on Public Access (M) | `/feed/rights` in the top Atom feed |  |
 | Responsible Organisation (M) | `/feed/author` in the top Atom feed |  |
