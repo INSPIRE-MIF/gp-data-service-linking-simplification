@@ -1,11 +1,9 @@
 # Data Service Linking Simplification - Part B: Remapping of the Extended Capabilities
 
 `Version: draft 1.0`
-`Date: 2022-03-21`
+`Date: 2022-11-16`
 
 ## Table of Contents
-
-_TO_BE_REVISED_
 
 * [1. Introduction](#introduction)
 * [2. Scope](#scope)
