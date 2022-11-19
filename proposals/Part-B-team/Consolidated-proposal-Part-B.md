@@ -5,8 +5,6 @@
 
 ## Table of Contents
 
-_TO_BE_REVISED_
-
 * [1. Introduction](#introduction)
 * [2. Scope](#scope)
 * [3. Mapping of INSPIRE elements in ExtendedCapabilities](#mapping-extended-capabilities)
