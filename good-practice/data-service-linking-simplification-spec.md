@@ -911,7 +911,7 @@ In the Download Service Technical Guidelines (WFS + ATOM), add the following req
 
 ### 9.2. Mapping of INSPIRE metadata elements per service type (protocol) <a name="part-b-mapping-per-service"></a>
 
-#### 9.2.2. WMS 1.3 <a name="part-b-mapping-per-service-wms"></a>
+#### 9.2.1. WMS 1.3 <a name="part-b-mapping-per-service-wms"></a>
 
 | INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities | Fallback |
 |---|---|---|
