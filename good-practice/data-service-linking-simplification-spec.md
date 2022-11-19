@@ -24,6 +24,19 @@
         * [8.2.3. INSPIRE Network Service Metadata Coupled Resource - Download Service (WFS) - Requirements class](#rc-ns-md-coupledres-dwnl-wfs)
         * [8.2.4. INSPIRE Network Service Metadata Coupled Resource - Download Service (Atom)](#rc-ns-md-coupledres-dwnl-atom)
 * [9. Part B. Remapping of the Extended Capabilities](#part-b)
+    * [9.1. Mapping of INSPIRE elements in ExtendedCapabilities](#part-b-mapping-extended-capabilities)
+        * [9.1.1. Resource type](#resource-type)
+        * [9.1.2. Resource locator](#resource-locator)
+        * [9.1.3. Spatial data service type](#spatial-data-service-type)
+        * [9.1.4. Temporal reference](#temporal-reference)
+        * [9.1.5. Conformity](#conformity)
+        * [9.1.6. Metadata point of contact](#metadata-point-of-contact)
+        * [9.1.7. Metadata date](#metadata-date)
+        * [9.1.8. Supported languages](#supported-languages)
+    * [9.2. Mapping of INSPIRE metadata elements per service type (protocol)](#part-b-mapping-per-service)
+        * [9.2.1. WMS 1.3](#part-b-mapping-per-service-wms)
+        * [9.2.2. WFS 2.0](#part-b-mapping-per-service-wfs)
+        * [9.2.3. Atom](#part-b-mapping-per-service-atom)
 * [10. Future developments](#future-dev)
 * [Annex A: Examples](#annex-a)
 
@@ -895,9 +908,43 @@ In the Download Service Technical Guidelines (WFS + ATOM), add the following req
 **Requirement**: If the service supports several languages and if there is no Extended Capabilities, the xml:lang attribute shall be used to define the language used.
 (insert the example above)
 
+
 ### 9.2. Mapping of INSPIRE metadata elements per service type (protocol) <a name="part-b-mapping-per-service"></a>
 
-#### WFS 2.0
+#### 9.2.2. WMS 1.3 <a name="part-b-mapping-per-service-wms"></a>
+
+| INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities | Fallback |
+|---|---|---|
+| Resource Title (M) | `wms:Title` |  |
+| Resource Abstract (M) | `wms:Abstract` |  |
+| Resource Type (M) | - |  Is by default "service" |
+| Resource Locator (C) | - | Resource Locator of the data set |
+| Coupled Resource (C) | `wms:MetadataURL` (per layer) |  |
+| Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
+| Keyword (M) | `wms:Keyword`; note that a keyword indicating the [spatial data service category](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory) is required, see example below this table. |  |
+| Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
+| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Spatial Resolution (C) | - | Spatial Resolution of the data set |
+| Conformity (M) | `wms:KeywordList`/`wms:Keyword` | Using a `wms:Keyword` element for each specification against the service is **conformant**, included within an specific `wms:KeywordList` group. |
+| Conditions for Access and Use (M) | `wms:Fees` |  |
+| Limitations on Public Access (M) | `wms:AccessConstraints` |  |
+| Responsible Organisation (M) | `wms:ContactInformation` |  |
+| Metadata Point of Contact (M) | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
+| Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
+| Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) would require the `SupportedLanguages` element of the INSPIRE GetCapabilities extension for WMS (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
+
+Example for the the [spatial data service category](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory):
+
+```xml
+<KeywordList>
+  <Keyword vocabulary="https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory">https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory/infoMapAccessService</Keyword>
+</KeywordList>
+```
+
+Note: see table 3 in the TG View for the mapping in scenario 2, with the extended capabilities.
+
+
+#### 9.2.2. WFS 2.0 <a name="part-b-mapping-per-service-wfs"></a>
 
 | INSPIRE Metadata element | WFS 2.0 without ExtendedCapabilities | Fallback |
 |---|---|---|
@@ -930,39 +977,8 @@ Example for the the [spatial data service category](https://inspire.ec.europa.eu
 
 Note: see table 19 in the TG Download for the mapping in scenario 2, with the extended capabilities.
 
-#### WMS 1.3
 
-| INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities | Fallback |
-|---|---|---|
-| Resource Title (M) | `wms:Title` |  |
-| Resource Abstract (M) | `wms:Abstract` |  |
-| Resource Type (M) | - |  Is by default "service" |
-| Resource Locator (C) | - | Resource Locator of the data set |
-| Coupled Resource (C) | `wms:MetadataURL` (per layer) |  |
-| Spatial Data Service Type (M) | - | `gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:applicationProfile` in the ISO/TS 19139:2007 metadata record dataset |
-| Keyword (M) | `wms:Keyword`; note that a keyword indicating the [spatial data service category](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory) is required, see example below this table. |  |
-| Geographic Bounding Box (M) | - | Geographic Bounding Box of the data set |
-| Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal Reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
-| Spatial Resolution (C) | - | Spatial Resolution of the data set |
-| Conformity (M) | `wms:KeywordList`/`wms:Keyword` | Using a `wms:Keyword` element for each specification against the service is **conformant**, included within an specific `wms:KeywordList` group. |
-| Conditions for Access and Use (M) | `wms:Fees` |  |
-| Limitations on Public Access (M) | `wms:AccessConstraints` |  |
-| Responsible Organisation (M) | `wms:ContactInformation` |  |
-| Metadata Point of Contact (M) | `WFS_Capabilities/ows:ServiceProvider/ows:ProviderName` and `WFS_Capabilities/ows:ServiceProvider/ows:ServiceContact/ows:ContactInfo/ows:Address/ows:ElectronicMailAddress` (https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/41) |  |
-| Metadata Date (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Metadata Date is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
-| Metadata Language (M) | `gmd:MD_Metadata/gmd:language/gmd:LanguageCode` in dataset metadata for main language, other supported language (if any) would require the `SupportedLanguages` element of the INSPIRE GetCapabilities extension for WMS (see  https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/issues/43) |  |
-
-Example for the the [spatial data service category](https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory):
-
-```xml
-<KeywordList>
-  <Keyword vocabulary="https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory">https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory/infoMapAccessService</Keyword>
-</KeywordList>
-```
-
-Note: see table 3 in the TG View for the mapping in scenario 2, with the extended capabilities.
-
-#### Atom
+#### 9.2.3. Atom <a name="part-b-mapping-per-service-atom"></a>
 
 | INSPIRE Metadata element | Atom | Fallback |
 |---|---|---|
