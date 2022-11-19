@@ -1,8 +1,8 @@
 
 # Data Service Linking Simplification: Good Practice guidelines
 
-`Version: draft 2.1`
-`Date: 2022-11-14`
+`Version: Final 1.0`
+`Date: 2022-11-19`
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@
 * [7. Data Service Linking Simplification](#ds-linking-simplif)
     * [7.1. Main principles](#main-principles)
     * [7.2. Resources](#resources)
-* [8. Requirements classes](#rcs)
+* [8. Part A. Requirements classes](#part-a-rcs)
     * [8.1. INSPIRE Data Set Metadata Resource Locator](#rcs-ds-md-resloc)
         * [8.1.1. INSPIRE Data set Metadata Resource Locator - Requirements class](#rc-ds-md-resloc)
     * [8.2. INSPIRE Network Service Metadata Coupled Resource](#rcs-ns-md-coupledres)
@@ -23,9 +23,10 @@
         * [8.2.2. INSPIRE Network Service Metadata Coupled Resource - View Service (WMS)](#rc-ns-md-coupledres-view-wms)
         * [8.2.3. INSPIRE Network Service Metadata Coupled Resource - Download Service (WFS) - Requirements class](#rc-ns-md-coupledres-dwnl-wfs)
         * [8.2.4. INSPIRE Network Service Metadata Coupled Resource - Download Service (Atom)](#rc-ns-md-coupledres-dwnl-atom)
-* [9. Future developments](#future-dev)
+* [9. Part B. XXX](#part-b)
+* [10. Future developments](#future-dev)
 * [Annex A: Examples](#annex-a)
-* [Annex B: Mapping of INSPIRE elements in ExtendedCapabilities](#annex-b)
+
 
 ## 1. Introduction <a name="introduction"></a>
 
@@ -111,7 +112,8 @@ For the purposes of this document, the following terms and definitions apply:
 
 ![Diagram of Simplified linkage model - Mandatory linkage in the simplification approach](./graphics/INSPIRE_models_v1.5_2.jpg)
 
-## 8. Requirements classes <a name="rcs"></a>
+
+## 8. Part A. Requirements classes <a name="part-a-rcs"></a>
 
 ### 8.1. INSPIRE Data Set Metadata Resource Locator” <a name="rcs-ds-md-resloc"></a>
 
@@ -387,7 +389,13 @@ For Atom Syndication Format services (Atom download services - see [RFC 4287]) t
 According **TG Requirement 14** of [INSPIRE NS - Download Service TG], each feed `<entry>` in a 'Download Service Feed' shall contain a link to a data set metadata record. This link shall have a `rel` attribute with a value of `describedby` and a `type` attribute with a value `application/xml`.
 
 
-## 9. Future developments <a name="future-dev"></a>
+## 9. Part B. XXX <a name="part-b"></a>
+
+
+
+
+
+## 10. Future developments <a name="future-dev"></a>
 
 Further simplifications may be possible on a broader level about the INSPIRE implementation.
 
@@ -560,21 +568,3 @@ _Note: this example covers the WFS definition. For a WCS/SOS service, use the pr
   </gmd:MD_DigitalTransferOptions>
 </gmd:transferOptions>
 ```
-# Annex B: Mapping of INSPIRE elements in the Extended Capabilities section <a name="annex-b"></a>
-
-The [Discussion Paper on possible simplification of data-service linking in INSPIRE](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/resources/Discussion%20Paper%20on%20data-service%20linking%20v0.5.docx) proposes a new mapping of the INSPIRE elements contained in the service metadata, as described in the Scenario 2 in the INSPIRE Network Service TGs, in order to remove the need for the Extended Capabilities section and thus achieve an implementation simplification.
-
-Within the MIWP 2.3.2 action, this opportunity (subject to agreement by the sub-group) was further explored by reallocating elements from the Extended Capabilities section to the service metadata. The following tables expresses this proposed reallocation:
-
-| Extended capabilities | Proposed action on mapping | Rationale | Applicable on Service type |
-| :- | :- | :- | :- |
-| inspire\_common:ResourceType          | Discard | By default = service                                     | WMS - WFS |
-| inspire\_common:ResourceLocator       | Discard | Resource locator in the data set metadata                | WMS - WFS |
-| inspire\_common:SpatialDataServiceType| Discard | Moved to the applicationProfile in the data set metadata | WMS - WFS |
-| inspire\_common:TemporalReference     | TBD | Consider the temporalReference in the data set metadata?     | WMS - WFS |
-| inspire\_common:Conformity            | Keep | Declared through the wms:keyword element                    | WMS - WFS |
-| inspire\_common:MetadataPointOfContact| TBD | Consider the metadataPointOfContact in the data set metadata | WMS - WFS |
-| inspire\_common:MetadataDate          | TBD | Consider the metadataDate in the data set metadata           | WMS - WFS |
-| inspire\_common:SupportedLanguages    | TBD | Consider the metadataLanguage in the data set metadata       | WMS - WFS |
-| inspire_dls:SpatialDataSetIdentifier/inspire_common:Code <br/> inspire_dls:SpatialDataSetIdentifier/inspire_common:Namespace | Keep | Data set identifier in the data set metadata | WFS |
-
