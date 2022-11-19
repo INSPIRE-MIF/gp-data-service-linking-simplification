@@ -23,7 +23,7 @@
         * [8.2.2. INSPIRE Network Service Metadata Coupled Resource - View Service (WMS)](#rc-ns-md-coupledres-view-wms)
         * [8.2.3. INSPIRE Network Service Metadata Coupled Resource - Download Service (WFS) - Requirements class](#rc-ns-md-coupledres-dwnl-wfs)
         * [8.2.4. INSPIRE Network Service Metadata Coupled Resource - Download Service (Atom)](#rc-ns-md-coupledres-dwnl-atom)
-* [9. Part B. XXX](#part-b)
+* [9. Part B. Remapping of the Extended Capabilities](#part-b)
 * [10. Future developments](#future-dev)
 * [Annex A: Examples](#annex-a)
 
@@ -389,7 +389,7 @@ For Atom Syndication Format services (Atom download services - see [RFC 4287]) t
 According **TG Requirement 14** of [INSPIRE NS - Download Service TG], each feed `<entry>` in a 'Download Service Feed' shall contain a link to a data set metadata record. This link shall have a `rel` attribute with a value of `describedby` and a `type` attribute with a value `application/xml`.
 
 
-## 9. Part B. XXX <a name="part-b"></a>
+## 9. Part B. Remapping of the Extended Capabilities <a name="part-b"></a>
 
 
 
