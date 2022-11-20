@@ -15,7 +15,7 @@
 * [7. Data Service Linking Simplification](#ds-linking-simplif)
     * [7.1. Main principles](#main-principles)
     * [7.2. Resources](#resources)
-* [8. Part A. Requirements classes](#part-a-rcs)
+* [8. Part A. Data-Service Linking Simplification. Requirements classes](#part-a-rcs)
     * [8.1. INSPIRE Data Set Metadata Resource Locator](#rcs-ds-md-resloc)
         * [8.1.1. INSPIRE Data set Metadata Resource Locator - Requirements class](#rc-ds-md-resloc)
     * [8.2. INSPIRE Network Service Metadata Coupled Resource](#rcs-ns-md-coupledres)
@@ -23,16 +23,16 @@
         * [8.2.2. INSPIRE Network Service Metadata Coupled Resource - View Service (WMS)](#rc-ns-md-coupledres-view-wms)
         * [8.2.3. INSPIRE Network Service Metadata Coupled Resource - Download Service (WFS) - Requirements class](#rc-ns-md-coupledres-dwnl-wfs)
         * [8.2.4. INSPIRE Network Service Metadata Coupled Resource - Download Service (Atom)](#rc-ns-md-coupledres-dwnl-atom)
-* [9. Part B. Remapping of the Extended Capabilities](#part-b)
+* [9. Part B. Use of INSPIRE conformant standard capabilities documents](#part-b)
     * [9.1. Mapping of INSPIRE elements in ExtendedCapabilities](#part-b-mapping-extended-capabilities)
-        * [9.1.1. Resource type](#resource-type)
-        * [9.1.2. Resource locator](#resource-locator)
-        * [9.1.3. Spatial data service type](#spatial-data-service-type)
-        * [9.1.4. Temporal reference](#temporal-reference)
-        * [9.1.5. Conformity](#conformity)
-        * [9.1.6. Metadata point of contact](#metadata-point-of-contact)
-        * [9.1.7. Metadata date](#metadata-date)
-        * [9.1.8. Supported languages](#supported-languages)
+        * [9.1.1. Resource type](#part-b-resource-type)
+        * [9.1.2. Resource locator](#part-b-resource-locator)
+        * [9.1.3. Spatial data service type](#part-b-spatial-data-service-type)
+        * [9.1.4. Temporal reference](#part-b-temporal-reference)
+        * [9.1.5. Conformity](#part-b-conformity)
+        * [9.1.6. Metadata point of contact](#part-b-metadata-point-of-contact)
+        * [9.1.7. Metadata date](#part-b-metadata-date)
+        * [9.1.8. Supported languages](#part-b-supported-languages)
     * [9.2. Mapping of INSPIRE metadata elements per service type (protocol)](#part-b-mapping-per-service)
         * [9.2.1. WMS 1.3](#part-b-mapping-per-service-wms)
         * [9.2.2. WFS 2.0](#part-b-mapping-per-service-wfs)
@@ -126,7 +126,7 @@ For the purposes of this document, the following terms and definitions apply:
 ![Diagram of Simplified linkage model - Mandatory linkage in the simplification approach](./graphics/INSPIRE_models_v1.5_2.jpg)
 
 
-## 8. Part A. Requirements classes <a name="part-a-rcs"></a>
+## 8. Part A. Data-Service Linking Simplification. Requirements classes <a name="part-a-rcs"></a>
 
 ### 8.1. INSPIRE Data Set Metadata Resource Locator” <a name="rcs-ds-md-resloc"></a>
 
@@ -402,7 +402,7 @@ For Atom Syndication Format services (Atom download services - see [RFC 4287]) t
 According **TG Requirement 14** of [INSPIRE NS - Download Service TG], each feed `<entry>` in a 'Download Service Feed' shall contain a link to a data set metadata record. This link shall have a `rel` attribute with a value of `describedby` and a `type` attribute with a value `application/xml`.
 
 
-## 9. Part B. Remapping of the Extended Capabilities <a name="part-b"></a>
+## 9. Part B. Use of INSPIRE conformant standard capabilities documents <a name="part-b"></a>
 
 This section provides the details on the agreed version of the new mapping of INSPIRE service metadata elements to the available elements in the GetCapabilities document of the OGC base standard services (WMS, WFS) and Atom feed in order to remove the need for the Extended Capabilities section and thus achieve a more complete implementation simplification.
 
@@ -438,7 +438,7 @@ Below, for each mapping element, the following information is provided:
 - detailed mapping description; and
 - changes to the current INSPIRE framework.
 
-#### 9.1.1. Resource type <a name="resource-type"></a>
+#### 9.1.1. Resource type <a name="part-b-resource-type"></a>
 
 Currently, the mapping of the resource type element to OWS service capabilities and Atom feed is as follows: 
 
@@ -465,7 +465,7 @@ Integrate the Implementation Requirement 11 in [View Services TG] with the follo
 
 _In case the service metadata is provided as response to a Get Download/View Service Metadata request, then the resource type is implicit and shall not be documented_.
 
-#### 9.1.2. Resource locator <a name="resource-locator"></a>
+#### 9.1.2. Resource locator <a name="part-b-resource-locator"></a>
 
 Currently, the mapping of the resource locator element to OWS service capabilities and Atom feed is as follows: 
 
@@ -486,7 +486,7 @@ No element is identified in the GetCapabilities document for the mapping with th
 
 _No change required._ 
 
-#### 9.1.3. Spatial data service type <a name="spatial-data-service-type"></a>
+#### 9.1.3. Spatial data service type <a name="part-b-spatial-data-service-type"></a>
 
 Currently, the mapping of the spatial data service type element to OWS service capabilities and Atom feed is as follows:
 
@@ -512,7 +512,7 @@ For WFS and ATOM, the value to be used for the encoding of the `gmd:applicationP
 
 _No changes required._ (Changes already taken into account in Section 8 - Part A)
 
-#### 9.1.4. Temporal reference <a name="temporal-reference"></a>
+#### 9.1.4. Temporal reference <a name="part-b-temporal-reference"></a>
 
 Currently, the mapping of the temporal reference element to OWS service capabilities and Atom feed is as follows:
 
@@ -657,7 +657,7 @@ Mapping of INSPIRE metadata elements per service type (protocol) <a name="mappin
 | Temporal Reference (M) |  `/feed/updated`  | |
 
 
-#### 9.1.5. Conformity <a name="conformity"></a>
+#### 9.1.5. Conformity <a name="part-b-conformity"></a>
 
 Currently, the mapping of the conformity element to OWS service capabilities and Atom feed documents is as follows: 
 
@@ -737,7 +737,7 @@ According to the mapping proposed and the mentioned interoperable URIs, the XML 
 - in the section 6.6, add the example proposed above.
 
 
-#### 9.1.6. Metadata point of contact <a name="metadata-point-of-contact"></a>
+#### 9.1.6. Metadata point of contact <a name="part-b-metadata-point-of-contact"></a>
 
 Currently, the mapping of the metadata point of contact element to OWS service capabilities and Atom feed is as follows:
 
@@ -800,7 +800,7 @@ Metadata Point of Contact - e-mail: `feed/author/email`
 Note to be added to the Service Technical Guidelines:
 **Note**: In cases where external ISO 19119 service metadada will not exist (i.e. only the Capabilities document of the service will), the metadata point of contact would be considered the same as the service provider.
 
-#### 9.1.7. Metadata date <a name="metadata-date"></a>
+#### 9.1.7. Metadata date <a name="part-b-metadata-date"></a>
 
 Currently, the mapping of the metadata date element to OWS service capabilities and Atom feed is as follows:
 
@@ -857,7 +857,7 @@ Mapping of INSPIRE metadata elements per service type (protocol) <a name="mappin
 | Metadata Date (M) |   `/feed/updated`  | |
 
 
-#### 9.1.8. Supported languages <a name="supported-languages"></a>
+#### 9.1.8. Supported languages <a name="part-b-supported-languages"></a>
 
 Currently, the mapping of the metadata language to OWS service capabilities and Atom feed is as follows:
 
