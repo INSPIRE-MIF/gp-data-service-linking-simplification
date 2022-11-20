@@ -2,7 +2,7 @@
 # Data Service Linking Simplification: Good Practice guidelines
 
 `Version: Final 1.0`
-`Date: 2022-11-19`
+`Date: 2022-11-20`
 
 ## Table of Contents
 
@@ -342,7 +342,7 @@ Example:
 
 #### INSPIRE Network service - Scenario 2
 
-- In Scenario 2, the [INSPIRE NS - View Service TG] maps all INSPIRE metadata elements to the applicable elements in the service, e.g. OGC WMS Capabilities in this case. For OGC WMS services, it currently relies on the ExtendedCapabilities section for the remaining elements. [Annex B](#annex-b), which is subject to future work proposes an approach for the revision of the mapping of the INSPIRE requirements with the aim to possibly remove the Extended Capabilities section.
+- In Scenario 2, the [INSPIRE NS - View Service TG] maps all INSPIRE metadata elements to the applicable elements in the service, e.g. OGC WMS Capabilities in this case. For OGC WMS services, it currently relies on the ExtendedCapabilities section for the remaining elements. [Section 9](#part-b) proposes an alternative way to use of INSPIRE conformant standard Capabilities documents and optionally removing the Extended Capabilities section from them.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
 For [ISO 19128:2005] Web map server interface services (OGC WMS View services) this specification refers to [INSPIRE NS - View Service TG] Chapter 4 "INSPIRE Profile of ISO 19128".
@@ -358,7 +358,7 @@ Aditionally, according **TG Requirement 14** of [INSPIRE NS - View Service TG], 
 
 #### INSPIRE Network service - Scenario 2
 
- - In Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service, e.g. WFS OGC Capabilities in this case. For OGC WFS services, it currently relies on the ExtendedCapabilities section for the remaining elements. [Annex B](#annex-b), which is subject to future work proposes an approach for the revision of the mapping of the INSPIRE requirements with the aim to possibly remove the Extended Capabilities section.
+ - In Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service, e.g. WFS OGC Capabilities in this case. For OGC WFS services, it currently relies on the ExtendedCapabilities section for the remaining elements. [Section 9](#part-b) proposes an alternative way to use of INSPIRE conformant standard Capabilities documents and optionally removing the Extended Capabilities section from them.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
 #### Requirements class
@@ -392,7 +392,7 @@ This specification reinforces the use of this second option with the requirement
 
 #### INSPIRE Network service - Scenario 2
 
- - In Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service, e.g. ATOM feed elements in this case. [Annex B](#annex-b), which is subject to future work proposes an approach for the revision of the mapping of the INSPIRE requirements with the aim to possibly remove the Extended Capabilities section.
+ - In Scenario 2, the [INSPIRE NS - Download Service TG] maps all INSPIRE metadata elements to the applicable elements in the service, e.g. ATOM feed elements in this case. [Section 9](#part-b) proposes an alternative way to use of INSPIRE conformant standard Capabilities documents and optionally removing the Extended Capabilities section from them.
 - The data set metadata URL may point to a Discovery Service different from the national reference catalog. This may apply especially for federated Discovery Service catalogues.
 
 For Atom Syndication Format services (Atom download services - see [RFC 4287]) this specification refers to [INSPIRE NS - Download Service TG] Chapter 5 "Atom Implementation of Pre-defined Dataset Download Service".
