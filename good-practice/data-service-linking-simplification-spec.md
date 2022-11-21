@@ -93,11 +93,11 @@ For the purposes of this document, the following terms and definitions apply:
 | --- | --- | --- |
 | content negotiation | The practice of providing multiple representations available via the same URI | [ISO/IEC 19788](https://www.iso.org/obp/ui/#iso:std:iso-iec:19788:-7:ed-1:v1:en:sec:3.20) |
 | data set | Identifiable collection of data. | [ISO 19115](https://www.iso.org/obp/ui/#iso:std:iso:19115:-2:ed-2:v1:en:sec:3.6) |
-| direct access download service | Download Service which provides access to the Spatial Objects in Spatial Data Sets based upon a query | [IRs for NS] |
+| direct access download service | Download Service which provides access to the Spatial Objects in Spatial Data Sets based upon a query. | [IRs for NS] |
 | encoding | Conversion of data into a series of codes. | [ISO 19118](https://www.iso.org/obp/ui/#iso:std:iso:19118:ed-2:v1:en:term:4.13) |
 | encoding rule | Identifiable collection of conversion rules that define the encoding for a particular data structure. | [ISO 19118](https://www.iso.org/obp/ui/#iso:std:iso:19118:ed-2:v1:en:term:4.14) |
 
-**NOTE** ISO and the European Commission maintain comprehensive terminological databases at the following addresses:
+**NOTE** ISO and the European Commission maintain comprehensive terminological databases made available at the following addresses:
 - [ISO Online browsing platform](https://www.iso.org/obp)
 - [INSPIRE glossary](http://inspire.ec.europa.eu/glossary)
 
@@ -639,7 +639,8 @@ For an **ATOM feed**:
 ##### Changes to the current INSPIRE framework
 
 Mapping of INSPIRE metadata elements per service type (protocol) <a name="mapping-per-service"></a>
-####WMS 1.3
+
+#### WMS 1.3
 | INSPIRE Metadata element | WMS 1.3 without ExtendedCapabilities + ISO/TS 19139:2007 metadata record dataset | Note |
 |---|---|---|
 | Temporal Reference (M) | `updateSequence` attribute | If in the optional `updateSequence` attribute a timestamp value is not present, the Temporal Reference is mapped to the Temporal reference of the dataset metadata[^note_temporal_reference_19139], in order of a date of type `publication`,`revision` `creation`.|
@@ -1011,7 +1012,7 @@ Note: see table 17 in the TG Download for the current Atom mapping.
 
 ## 10. Future developments <a name="future-dev"></a>
 
-Further simplifications may be possible on a broader level about the INSPIRE implementation.
+Further simplifications may be possible within the broadercontext of the INSPIRE implementation and modernisation.
 
 Note that often the organisation responsible for the metadata is not the same as the organisation responsible for the service operations. In "_Scenario 1_", this situation could easily lead to duplications, errors and/or lack of synchronised information. Such issues could be avoided by implementing "_Scenario 2_", whose requirements and definitions are already provided in both the [INSPIRE NS - Download Service TG] and [INSPIRE NS - View Service TG] documents. In this case, the service metadata would be no longer required (at least for the purpose of this linkage simplification), so its creation could be skipped or automated by dedicated software implementations of the INSPIRE Discovery Service.
 
